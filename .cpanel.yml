@@ -2,4 +2,6 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/neieva04/public_html/
-    - /usr/bin/rsync -a --no-perms --exclude='.git' --exclude='.github' --exclude='.vercel' --exclude='.claude' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='site.zip' --exclude='site1.2.zip' ./ "$DEPLOYPATH"
+    - /usr/bin/rsync -a --no-perms --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r --exclude='.git' --exclude='.github' --exclude='.vercel' --exclude='.claude' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='site.zip' --exclude='site1.2.zip' ./ "$DEPLOYPATH"
+    - /usr/bin/find "$DEPLOYPATH" -type d -exec chmod 755 {} +
+    - /usr/bin/find "$DEPLOYPATH" -type f -exec chmod 644 {} +
