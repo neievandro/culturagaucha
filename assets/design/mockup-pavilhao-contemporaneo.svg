@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" role="img" aria-labelledby="title desc">
+  <title id="title">Mockup Pavilhao Contemporaneo</title>
+  <desc id="desc">Sugestao visual institucional para site Cultura Gaucha, com faixas diagonais inspiradas na bandeira do Rio Grande do Sul.</desc>
+  <defs>
+    <linearGradient id="heroShade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#f7f2e7" stop-opacity="0.88"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#1f1f1f" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="960" fill="#f8f5ec"/>
+  <polygon points="0,0 1440,0 0,438" fill="#00843d" opacity="0.98"/>
+  <polygon points="0,278 1440,0 1440,544 0,708" fill="#da1a32" opacity="0.96"/>
+  <polygon points="0,710 1440,545 1440,960 0,960" fill="#ffd100" opacity="0.95"/>
+  <rect width="1440" height="960" fill="url(#heroShade)"/>
+
+  <rect x="72" y="42" width="1296" height="84" rx="28" fill="#ffffff" filter="url(#shadow)"/>
+  <circle cx="126" cy="84" r="28" fill="#00843d"/>
+  <path d="M111 89 L124 70 L140 96 Z" fill="#ffd100"/>
+  <text x="174" y="77" font-family="Georgia, serif" font-size="26" font-weight="700" fill="#262626">Cultura Gaucha</text>
+  <text x="175" y="102" font-family="Arial, sans-serif" font-size="13" letter-spacing="2" fill="#727272">HISTORIA, TERRITORIO E IDENTIDADE</text>
+  <text x="730" y="89" font-family="Arial, sans-serif" font-size="16" fill="#333333">Historia</text>
+  <text x="835" y="89" font-family="Arial, sans-serif" font-size="16" fill="#333333">Cultura</text>
+  <text x="940" y="89" font-family="Arial, sans-serif" font-size="16" fill="#333333">Gastronomia</text>
+  <text x="1074" y="89" font-family="Arial, sans-serif" font-size="16" fill="#333333">Turismo</text>
+  <rect x="1194" y="62" width="122" height="44" rx="22" fill="#da1a32"/>
+  <text x="1221" y="90" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Explorar</text>
+
+  <rect x="96" y="178" width="1248" height="414" rx="38" fill="#ffffff" filter="url(#shadow)"/>
+  <clipPath id="heroClip"><rect x="96" y="178" width="1248" height="414" rx="38"/></clipPath>
+  <g clip-path="url(#heroClip)">
+    <rect x="96" y="178" width="1248" height="414" fill="#f9f6ee"/>
+    <polygon points="96,178 770,178 96,405" fill="#00843d" opacity="0.92"/>
+    <polygon points="96,372 1344,178 1344,397 96,584" fill="#da1a32" opacity="0.91"/>
+    <polygon points="96,585 1344,397 1344,592 96,592" fill="#ffd100" opacity="0.93"/>
+    <circle cx="1032" cy="372" r="132" fill="#ffffff" opacity="0.94"/>
+    <circle cx="1032" cy="372" r="106" fill="none" stroke="#1d5fa7" stroke-width="14"/>
+    <rect x="990" y="318" width="84" height="108" rx="18" fill="#00843d"/>
+    <path d="M1004 390 L1032 335 L1062 390 Z" fill="#ffd100"/>
+    <path d="M960 445 C1008 424 1055 424 1104 445" fill="none" stroke="#1e1e1e" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <text x="154" y="286" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="#00843d">RIO GRANDE DO SUL</text>
+  <text x="154" y="354" font-family="Georgia, serif" font-size="66" font-weight="700" fill="#262626">Cultura gaucha,</text>
+  <text x="154" y="424" font-family="Georgia, serif" font-size="66" font-weight="700" fill="#262626">sem perder o rumo.</text>
+  <text x="158" y="476" font-family="Arial, sans-serif" font-size="22" fill="#4d4d4d">Uma experiencia editorial moderna para historia, simbolos,</text>
+  <text x="158" y="508" font-family="Arial, sans-serif" font-size="22" fill="#4d4d4d">musica, culinaria, territorio e turismo cultural.</text>
+  <rect x="158" y="535" width="178" height="50" rx="25" fill="#da1a32"/>
+  <text x="192" y="567" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Comecar roteiro</text>
+  <rect x="354" y="535" width="172" height="50" rx="25" fill="#ffffff" stroke="#00843d" stroke-width="2"/>
+  <text x="391" y="567" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#00843d">Ver cultura</text>
+
+  <text x="96" y="668" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#262626">Explore por temas</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="96" y="704" width="276" height="154" rx="26" fill="#ffffff" filter="url(#shadow)"/>
+    <rect x="126" y="733" width="64" height="64" rx="18" fill="#00843d"/>
+    <path d="M142 780 L160 744 L179 780 Z" fill="#ffd100"/>
+    <text x="126" y="823" font-size="23" font-weight="700" fill="#262626">Historia</text>
+    <text x="126" y="849" font-size="15" fill="#666666">Linha do tempo e memoria</text>
+
+    <rect x="408" y="704" width="276" height="154" rx="26" fill="#ffffff" filter="url(#shadow)"/>
+    <rect x="438" y="733" width="64" height="64" rx="18" fill="#da1a32"/>
+    <circle cx="470" cy="765" r="18" fill="#ffd100"/>
+    <text x="438" y="823" font-size="23" font-weight="700" fill="#262626">Cultura</text>
+    <text x="438" y="849" font-size="15" fill="#666666">Tradicoes, festas e simbolos</text>
+
+    <rect x="720" y="704" width="276" height="154" rx="26" fill="#ffffff" filter="url(#shadow)"/>
+    <rect x="750" y="733" width="64" height="64" rx="18" fill="#ffd100"/>
+    <path d="M762 770 C780 742 797 742 810 770" fill="none" stroke="#6b3f22" stroke-width="8" stroke-linecap="round"/>
+    <text x="750" y="823" font-size="23" font-weight="700" fill="#262626">Gastronomia</text>
+    <text x="750" y="849" font-size="15" fill="#666666">Sabores, mate e receitas</text>
+
+    <rect x="1032" y="704" width="312" height="154" rx="26" fill="#ffffff" filter="url(#shadow)"/>
+    <rect x="1062" y="733" width="64" height="64" rx="18" fill="#1d5fa7"/>
+    <path d="M1078 778 C1096 750 1110 750 1123 778" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+    <text x="1062" y="823" font-size="23" font-weight="700" fill="#262626">Turismo</text>
+    <text x="1062" y="849" font-size="15" fill="#666666">Roteiros culturais e paisagens</text>
+  </g>
+</svg>

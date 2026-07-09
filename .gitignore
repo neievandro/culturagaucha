@@ -1,1 +1,8 @@
+# Ferramentas e configs locais — não versionar
 .vercel
+.claude
+.github
+
+# Backups grandes — não versionar
+site.zip
+site1.2.zip

@@ -33,7 +33,7 @@
 <header class="page-header">
     <div class="container">
         <h1>Sobre o Site</h1>
-        <p>Um demonstrador de tecnologias aplicadas ao desenvolvimento web e à gestão de TI.</p>
+        <p>Um demonstrador de tecnologias aplicadas ao desenvolvimento web, SEO, documentação, publicação estática e gestão de TI.</p>
     </div>
 </header>
 
@@ -42,11 +42,16 @@
         <section class="content-wrapper">
             <h2 class="section-title">Finalidade didática</h2>
             <p>Este site foi desenvolvido como um demonstrador de tecnologias para uso em aulas de graduação e pós-graduação em disciplinas de Tecnologia da Informação, Sistemas de Informação, Desenvolvimento Web, Governança de TI e Gestão de TI.</p>
-            <p>O tema da cultura gaúcha serve como contexto para demonstrar conceitos práticos de construção de páginas, organização de conteúdo, responsividade, interatividade, acessibilidade, publicação e evolução incremental de sistemas web.</p>
+            <p>O tema da cultura gaúcha serve como contexto para demonstrar conceitos práticos de construção de páginas, organização de conteúdo, responsividade, interatividade, acessibilidade, SEO técnico, publicação, documentação e evolução incremental de sistemas web.</p>
 
             <div class="featured-box">
                 <h3>Uso de inteligência artificial</h3>
-                <p>A página e partes do site foram construídas com apoio de inteligência artificial, utilizando a ferramenta OpenCode como ambiente de colaboração, edição e automação de tarefas de desenvolvimento.</p>
+                <p>A página e partes do site foram construídas com apoio de inteligência artificial, utilizando a ferramenta OpenCode como ambiente de colaboração, edição, validação, reorganização de arquivos e automação de tarefas de desenvolvimento.</p>
+            </div>
+
+            <div class="featured-box">
+                <h3>Governança e documentação do site</h3>
+                <p>Como o conteúdo é classificado, escrito, revisado e publicado é, em si, parte do material de estudo deste demonstrador. Veja o resumo em <a href="./governanca.html">Governança e Documentação do Site</a>.</p>
             </div>
 
             <h2 class="section-title">Objetivos pedagógicos</h2>
@@ -55,7 +60,9 @@
                 <li>Discutir requisitos, escopo, backlog, versionamento e qualidade em projetos de TI.</li>
                 <li>Exercitar responsividade, acessibilidade, organização de conteúdo e navegação hipertextual.</li>
                 <li>Relacionar cultura digital, preservação de memória, dados, governança e uso responsável de inteligência artificial.</li>
-                <li>Permitir que estudantes proponham melhorias como busca, filtros, mapas, APIs, banco de dados e publicação automatizada.</li>
+                <li>Permitir que estudantes proponham melhorias como busca, filtros, mapas, APIs, banco de dados, monitoramento, SEO e publicação automatizada.</li>
+                <li>Demonstrar documentação técnica e editorial por meio de README, taxonomia, guia editorial e checklist de publicação.</li>
+                <li>Exercitar práticas de SEO técnico, incluindo sitemap, canonicals, Google Search Console e URLs sem www.</li>
             </ul>
 
             <h2 class="section-title">Tecnologias utilizadas</h2>
@@ -70,7 +77,7 @@
                 </article>
                 <article class="tech-card">
                     <h3>JavaScript</h3>
-                    <p>Utilizado para menu responsivo, identificação automática da página ativa, botão de voltar ao topo e interações no dicionário.</p>
+                    <p>Utilizado para menu responsivo, identificação automática da página ativa, busca local, linha do tempo, botão de voltar ao topo e interações no dicionário.</p>
                 </article>
                 <article class="tech-card">
                     <h3>Design responsivo</h3>
@@ -100,6 +107,50 @@
                     <h3>OpenCode</h3>
                     <p>Ferramenta utilizada para apoiar a criação, alteração e revisão dos arquivos do site com assistência de IA.</p>
                 </article>
+                <article class="tech-card">
+                    <h3>Claude Code</h3>
+                    <p>Assistente de codificação de linha de comando utilizado para leitura, edição e validação em lote dos arquivos do site, auditoria de conteúdo e links, e automação de tarefas de manutenção com apoio de IA.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Cloudflare</h3>
+                    <p>Utilizado como camada de infraestrutura e segurança web: CDN com cache de borda e entrega global, DNS gerenciado, HTTPS/TLS com HTTP/2 e HTTP/3, proxy que oculta o IP de origem e oferece proteção de tráfego (WAF/mitigação), aplicação de cabeçalhos de segurança e regras via Managed Transforms e Transform Rules, ofuscação de e-mail e Cloudflare Web Analytics (métricas sem cookies).</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Cabeçalhos de segurança HTTP</h3>
+                    <p>HSTS, Content-Security-Policy (CSP), X-Frame-Options, X-Content-Type-Options, Referrer-Policy e Permissions-Policy, aplicados na borda pela Cloudflare. Servem para forçar o uso de HTTPS, mitigar ataques de XSS e clickjacking, controlar o vazamento de informação pelo referer e restringir o uso de APIs sensíveis do navegador.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Content Security Policy (CSP)</h3>
+                    <p>Política que define quais origens de scripts, estilos, fontes, imagens e frames o navegador tem permissão para carregar, reduzindo o risco de ataques de Cross-Site Scripting (XSS). Validada com allowlist específica (Google Fonts, Google Analytics, Cloudflare Insights, YouTube, Spotify, Wikimedia).</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Proteção do repositório</h3>
+                    <p>Bloqueio de acesso público à pasta .git e a arquivos ocultos via .htaccess, além da remoção de arquivos de backup e dotfiles da árvore publicada, evitando exposição de código-fonte e histórico de commits.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Google Analytics 4</h3>
+                    <p>Medição de audiência via gtag/Google Tag Manager, com coleta de dados condicionada ao consentimento do visitante por meio de um banner de cookies.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Google Search Console</h3>
+                    <p>Utilizado para acompanhar indexação, sitemap, presença na pesquisa Google, URLs descobertas e eventuais problemas de rastreamento.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Sitemap e canonicals</h3>
+                    <p>O site mantém `sitemap.xml` com páginas públicas e canonicals absolutas, sem www, apontando cada página para si mesma.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Documentação</h3>
+                    <p>O projeto possui `README.md` e documentos em `docs/` para taxonomia, guia editorial e checklist de publicação.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Organização de conteúdo</h3>
+                    <p>As páginas foram classificadas por tipo e tema, com hubs principais, páginas funcionais, institucionais, técnicas e conteúdo em pastas temáticas.</p>
+                </article>
+                <article class="tech-card">
+                    <h3>Validação técnica</h3>
+                    <p>O fluxo de manutenção inclui verificação de JavaScript, links locais, sitemap, canonicals e remoção de arquivos de backup da árvore pública.</p>
+                </article>
             </div>
         </section>
     </div>
@@ -117,14 +168,15 @@
                 <li><a href="./historia.html">Nossa História</a></li>
                 <li><a href="./culinaria.html">Gastronomia Típica</a></li>
                 <li><a href="./turismo.html">Turismo pelo Rio Grande</a></li>
-                <li><a href="./ctgs.html">Centros de Tradição (CTGs)</a></li>
+                <li><a href="./paginas/cultura/ctgs.html">Centros de Tradição (CTGs)</a></li>
                 <li><a href="./sobre-o-site.html">Sobre o site</a></li>
+                <li><a href="./privacidade.html">Política de Privacidade</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados. Fomentando o tradicionalismo virtual. Código-fonte licenciado sob a <a href="./licenca.html">MIT License</a>. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>.</p>
+            <p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados. Fomentando o tradicionalismo virtual. Código-fonte licenciado sob a <a href="./licenca.html">MIT License</a>. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>. Textos sob licença <a href="./licenca.html">CC BY-SA 4.0</a>.</p>
         </div>
     </div>
 </footer>

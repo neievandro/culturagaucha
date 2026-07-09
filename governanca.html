@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governança e Documentação do Site - Cultura Gaúcha</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="icon" href="./assets/img/favicon-mate.png" type="image/png">
+        <link rel="canonical" href="https://culturagaucha.com.br/governanca.html">
+</head>
+<body>
+
+<header class="top-header">
+    <div class="container">
+        <span>A preservação da nossa história e tradição.</span>
+        <div>
+            <a href="https://www.estado.rs.gov.br/" target="_blank" rel="noopener noreferrer">Governo do RS</a>
+            <a href="https://www.mtg.org.br/" target="_blank" rel="noopener noreferrer">MTG</a>
+        </div>
+    </div>
+</header>
+
+<nav class="main-nav">
+    <div class="container nav-wrapper">
+        <a href="./index.html" class="brand">
+            <h1>Cultura <span>Gaúcha</span></h1>
+        </a>
+        <button class="menu-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">Menu</button>
+        <div class="nav-links" id="site-nav"><a href="./index.html">Início</a><a href="./historia.html">História</a><a href="./cultura.html">Cultura</a><a href="./culinaria.html">Gastronomia</a><a href="./territorio.html">Território</a><a href="./turismo.html">Turismo</a><a href="./busca.html">Busca</a><a href="./sobre-o-site.html">Sobre</a></div>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>Governança e Documentação do Site</h1>
+        <p>Como o conteúdo do Cultura Gaúcha é classificado, escrito, revisado e publicado.</p>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="content-wrapper">
+
+            <section>
+                <h2 class="section-title">Por que documentar a governança</h2>
+                <p>Além de ser um portal sobre cultura gaúcha, este site é um demonstrador acadêmico (veja <a href="./sobre-o-site.html">Sobre o Site</a>). Por isso, a forma como o conteúdo é organizado, escrito e publicado é, em si, parte do material de estudo: um projeto de conteúdo com mais de cem páginas só se mantém coerente se seguir critérios explícitos de classificação, redação e revisão.</p>
+                <p>Esta página resume, para qualquer visitante, as regras internas que orientam a manutenção do site.</p>
+            </section>
+
+            <section>
+                <h2 class="section-title">Como as páginas são classificadas</h2>
+                <p>Cada página do site tem um tipo editorial, que define sua função:</p>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <h3>Hub</h3>
+                        <p>Páginas principais que organizam grandes áreas do site, como <a href="./historia.html">História</a>, <a href="./cultura.html">Cultura</a> ou <a href="./territorio.html">Território</a>. Funcionam como índice, não como texto longo.</p>
+                    </article>
+                    <article class="tech-card">
+                        <h3>Conteúdo</h3>
+                        <p>Páginas temáticas específicas dentro de <code>paginas/</code>, organizadas por pasta (história, música e dança, gastronomia, território, municípios, literatura, entre outras).</p>
+                    </article>
+                    <article class="tech-card">
+                        <h3>Funcional</h3>
+                        <p>Páginas de apoio à navegação, como <a href="./busca.html">Busca</a> e <a href="./mapa-do-site.html">Mapa do Site</a>.</p>
+                    </article>
+                    <article class="tech-card">
+                        <h3>Institucional</h3>
+                        <p>Páginas sobre o próprio projeto: <a href="./sobre-o-site.html">Sobre o Site</a>, <a href="./licenca.html">Licenciamento</a> e <a href="./privacidade.html">Política de Privacidade</a>.</p>
+                    </article>
+                    <article class="tech-card">
+                        <h3>Técnica</h3>
+                        <p>Páginas fora da navegação editorial normal, como a página de erro <code>404</code> e o modelo técnico usado para criar novas páginas. Não entram no <code>sitemap.xml</code>.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Padrões editoriais</h2>
+                <p>Todo conteúdo novo segue um guia editorial interno. Os pontos centrais são:</p>
+                <ul>
+                    <li>Texto em português do Brasil, com tom educativo e claro, evitando linguagem promocional.</li>
+                    <li>Reconhecimento da diversidade regional, indígena, negra, feminina, urbana, rural, fronteiriça e contemporânea da cultura gaúcha, evitando reduzi-la a uma imagem única ou apenas folclórica.</li>
+                    <li>Cada página de conteúdo aprofunda um tema específico: contexto histórico, desenvolvimento, importância cultural, relações econômicas ou territoriais, debates contemporâneos e fontes de pesquisa.</li>
+                    <li>Fontes preferenciais: IBGE, governo do Rio Grande do Sul, arquivos públicos, museus, universidades, bibliotecas digitais, pesquisas acadêmicas e acervos municipais.</li>
+                    <li>Toda imagem externa traz descrição objetiva (<code>alt</code>), carregamento tardio (<code>loading="lazy"</code>), crédito e link para a fonte original.</li>
+                    <li>Todo link externo abre em nova aba com <code>rel="noopener noreferrer"</code>.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="section-title">Processo de publicação</h2>
+                <p>Antes de qualquer alteração ser publicada, ela passa por um checklist de validação:</p>
+                <ul>
+                    <li>Verificação de sintaxe do JavaScript do site.</li>
+                    <li>Conferência de links internos quebrados.</li>
+                    <li>Conferência de que cada página pública tem uma <code>canonical</code> apontando para ela mesma, sem <code>www</code>.</li>
+                    <li>Conferência da quantidade de URLs em <code>sitemap.xml</code> contra o número de páginas públicas.</li>
+                    <li>Verificação de que não há arquivos de backup (<code>*safeBackup*</code>) na árvore pública do site.</li>
+                </ul>
+                <p>Esse processo é o que garante, por exemplo, que o número de páginas listado nesta e em outras seções do site continue batendo com o que existe de fato no ar.</p>
+            </section>
+
+            <section>
+                <h2 class="section-title">Para quem quer estudar o projeto</h2>
+                <p>Professores e estudantes com acesso ao código-fonte do projeto encontram, na pasta <code>docs/</code> do repositório, a versão completa e técnica destes três documentos, além de um roteiro de aula:</p>
+                <ul>
+                    <li><strong>Taxonomia</strong> — critérios completos de classificação de páginas e temas.</li>
+                    <li><strong>Guia editorial</strong> — padrões detalhados de redação, fontes, imagens e links.</li>
+                    <li><strong>Checklist de publicação</strong> — passo a passo de validação técnica antes de publicar.</li>
+                    <li><strong>Roteiro didático</strong> — sugestões de exercícios por disciplina (Desenvolvimento Web, Sistemas de Informação, Governança de TI, Gestão de TI, SEO técnico, privacidade e dados).</li>
+                </ul>
+            </section>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="./sobre-o-site.html" class="btn">Sobre o Site</a>
+                <a href="./mapa-do-site.html" class="btn btn-secondary">Mapa do Site</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <h2>Cultura <span>Gaúcha</span></h2>
+            <p>Um portal dedicado à preservação, pesquisa e divulgação da rica herança cultural do estado do Rio Grande do Sul.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegação Rápida</h4>
+            <ul>
+                <li><a href="./sobre-o-site.html">Sobre o Site</a></li>
+                <li><a href="./licenca.html">Licenciamento</a></li>
+                <li><a href="./privacidade.html">Política de Privacidade</a></li>
+                <li><a href="./mapa-do-site.html">Mapa do Site</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>. Textos sob licença <a href="./licenca.html">CC BY-SA 4.0</a>.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="./assets/js/script.js" defer></script>
+</body>
+</html>
