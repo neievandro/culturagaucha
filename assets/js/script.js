@@ -117,6 +117,7 @@ const sitePages = [
     { title: 'Casa de Estância', url: 'paginas/patrimonio/casa-estancia.html', category: 'Patrimônio', text: 'arquitetura rural, galpão, mangueira, trabalho e vida familiar.' },
     { title: 'Arquitetura Enxaimel no RS', url: 'paginas/patrimonio/arquitetura-enxaimel-rs.html', category: 'Patrimônio', text: 'casas de imigração alemã, técnica construtiva e memória colonial.' },
     { title: 'Ruínas de São Miguel Arcanjo', url: 'paginas/patrimonio/ruinas-sao-miguel-arcanjo.html', category: 'Patrimônio', text: 'patrimônio missioneiro, arqueologia, turismo e memória guarani-jesuítica.' },
+    { title: 'Instituições da Cultura e do Tradicionalismo Gaúcho', url: 'paginas/patrimonio/instituicoes-tradicionalistas.html', category: 'Patrimônio', text: 'MTG, CBTG, CTGs, fundações, institutos de pesquisa e órgãos governamentais de cultura.' },
     { title: 'Sepé Tiaraju', url: 'paginas/historia/sepe-tiaraju.html', category: 'História', text: 'liderança guarani, guerra guaranítica, mito político e memória missioneira.' },
     { title: 'Lanceiros Negros', url: 'paginas/historia/lanceiros-negros.html', category: 'História', text: 'participação negra na revolução farroupilha, porongos, liberdade e memória.' },
     { title: 'Getúlio Vargas e o RS', url: 'paginas/historia/getulio-vargas-rs.html', category: 'História', text: 'são borja, revolução de 1930, trabalhismo, estado novo e memória política.' },
