@@ -607,6 +607,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://culturagaucha.com.br/paginas/musica-danca/musica-nativista.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://culturagaucha.com.br/paginas/musica-danca/musica.html</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -697,6 +703,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://culturagaucha.com.br/paginas/personalidades/anita-garibaldi.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/personalidades/barao-de-maua.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/personalidades/bento-goncalves.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://culturagaucha.com.br/paginas/personalidades/elis-regina.html</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -715,6 +739,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://culturagaucha.com.br/paginas/personalidades/julio-de-castilhos.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://culturagaucha.com.br/paginas/personalidades/kleiton-kledir.html</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -723,6 +753,12 @@
   <url>
     <loc>https://culturagaucha.com.br/paginas/personalidades/luiz-marenco.html</loc>
     <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/personalidades/paixao-cortes.html</loc>
+    <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

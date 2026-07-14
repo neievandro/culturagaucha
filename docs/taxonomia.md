@@ -2,6 +2,8 @@
 
 Esta taxonomia organiza as paginas por funcao editorial e por tema principal.
 
+Para a listagem pagina a pagina (arquivo e titulo de cada uma), veja `docs/taxonomia-paginas.txt`, gerado por `tools/gerar-taxonomia-paginas.js`.
+
 ## Tipo De Pagina
 
 Use o campo `tipo_pagina` para classificar a funcao da pagina no site.
@@ -9,14 +11,14 @@ Use o campo `tipo_pagina` para classificar a funcao da pagina no site.
 | Tipo | Quantidade | Criterio |
 |---|---:|---|
 | `hub` | 7 | Paginas principais que organizam grandes areas do site. |
-| `conteudo` | 142 | Paginas tematicas publicas em `paginas/`. |
+| `conteudo` | 144 | Paginas tematicas publicas em `paginas/`. |
 | `funcional` | 2 | Paginas usadas para navegacao, busca ou organizacao do site. |
 | `institucional` | 4 | Paginas sobre o projeto, contato, autoria, licenca, privacidade, governanca ou contexto institucional. |
 | `tecnica` | 2 | Paginas tecnicas fora da navegacao editorial normal. |
 
-Total de HTMLs: `157`.
+Total de HTMLs: `159`.
 
-Paginas publicas no sitemap: `155`.
+Paginas publicas no sitemap: `157`.
 
 Paginas tecnicas fora do sitemap: `2`.
 
@@ -76,15 +78,15 @@ Subgrupos atuais por pasta:
 | `paginas/meio-ambiente` | 4 |
 | `paginas/midia` | 3 |
 | `paginas/municipios` | 11 |
-| `paginas/musica-danca` | 18 |
-| `paginas/patrimonio` | 7 |
+| `paginas/musica-danca` | 19 |
+| `paginas/patrimonio` | 8 |
 | `paginas/personalidades` | 9 |
 | `paginas/simbolos` | 4 |
 | `paginas/sociedade` | 5 |
 | `paginas/temas` | 2 |
 | `paginas/territorio` | 12 |
 
-Total: `142` paginas de conteudo.
+Total: `144` paginas de conteudo.
 
 ## Tema Principal
 
