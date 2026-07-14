@@ -22,12 +22,12 @@ Site estatico em HTML, CSS e JavaScript sobre cultura, historia, gastronomia, te
 
 ## Conteudo Publico
 
-O site possui `155` paginas publicas listadas no `sitemap.xml`.
+O site possui `156` paginas publicas listadas no `sitemap.xml`.
 
 Tipos principais:
 
 - `hub`: 7 paginas.
-- `conteudo`: 142 paginas, todas em `paginas/`.
+- `conteudo`: 143 paginas, todas em `paginas/`.
 - `funcional`: 2 paginas.
 - `institucional`: 4 paginas.
 
@@ -52,6 +52,7 @@ Paginas tecnicas fora do sitemap:
 - `docs/publicacao.md`: checklist de validacao antes de publicar.
 - `docs/roteiro-didatico.md`: sugestoes de aula e exercicios por disciplina.
 - `docs/auditoria-profundidade.md`: relatorio gerado por `tools/audit-content-depth.js` com profundidade de cada pagina de conteudo.
+- `CHANGELOG.md`: historico de versoes e mudancas do site.
 
 ## Validacao Recomendada
 
