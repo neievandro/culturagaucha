@@ -1,0 +1,222 @@
+TAXONOMIA DE PAGINAS - CULTURA GAUCHA
+Gerado automaticamente por tools/gerar-taxonomia-paginas.js em 2026-07-14.
+Para atualizar apos criar, remover ou renomear paginas, rode: node tools/gerar-taxonomia-paginas.js
+
+Total de arquivos HTML: 159
+Paginas publicas (no sitemap.xml): 157
+Paginas tecnicas (fora do sitemap): 2
+
+======================================================================
+HUB (7)
+======================================================================
+  index.html  —  Cultura Gaúcha - Tradições do Sul
+  historia.html  —  História do Rio Grande do Sul
+  cultura.html  —  Cultura Gaúcha
+  culinaria.html  —  Culinária Gaúcha
+  territorio.html  —  Território Gaúcho
+  turismo.html  —  Turismo no Rio Grande do Sul
+  patrimonio.html  —  Patrimônio e Memória
+
+======================================================================
+FUNCIONAL (2)
+======================================================================
+  busca.html  —  Busca
+  mapa-do-site.html  —  Mapa do Site
+
+======================================================================
+INSTITUCIONAL (4)
+======================================================================
+  sobre-o-site.html  —  Sobre o Site
+  licenca.html  —  Licenciamento
+  privacidade.html  —  Política de Privacidade
+  governanca.html  —  Governança e Documentação do Site
+
+======================================================================
+TECNICA - fora do sitemap (2)
+======================================================================
+  404.html  —  Página não encontrada
+  template.html  —  Cultura Gaúcha
+
+======================================================================
+CONTEUDO (144 paginas em 18 categorias)
+======================================================================
+
+--- paginas/contos (7) ---
+  paginas/contos/conto-contrabandista.html  —  Contrabandista
+  paginas/contos/conto-jogo-do-osso.html  —  Jogo do Osso
+  paginas/contos/conto-melancia-coco-verde.html  —  Melancia - Coco Verde
+  paginas/contos/conto-negro-bonifacio.html  —  O Negro Bonifácio
+  paginas/contos/conto-no-manantial.html  —  No Manantial
+  paginas/contos/conto-trezentas-oncas.html  —  Trezentas Onças
+  paginas/contos/contos-gauchescos.html  —  Contos Gauchescos
+
+--- paginas/cultura (15) ---
+  paginas/cultura/bombacha-lenco-guaiaca.html  —  Bombacha, Lenço e Guaiaca
+  paginas/cultura/cavalo-crioulo.html  —  Cavalo Crioulo
+  paginas/cultura/ctgs.html  —  CTGs - Centros de Tradição Gaúcha
+  paginas/cultura/estancias-gauchas.html  —  Estâncias Gaúchas
+  paginas/cultura/festas.html  —  Festas, Acampamentos e Rodeios
+  paginas/cultura/lendas.html  —  Lendas e Mitos do Rio Grande do Sul
+  paginas/cultura/lida-campeira.html  —  A Lida Campeira e o Cavalo
+  paginas/cultura/o-gaucho.html  —  O Gaúcho
+  paginas/cultura/pilcha-gaucha.html  —  Pilcha Gaúcha
+  paginas/cultura/religiosidade-festas-populares.html  —  Religiosidade e Festas Populares
+  paginas/cultura/rodeio-crioulo.html  —  Rodeio Crioulo
+  paginas/cultura/semana-farroupilha.html  —  Semana Farroupilha
+  paginas/cultura/tradicionalismo-gaucho.html  —  Tradicionalismo Gaúcho
+  paginas/cultura/tradicoes-orais.html  —  Tradições Orais do Rio Grande do Sul
+  paginas/cultura/vestimenta.html  —  Indumentária: A Pilcha
+
+--- paginas/economia (7) ---
+  paginas/economia/cooperativismo-gaucho.html  —  Cooperativismo Gaúcho
+  paginas/economia/cultura-digital-gaucha.html  —  Cultura Digital Gaúcha
+  paginas/economia/economia-contemporanea.html  —  Economia Contemporânea do RS
+  paginas/economia/economia.html  —  Economia do Rio Grande do Sul
+  paginas/economia/pecuaria-rs.html  —  Pecuária no Rio Grande do Sul
+  paginas/economia/tecnologia-cultura.html  —  Tecnologia Aplicada à Cultura
+  paginas/economia/universidades-cultura.html  —  Universidades e Cultura no RS
+
+--- paginas/esporte (2) ---
+  paginas/esporte/esportes-jogos-tradicionais.html  —  Esporte Gaúcho
+  paginas/esporte/futebol-interior-gaucho.html  —  Futebol Gaúcho do Interior
+
+--- paginas/gastronomia (16) ---
+  paginas/gastronomia/ambrosia.html  —  Ambrosia
+  paginas/gastronomia/arroz-carreteiro.html  —  Arroz de Carreteiro
+  paginas/gastronomia/cafe-colonial.html  —  Café Colonial
+  paginas/gastronomia/charque.html  —  Charque
+  paginas/gastronomia/chimarrao.html  —  O Ritual do Chimarrão
+  paginas/gastronomia/churrasco-gaucho.html  —  Churrasco Gaúcho
+  paginas/gastronomia/costela-fogo-chao.html  —  Costela no Fogo de Chão
+  paginas/gastronomia/cuca-gaucha.html  —  Cuca Gaúcha
+  paginas/gastronomia/cultura-vinho-serra.html  —  Cultura do Vinho na Serra Gaúcha
+  paginas/gastronomia/doce-pelotas.html  —  Doce de Pelotas
+  paginas/gastronomia/entrevero-pinhao.html  —  Entrevero de Pinhão
+  paginas/gastronomia/erva-mate.html  —  Erva-Mate
+  paginas/gastronomia/galeto-polenta.html  —  Galeto, Polenta e Massa
+  paginas/gastronomia/matambre-recheado.html  —  Matambre Recheado
+  paginas/gastronomia/pinhao.html  —  Pinhão
+  paginas/gastronomia/sagu-vinho.html  —  Sagu com Vinho
+
+--- paginas/historia (12) ---
+  paginas/historia/charqueadas-pelotas.html  —  Charqueadas de Pelotas
+  paginas/historia/cultura-missioneira.html  —  Cultura Missioneira
+  paginas/historia/getulio-vargas-rs.html  —  Getúlio Vargas e o RS
+  paginas/historia/imigracao.html  —  A Grande Imigração
+  paginas/historia/joao-goulart-sao-borja.html  —  João Goulart e São Borja
+  paginas/historia/lanceiros-negros.html  —  Lanceiros Negros
+  paginas/historia/maragatos-chimangos.html  —  Maragatos e Chimangos
+  paginas/historia/missoes-jesuiticas.html  —  A Saga das Missões Jesuíticas
+  paginas/historia/origens-povo-gaucho.html  —  Origens do Povo Gaúcho
+  paginas/historia/revolucao-farroupilha.html  —  Revolução Farroupilha
+  paginas/historia/sepe-tiaraju.html  —  Sepé Tiaraju
+  paginas/historia/tropeirismo.html  —  Tropeirismo
+
+--- paginas/linguagem (3) ---
+  paginas/linguagem/dicionario.html  —  Dicionário de Gauchês
+  paginas/linguagem/expressoes-gauchescas.html  —  Expressões Gauchescas
+  paginas/linguagem/linguagem-regional.html  —  Linguagem e Variações Regionais
+
+--- paginas/literatura (5) ---
+  paginas/literatura/erico-verissimo.html  —  Erico Verissimo
+  paginas/literatura/literatura.html  —  A Literatura
+  paginas/literatura/luis-fernando-verissimo.html  —  Luis Fernando Verissimo
+  paginas/literatura/mario-quintana.html  —  Mario Quintana
+  paginas/literatura/simoes-lopes-neto.html  —  João Simões Lopes Neto
+
+--- paginas/meio-ambiente (4) ---
+  paginas/meio-ambiente/araucaria-pinhao.html  —  Araucária e Pinhão
+  paginas/meio-ambiente/enchentes-reconstrucao.html  —  Enchentes e Reconstrução no RS
+  paginas/meio-ambiente/meio-ambiente-pampas.html  —  Meio Ambiente e Pampas
+  paginas/meio-ambiente/mudancas-climaticas-rs.html  —  Mudanças Climáticas no RS
+
+--- paginas/midia (3) ---
+  paginas/midia/cinema-radio-tv.html  —  Cinema, Rádio e Televisão no RS
+  paginas/midia/imprensa-regional.html  —  Imprensa Regional no RS
+  paginas/midia/radio-gaucho.html  —  Rádio Gaúcho
+
+--- paginas/municipios (11) ---
+  paginas/municipios/bage.html  —  Bagé
+  paginas/municipios/bento-goncalves.html  —  Bento Gonçalves
+  paginas/municipios/caxias-do-sul.html  —  Caxias do Sul
+  paginas/municipios/municipios.html  —  Municípios Gaúchos
+  paginas/municipios/pelotas.html  —  Pelotas
+  paginas/municipios/porto-alegre.html  —  Porto Alegre
+  paginas/municipios/rio-grande.html  —  Rio Grande
+  paginas/municipios/santa-maria.html  —  Santa Maria
+  paginas/municipios/sao-borja.html  —  São Borja
+  paginas/municipios/sao-miguel-das-missoes.html  —  São Miguel das Missões
+  paginas/municipios/uruguaiana.html  —  Uruguaiana
+
+--- paginas/musica-danca (19) ---
+  paginas/musica-danca/balaio.html  —  Balaio
+  paginas/musica-danca/bugio.html  —  Bugio
+  paginas/musica-danca/chamame.html  —  Chamamé
+  paginas/musica-danca/chamarrita.html  —  Chamarrita
+  paginas/musica-danca/chula.html  —  Chula Gaúcha
+  paginas/musica-danca/evolucao-musica.html  —  Evolução da Música do Rio Grande do Sul
+  paginas/musica-danca/fandango-gaucho.html  —  Fandango Gaúcho
+  paginas/musica-danca/gaita-ponto.html  —  Gaita-Ponto
+  paginas/musica-danca/milonga.html  —  Milonga
+  paginas/musica-danca/musica-gaucha-contemporanea.html  —  Música Gaúcha Contemporânea
+  paginas/musica-danca/musica-nativista.html  —  Música Nativista
+  paginas/musica-danca/musica.html  —  Música e Danças Tradicionais
+  paginas/musica-danca/origens-historicas-musica-gaucha.html  —  Origens Históricas da Música Gaúcha
+  paginas/musica-danca/pajada-trova.html  —  Pajada e Trova
+  paginas/musica-danca/pezinho.html  —  Pezinho
+  paginas/musica-danca/rancheira.html  —  Rancheira
+  paginas/musica-danca/vaneira.html  —  Vaneira
+  paginas/musica-danca/violao-gaucho.html  —  Violão Gaúcho
+  paginas/musica-danca/xote-gaucho.html  —  Xote Gaúcho
+
+--- paginas/patrimonio (8) ---
+  paginas/patrimonio/arquitetura-enxaimel-rs.html  —  Arquitetura Enxaimel no RS
+  paginas/patrimonio/arquitetura-gaucha.html  —  Arquitetura Gaúcha
+  paginas/patrimonio/artesanato.html  —  Artesanato e Arte do Rio Grande do Sul
+  paginas/patrimonio/casa-estancia.html  —  Casa de Estância
+  paginas/patrimonio/educacao-patrimonial.html  —  Educação Patrimonial
+  paginas/patrimonio/fontes-bibliografia.html  —  Fontes e Bibliografia
+  paginas/patrimonio/instituicoes-tradicionalistas.html  —  Instituições da Cultura e do Tradicionalismo Gaúcho
+  paginas/patrimonio/ruinas-sao-miguel-arcanjo.html  —  Ruínas de São Miguel Arcanjo
+
+--- paginas/personalidades (9) ---
+  paginas/personalidades/elis-regina.html  —  Elis Regina
+  paginas/personalidades/gildo-de-freitas.html  —  Gildo de Freitas
+  paginas/personalidades/jayme-caetano-braun.html  —  Jayme Caetano Braun
+  paginas/personalidades/kleiton-kledir.html  —  Kleiton & Kledir
+  paginas/personalidades/luiz-marenco.html  —  Luiz Marenco
+  paginas/personalidades/personalidades-gauchas.html  —  Personalidades Gaúchas
+  paginas/personalidades/renato-borghetti.html  —  Renato Borghetti
+  paginas/personalidades/teixeirinha.html  —  Teixeirinha
+  paginas/personalidades/yamandu-costa.html  —  Yamandu Costa
+
+--- paginas/simbolos (4) ---
+  paginas/simbolos/bandeira-rio-grandense.html  —  Bandeira Rio-Grandense
+  paginas/simbolos/brasao-rio-grandense.html  —  Brasão do Rio Grande do Sul
+  paginas/simbolos/hino-rio-grandense.html  —  Hino Rio-Grandense
+  paginas/simbolos/simbolos-gauchos.html  —  Símbolos Gaúchos
+
+--- paginas/sociedade (5) ---
+  paginas/sociedade/afro-gauchidade.html  —  Afro-Gauchidade
+  paginas/sociedade/carnaval-rs.html  —  Carnaval no Rio Grande do Sul
+  paginas/sociedade/cultura-indigena-contemporanea.html  —  Cultura Indígena Contemporânea no RS
+  paginas/sociedade/mulheres-gauchas.html  —  Mulheres na História Gaúcha
+  paginas/sociedade/povos-originarios.html  —  Povos Originários do RS
+
+--- paginas/temas (2) ---
+  paginas/temas/cultura-urbana.html  —  Cultura Urbana Gaúcha
+  paginas/temas/linha-do-tempo.html  —  Linha do Tempo Interativa
+
+--- paginas/territorio (12) ---
+  paginas/territorio/cultura-fronteira.html  —  Cultura de Fronteira
+  paginas/territorio/diaspora-gaucha-goias.html  —  Diáspora Gaúcha em Goiás
+  paginas/territorio/diaspora-gaucha-mato-grosso-do-sul.html  —  Diáspora Gaúcha em Mato Grosso do Sul
+  paginas/territorio/diaspora-gaucha-mato-grosso.html  —  Diáspora Gaúcha em Mato Grosso
+  paginas/territorio/diaspora-gaucha-para.html  —  Diáspora Gaúcha no Pará
+  paginas/territorio/diaspora-gaucha-parana.html  —  Diáspora Gaúcha no Paraná
+  paginas/territorio/diaspora-gaucha-rondonia.html  —  Diáspora Gaúcha em Rondônia
+  paginas/territorio/diaspora-gaucha-santa-catarina.html  —  Diáspora Gaúcha em Santa Catarina
+  paginas/territorio/diaspora-gaucha.html  —  Diáspora Gaúcha pelo Brasil
+  paginas/territorio/fronteira-brasil-uruguai-argentina.html  —  Fronteira Brasil-Uruguai-Argentina
+  paginas/territorio/geografia.html  —  Geografia e Paisagens do Rio Grande do Sul
+  paginas/territorio/regioes-culturais-rs.html  —  Regiões Culturais do RS
