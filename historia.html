@@ -6,7 +6,7 @@
     <title>História do Rio Grande do Sul - Cultura Gaúcha</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="icon" href="./assets/img/favicon-mate.png" type="image/png">
-        <link rel="canonical" href="https://culturagaucha.com.br/historia.html">
+    <link rel="canonical" href="https://culturagaucha.com.br/historia.html">
 </head>
 <body>
 
@@ -26,32 +26,55 @@
             <h1>Cultura <span>Gaúcha</span></h1>
         </a>
         <button class="menu-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">Menu</button>
-        <div class="nav-links" id="site-nav"><a href="./index.html">Início</a><a href="./historia.html">História</a><a href="./cultura.html">Cultura</a><a href="./culinaria.html">Gastronomia</a><a href="./territorio.html">Território</a><a href="./turismo.html">Turismo</a><a href="./busca.html">Busca</a><a href="./sobre-o-site.html">Sobre</a></div>
+        <div class="nav-links" id="site-nav">
+            <a href="./index.html">Início</a>
+            <a href="./historia.html" class="active">História</a>
+            <a href="./cultura.html">Cultura</a>
+            <a href="./culinaria.html">Gastronomia</a>
+            <a href="./territorio.html">Território</a>
+            <a href="./turismo.html">Turismo</a>
+            <a href="./busca.html">Busca</a>
+            <a href="./sobre-o-site.html">Sobre</a>
+        </div>
     </div>
 </nav>
 
 <header class="page-header">
     <div class="container">
-        <h1>História do Rio Grande do Sul</h1>
+        <h1>História do Rio Grande do Sul<br>
+            <span style="font-size: 1.5rem;">Panorama histórico: da pré-história ao século XXI</span>
+        </h1>
     </div>
 </header>
 
 <main>
     <div class="container">
         <div class="content-wrapper">
-            
-            <section id="introducao">
-                <h2 class="section-title">Uma Terra Forjada pela Pólvora e pela Fronteira</h2>
-                <p>A história do Rio Grande do Sul não é a história típica de colonização pacífica observada em muitas outras partes do Brasil. Situado na fronteira mais extrema ao sul, este território foi disputado milímetro a milímetro pelas coroas de Portugal e da Espanha.</p>
-                <p>Nascido como uma zona de amortecimento militar, o Rio Grande do Sul desenvolveu uma sociedade profundamente militarizada e autossuficiente — baseada no ciclo do couro, das estâncias de gado e das tropas feudais. Isso forjou a figura autônoma do <strong>gaúcho</strong>, e marcou a província com uma cultura de honra, combate e <a href="./paginas/territorio/cultura-fronteira.html">fronteira</a> que daria origem a algumas das maiores guerras do continente americano. A formação social e familiar desse povo é aprofundada em <a href="./paginas/historia/origens-povo-gaucho.html">Origens do Povo Gaúcho</a>.</p>
-                
-                <h3 style="margin-top: 40px; text-align: center; border: none; font-family: 'Playfair Display', serif; color: var(--rs-green);">Marcos Históricos Especiais</h3>
-                <p style="text-align: center;">Mergulhe profundamente nos quatro assuntos mais emblemáticos que moldaram a alma rio-grandense:</p>
-                
+
+            <nav aria-label="Localização na estrutura do site" class="breadcrumb">
+                <ol>
+                    <li><a href="./index.html">Início</a></li>
+                    <li aria-current="page">História do Rio Grande do Sul</li>
+                </ol>
+            </nav>
+
+            <p class="revisao-editorial" data-revisao="1">Última revisão de conteúdo: 25/08/2026.</p>
+
+            <!-- INTRODUÇÃO -->
+            <section aria-labelledby="sec-introducao">
+                <h2 class="section-title" id="sec-introducao">Uma Formação Histórica Singular</h2>
+
+                <p>A história do Rio Grande do Sul distingue-se das demais regiões brasileiras por sua posição de fronteira extrema entre os impérios ibéricos e, mais tarde, entre o Brasil e as repúblicas platinas. Diferentemente das capitanias do litoral, voltadas ao açúcar e ao comércio marítimo, o território gaúcho formou-se como zona de disputa militar, cujo controle dependia da ocupação efetiva do solo antes do adversário <span class="citacao">(<a href="#ref-kuhn-2002" title="Ver referência completa ao final da página">KÜHN, 2002, p. 13</a>)</span>. Essa condição de fronteira móvel moldou, de maneira duradoura, as instituições, a economia e a cultura do estado.</p>
+
+                <p>Conforme sintetiza Pesavento <span class="citacao">(<a href="#ref-pesavento-1982" title="Ver referência completa ao final da página">PESAVENTO, 1982, p. 9</a>)</span>, o Rio Grande do Sul constituiu-se historicamente como uma "sociedade pastoril de fronteira", cujas elites econômicas e militares eram inseparáveis, e cujo território expandia-se tanto pelo esforço diplomático dos tratados quanto pela pressão das milícias e estâncias. Esse processo atravessou cinco séculos e envolveu povos indígenas, missionários jesuítas, colonos açorianos, escravizados africanos, imigrantes europeus e uma série de conflitos armados que extrapolaram os limites provinciais.</p>
+
+                <h3 style="margin-top: 40px; text-align: center; border: none; font-family: 'Playfair Display', serif; color: var(--rs-green);">Temas Centrais da História Gaúcha</h3>
+                <p style="text-align: center;">Quatro episódios especialmente estudados pela historiografia gaúcha e nacional:</p>
+
                 <div style="margin: 30px 0 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
                     <a href="./paginas/historia/missoes-jesuiticas.html" class="card-btn" style="border-top-color: var(--rs-green);">
                         <div class="card-btn-icon">⛪</div>
-                        <span>Missões Jesuíticas &<br>Guerras Guaraníticas</span>
+                        <span>Missões Jesuíticas &amp;<br>Guerras Guaraníticas</span>
                     </a>
                     <a href="./paginas/historia/revolucao-farroupilha.html" class="card-btn" style="border-top-color: var(--rs-red);">
                         <div class="card-btn-icon">🚩</div>
@@ -63,80 +86,188 @@
                     </a>
                     <a href="./paginas/historia/maragatos-chimangos.html" class="card-btn" style="border-top-color: var(--text-dark);">
                         <div class="card-btn-icon">🧣</div>
-                        <span>Maragatos vs.<br>Chimangos</span>
+                        <span>Maragatos e<br>Chimangos</span>
                     </a>
                 </div>
             </section>
 
-            <section id="povos-indigenas">
-                <h2 class="section-title">A Era Pré-Colombiana e Povos Nativos</h2>
-                <p>Milhares de anos antes da chegada dos portugueses e espanhóis, o território gaúcho já fervilhava de milhares de povos indígenas organizados basicamente em dois grandes troncos culturais influências pela geografia:</p>
+            <!-- GALHO 1: POVOS ORIGINÁRIOS -->
+            <section aria-labelledby="sec-povos-originarios">
+                <h2 class="section-title" id="sec-povos-originarios">1. Povos Originários e Pré-História</h2>
+
+                <p>O território que hoje corresponde ao Rio Grande do Sul foi habitado por populações humanas há pelo menos dez mil anos, conforme evidências arqueológicas registradas em sítios de sambaquis no litoral e de ocupação em grutas na Serra Gaúcha. Essa presença pré-ceramista antecede em milênios os grupos étnicos documentados pelos primeiros europeus <span class="citacao">(<a href="#ref-kern-1982" title="Ver referência completa ao final da página">KERN, 1982, p. 21</a>)</span>.</p>
+
+                <p>À chegada dos colonizadores ibéricos, o território era habitado por grupos cultural e linguisticamente distintos. Nos campos e planícies do sul predominavam os <strong>Charruas</strong> e os <strong>Minuanos</strong>, povos caçadores-coletores altamente móveis, cuja resistência à sujeição colonial foi documentada ao longo de três séculos <span class="citacao">(<a href="#ref-becker-1976" title="Ver referência completa ao final da página">BECKER, 1976, p. 34</a>)</span>. Nas regiões de mata do norte e noroeste, os <strong>Guaranis</strong> praticavam agricultura de coivara e tinham redes de intercâmbio que se estendiam por toda a Bacia do Prata. Os <strong>Kaingang</strong>, de língua Jê, habitavam as matas de araucária da Serra e do Planalto, onde resistiram à colonização por mais tempo que qualquer outro grupo da região <span class="citacao">(<a href="#ref-becker-1976" title="Ver referência completa ao final da página">BECKER, 1976, p. 58</a>)</span>.</p>
+
+                <p>A historiografia contemporânea tem revisado a imagem dos povos originários como meros coadjuvantes do processo colonial, reconhecendo sua agência política, suas redes diplomáticas e sua contribuição cultural à formação da sociedade gaúcha — da culinária à língua, passando pelo conhecimento do território e técnicas agrícolas.</p>
+
+                <p><em>Saiba mais: <a href="./paginas/historia/origens-povo-gaucho.html">Origens do Povo Gaúcho</a></em></p>
+            </section>
+
+            <!-- GALHO 2: COLONIAL E MISSÕES -->
+            <section aria-labelledby="sec-colonial">
+                <h2 class="section-title" id="sec-colonial">2. Período Colonial e as Missões Jesuíticas (sécs. XVII–XVIII)</h2>
+
+                <p>A presença europeia organizada no território gaúcho iniciou-se com os missionários jesuítas da Companhia de Jesus, vinculados à coroa espanhola, que fundaram as chamadas <em>reduções</em> a partir do início do século XVII. Essas comunidades reuniam aldeias Guarani em torno de uma igreja, oficinas e campos cultivados, combinando evangelização, trabalho coletivo e defesa militar. Kern descreve as missões como "uma utopia política concreta", na qual as relações de produção e o governo local escapavam parcialmente aos padrões coloniais vigentes em outras regiões <span class="citacao">(<a href="#ref-kern-1982" title="Ver referência completa ao final da página">KERN, 1982, p. 47</a>)</span>.</p>
+
+                <p>O conflito mais dramático desse período foi a <strong>Guerra Guaranítica (1753–1756)</strong>, deflagrada em reação ao Tratado de Madrid (1750), que determinava a transferência de sete reduções do domínio espanhol ao português. A resistência militar Guarani, liderada pelo cacique <a href="./paginas/historia/sepe-tiaraju.html">Sepé Tiaraju</a>, foi derrotada na Batalha de Caiboaté, mas deixou uma memória de luta que ressurge periodicamente no debate sobre a identidade regional <span class="citacao">(<a href="#ref-golin-1999" title="Ver referência completa ao final da página">GOLIN, 1999, p. 112</a>)</span>.</p>
+
+                <p>Paralelamente, a coroa portuguesa avançava pelo litoral. A fundação do forte de Rio Grande em 1737 por José da Silva Paes marcou o início do esforço sistemático de ocupação lusitana. A partir de 1748, casais provenientes das ilhas dos Açores foram instalados em núcleos como Porto dos Casais (atual Porto Alegre), Viamão e Rio Pardo, com o objetivo de estabelecer presença civil e agrícola em território disputado <span class="citacao">(<a href="#ref-osorio-2007" title="Ver referência completa ao final da página">OSÓRIO, 2007, p. 64</a>)</span>.</p>
+
+                <p><em>Saiba mais: <a href="./paginas/historia/missoes-jesuiticas.html">Missões Jesuíticas</a> · <a href="./paginas/historia/cultura-missioneira.html">Cultura Missioneira</a> · <a href="./paginas/historia/sepe-tiaraju.html">Sepé Tiaraju</a></em></p>
+            </section>
+
+            <!-- GALHO 5: ECONOMIA — ESTÂNCIAS E TROPEIRISMO -->
+            <section aria-labelledby="sec-estancias">
+                <h2 class="section-title" id="sec-estancias">3. Estâncias, Tropeirismo e Charqueadas (séc. XVIII–XIX)</h2>
+
+                <p>A base econômica da sociedade colonial gaúcha assentou-se sobre a pecuária extensiva. O gado bovino e equino, trazido pelos jesuítas e multiplicado livremente nas planícies, tornou-se o principal recurso da região. A exploração do couro e, posteriormente, do charque (carne salgada e seca) gerou a estrutura fundiária das grandes estâncias, que concentravam terra, animais e mão de obra escravizada <span class="citacao">(<a href="#ref-osorio-2007" title="Ver referência completa ao final da página">OSÓRIO, 2007, p. 139</a>)</span>.</p>
+
+                <p>O <a href="./paginas/historia/tropeirismo.html">tropeirismo</a> — o transporte de gado em boiadas a longa distância — articulou o Rio Grande do Sul aos mercados de São Paulo e Minas Gerais, criando rotas e núcleos urbanos ao longo do Caminho das Tropas. As <a href="./paginas/historia/charqueadas-pelotas.html">charqueadas de Pelotas</a>, por sua vez, concentraram a industrialização rudimentar do século XIX, tornando Pelotas um dos maiores centros econômicos do sul do Brasil e o principal destino do trabalho escravizado na província <span class="citacao">(<a href="#ref-maestri-1984" title="Ver referência completa ao final da página">MAESTRI, 1984, p. 29</a>)</span>.</p>
+            </section>
+
+            <!-- GALHO 4: FARROUPILHA -->
+            <section aria-labelledby="sec-farroupilha">
+                <h2 class="section-title" id="sec-farroupilha">4. A Revolução Farroupilha (1835–1845)</h2>
+
+                <p>A Revolução Farroupilha foi o mais longo conflito armado do período regencial brasileiro. Suas causas combinam fatores econômicos — em especial a taxação do charque gaúcho pelo governo imperial, que favorecia o produto importado do Prata — com demandas por maior autonomia administrativa e representação política <span class="citacao">(<a href="#ref-flores-2003" title="Ver referência completa ao final da página">FLORES, 2003, p. 88</a>)</span>. Em 20 de setembro de 1835, forças rebeldes tomaram Porto Alegre, iniciando um conflito que duraria dez anos.</p>
+
+                <p>Durante a guerra, lideranças farroupilhas proclamaram a República Rio-Grandense (1836) e, em seguida, a República Catarinense (Juliana). A historiografia divide-se quanto ao caráter do movimento: para Padoin <span class="citacao">(<a href="#ref-padoin-2001" title="Ver referência completa ao final da página">PADOIN, 2001, p. 78</a>)</span>, o federalismo gaúcho era um projeto político articulado às dinâmicas do Prata; para Freitas <span class="citacao">(<a href="#ref-freitas-1985" title="Ver referência completa ao final da página">FREITAS, 1985, p. 41</a>)</span>, a revolução expressava sobretudo os interesses das elites estancieiras, com contradições fundamentais em torno da escravidão.</p>
+
+                <p>A participação dos <a href="./paginas/historia/lanceiros-negros.html">Lanceiros Negros</a> — escravizados que lutaram ao lado dos farroupilhas com promessas de liberdade — e o Massacre de Porongos (1844), em que centenas deles foram mortos em circunstâncias controversas, permanecem como um dos episódios mais debatidos da historiografia regional. O conflito encerrou-se com a <strong>Paz de Ponche Verde</strong> (1845), que previu anistia ampla e a incorporação de oficiais ao Exército Imperial.</p>
+
+                <p><em>Saiba mais: <a href="./paginas/historia/revolucao-farroupilha.html">Revolução Farroupilha</a> · <a href="./paginas/historia/lanceiros-negros.html">Lanceiros Negros</a></em></p>
+            </section>
+
+            <!-- GALHO 3: IMIGRAÇÃO -->
+            <section aria-labelledby="sec-imigracao">
+                <h2 class="section-title" id="sec-imigracao">5. Imigração Europeia e Colonização das Matas (1824–1920)</h2>
+
+                <p>A partir de 1824, o governo imperial deu início a um projeto de colonização das áreas florestais do norte e da Serra, até então pouco integradas à economia da campanha. Imigrantes alemães foram os primeiros a chegar, instalados no Vale do Rio dos Sinos, em São Leopoldo. Em 1875, começaram a desembarcar os colonos italianos, dirigidos à Serra Gaúcha. Ambos os grupos receberam pequenos lotes de terra e foram deixados em grande medida a seu próprio esforço, sem a infraestrutura prometida <span class="citacao">(<a href="#ref-roche-1969" title="Ver referência completa ao final da página">ROCHE, 1969, p. 202</a>)</span>.</p>
+
+                <p>O isolamento geográfico e a ausência de assistência do Estado contribuíram para a manutenção de línguas, práticas religiosas e instituições culturais de origem nos primeiros decênios. Gertz observa que esse isolamento produziu tensões identitárias que se tornaram politicamente relevantes especialmente durante os dois conflitos mundiais do século XX, quando a origem germânica passou a ser associada a ameaças à soberania nacional <span class="citacao">(<a href="#ref-gertz-1991" title="Ver referência completa ao final da página">GERTZ, 1991, p. 35</a>)</span>.</p>
+
+                <p>O resultado econômico de longo prazo foi a formação de uma rede de pequenas propriedades produtivas que diversificou a economia gaúcha, até então centrada na grande estância. Vinicultura, metalurgia, curtumes e manufatura têxtil surgiram nas colônias e constituíram a base do processo de industrialização que se consolidaria no século XX.</p>
+
+                <p><em>Saiba mais: <a href="./paginas/historia/imigracao.html">Imigração Europeia no RS</a></em></p>
+            </section>
+
+            <!-- GALHO 6: REPÚBLICA -->
+            <section aria-labelledby="sec-republica">
+                <h2 class="section-title" id="sec-republica">6. República, Positivismo e Conflito Civil (1889–1930)</h2>
+
+                <p>A proclamação da República em 1889 abriu no Rio Grande do Sul um período de intensa disputa política. O Partido Republicano Rio-Grandense (PRR), liderado por Júlio de Castilhos, impôs uma constituição estadual de inspiração positivista que concentrava poderes no executivo e rejeitava o parlamentarismo. Esse modelo, que Love denomina "cesarismo constitucional", garantiu ao PRR hegemonia duradoura sobre a política estadual <span class="citacao">(<a href="#ref-love-1975" title="Ver referência completa ao final da página">LOVE, 1975, p. 47</a>)</span>.</p>
+
+                <p>A oposição federalista, liderada por Gaspar da Silveira Martins, deu origem à Revolução Federalista (1893–1895), conhecida popularmente como a guerra dos <a href="./paginas/historia/maragatos-chimangos.html">Maragatos e Chimangos</a>. O conflito, que se estendeu pelos estados vizinhos, é considerado um dos mais sangrentos da história republicana brasileira, com estimativas de dezenas de milhares de mortos <span class="citacao">(<a href="#ref-piccolo-1998" title="Ver referência completa ao final da página">PICCOLO, 1998, p. 132</a>)</span>.</p>
+
+                <p>Da síntese política desse período emergiu a liderança de <a href="./paginas/historia/getulio-vargas-rs.html">Getúlio Vargas</a>, que governou o Rio Grande do Sul (1928–1930) antes de assumir a presidência do Brasil pela Revolução de 1930, inaugurando a Era Vargas e transformando o modelo político gaúcho em referência para a reorganização do Estado nacional.</p>
+
+                <p><em>Saiba mais: <a href="./paginas/historia/maragatos-chimangos.html">Maragatos e Chimangos</a> · <a href="./paginas/historia/getulio-vargas-rs.html">Getúlio Vargas e o RS</a></em></p>
+            </section>
+
+            <!-- GALHO 7: SÉCULO XX -->
+            <section aria-labelledby="sec-secxx">
+                <h2 class="section-title" id="sec-secxx">7. Século XX: Industrialização, Política e Tradição</h2>
+
+                <p>O século XX foi marcado pela urbanização acelerada e pela industrialização da Serra e do Vale do Rio dos Sinos, que transformaram o perfil econômico do estado. Porto Alegre consolidou-se como metrópole regional e polo universitário, concentrando população e serviços. <a href="./paginas/historia/joao-goulart-sao-borja.html">João Goulart</a>, natural de São Borja, projetou o RS na política nacional como presidente da República (1961–1964), até ser deposto pelo golpe civil-militar de 1964.</p>
+
+                <p>No plano cultural, a reação à urbanização e à padronização dos costumes motivou o surgimento do movimento tradicionalista. Em 1948, a fundação do Centro de Tradições Gaúchas — o 35 CTG, em Porto Alegre — iniciou a sistematização das práticas e indumentárias gaúchas, criando as bases institucionais que resultariam no Movimento Tradicionalista Gaúcho (MTG). Para Pesavento <span class="citacao">(<a href="#ref-pesavento-1982" title="Ver referência completa ao final da página">PESAVENTO, 1982, p. 117</a>)</span>, o tradicionalismo representou não um retorno ao passado, mas a reinvenção de uma identidade regional em resposta às transformações da modernidade.</p>
+            </section>
+
+            <!-- GRANDES PERÍODOS -->
+            <section class="aprofundamento-editorial" aria-labelledby="sec-periodos">
+                <h2 class="section-title" id="sec-periodos">Grandes Períodos em Síntese</h2>
                 <ul>
-                    <li><strong>Nações dos Pampas (Charruas e Minuanos):</strong> Povos caçadores-coletores e guerreiros que habitavam a metade sul do estado e os pampas do Uruguai. Viviam da caça do guanaco e da ema. Foram eles que inventaram a <em>boleadeira</em>, a arma que mais tarde seria imortalizada pelos gaúchos. O tema é aprofundado em <a href="./paginas/sociedade/povos-originarios.html">Povos Originários do RS</a>.</li>
-                    <li><strong>As Nações Guarani e Kaingang:</strong> Habitavam as áreas de matas (norte, noroeste). Eram agricultores que dominavam o plantio da mandioca, o consumo místico e estimulante da erva-mate (o berço do <a href="./paginas/gastronomia/chimarrao.html">chimarrão</a>) e viviam em comunidades mais fixas ("Tavas").</li>
+                    <li><strong>Pré-história e povos originários (até séc. XVI):</strong> Guaranis, Kaingang, Charruas, Minuanos e outros grupos ocupam o território por milênios antes da colonização europeia.</li>
+                    <li><strong>Período colonial e missões (sécs. XVII–XVIII):</strong> Reduções jesuíticas, disputa luso-espanhola, Tratado de Madrid, Guerra Guaranítica, colonização açoriana e formação das estâncias.</li>
+                    <li><strong>Século XIX:</strong> Charqueadas, escravidão, tropeirismo, Revolução Farroupilha (1835–1845), Guerra do Paraguai (1864–1870) e início da imigração europeia.</li>
+                    <li><strong>Primeira República (1889–1930):</strong> Constituição positivista, Revolução Federalista, hegemonia do PRR e ascensão de Getúlio Vargas.</li>
+                    <li><strong>Século XX (1930–1985):</strong> Era Vargas, industrialização, governo Goulart, ditadura militar e resistência política.</li>
+                    <li><strong>Contemporâneo (1985–hoje):</strong> Redemocratização, expansão universitária, economia diversificada, debate sobre patrimônio, diversidade cultural e meio ambiente.</li>
                 </ul>
             </section>
 
-            <section id="colonizacao-e-missoes">
-                <h2 class="section-title">O Início da Ocupação e os Padres Jesuítas</h2>
-                <p>No século XVII, enquanto os portugueses estavam focados no ciclo do ouro em Minas Gerais e na cana no Nordeste, os missionários jesuítas da coroa espanhola fundaram povoados no Rio Grande do Sul conhecidos como Reduções ou Missões para catequizar os Guaranis livre da ação dos cruéis caçadores de escravos paulistas (os Bandeirantes).</p>
-                <p>Os jesuítas trouxeram grandes cabeças de gado. Quando esses padres foram expulsos sob acusações pesadas das Coroas nas famosas Guerras Guaraníticas, eles deixaram para trás um rebanho gigantesco que se multiplicou solto nas planícies do sul — criando as chamadas "vacarias", a fonte infinita de couro e carne que atrairia o gaúcho autônomo e o explorador português séculos mais tarde.</p>
-                <p><em>(Saiba mais na nossa página exclusiva sobre as <a href="./paginas/historia/missoes-jesuiticas.html">Missões Jesuíticas</a>).</em></p>
+            <!-- NAVEGAÇÃO POR SUBPÁGINAS -->
+            <section class="aprofundamento-editorial" aria-labelledby="sec-aprofundamento">
+                <h2 class="section-title" id="sec-aprofundamento">Aprofunde por Tema</h2>
+                <div class="button-grid">
+                    <a href="./paginas/historia/origens-povo-gaucho.html" class="card-btn"><div class="card-btn-icon">🌿</div><span>Origens do Povo Gaúcho</span></a>
+                    <a href="./paginas/historia/missoes-jesuiticas.html" class="card-btn"><div class="card-btn-icon">⛪</div><span>Missões Jesuíticas</span></a>
+                    <a href="./paginas/historia/cultura-missioneira.html" class="card-btn"><div class="card-btn-icon">🎨</div><span>Cultura Missioneira</span></a>
+                    <a href="./paginas/historia/sepe-tiaraju.html" class="card-btn"><div class="card-btn-icon">🏹</div><span>Sepé Tiaraju</span></a>
+                    <a href="./paginas/historia/tropeirismo.html" class="card-btn"><div class="card-btn-icon">🐎</div><span>Tropeirismo</span></a>
+                    <a href="./paginas/historia/charqueadas-pelotas.html" class="card-btn"><div class="card-btn-icon">🥩</div><span>Charqueadas de Pelotas</span></a>
+                    <a href="./paginas/historia/revolucao-farroupilha.html" class="card-btn"><div class="card-btn-icon">📜</div><span>Revolução Farroupilha</span></a>
+                    <a href="./paginas/historia/lanceiros-negros.html" class="card-btn"><div class="card-btn-icon">⚔️</div><span>Lanceiros Negros</span></a>
+                    <a href="./paginas/historia/imigracao.html" class="card-btn"><div class="card-btn-icon">🚢</div><span>Imigração Europeia</span></a>
+                    <a href="./paginas/historia/maragatos-chimangos.html" class="card-btn"><div class="card-btn-icon">🧣</div><span>Maragatos e Chimangos</span></a>
+                    <a href="./paginas/historia/getulio-vargas-rs.html" class="card-btn"><div class="card-btn-icon">🏛️</div><span>Getúlio Vargas e o RS</span></a>
+                    <a href="./paginas/historia/joao-goulart-sao-borja.html" class="card-btn"><div class="card-btn-icon">🗳️</div><span>João Goulart</span></a>
+                    <a href="./paginas/historia/ciclo-erva-mate.html" class="card-btn"><div class="card-btn-icon">🧉</div><span>Ciclo da Erva-Mate</span></a>
+                    <a href="./paginas/historia/positivismo-gaucho.html" class="card-btn"><div class="card-btn-icon">⚖️</div><span>Positivismo Gaúcho</span></a>
+                    <a href="./paginas/historia/rs-ditadura-militar.html" class="card-btn"><div class="card-btn-icon">🔒</div><span>RS na Ditadura Militar</span></a>
+                    <a href="./paginas/historia/industrializacao-rs.html" class="card-btn"><div class="card-btn-icon">🏭</div><span>Industrialização do RS</span></a>
+                    <a href="./paginas/historia/movimentos-sociais-rs.html" class="card-btn"><div class="card-btn-icon">✊</div><span>Movimentos Sociais no RS</span></a>
+                    <a href="./paginas/historia/batalhas-farroupilhas.html" class="card-btn"><div class="card-btn-icon">⚔️</div><span>Batalhas Farroupilhas</span></a>
+                </div>
             </section>
 
-            <section id="bandeirantes-e-acorias">
-                <h2 class="section-title">O Continente de São Pedro e os Açorianos</h2>
-                <p>Para garantir fisicamente que aquela extremidade do mapa fosse portuguesa (já que o Tratado de Tordesilhas era frequentemente desrespeitado), Portugal fez duas coisas fundamentais no século XVIII:</p>
-                <ol>
-                    <li>A fundação do primeiro forte militar oficial em 1737 por parte de Silva Paes, na atual cidade de <strong>Rio Grande</strong>.</li>
-                    <li>Um subsídio massivo trazendo dezenas de casais famintos da <strong>Ilha dos Açores</strong>, colonos insulares do Atlântico que vieram com promessas de terras. Eles fundaram as raízes civis do estado como Porto dos Casais (atual Porto Alegre), Rio Pardo, Santo Amaro, etc.</li>
-                </ol>
-                <p>Esses casais açorianos lidavam com agricultura de subsistência e sofreram ataques constantes dos espanhóis platino-orientais. Quem salvava as terras eram as milícias brutas baseadas nas Estâncias de couro, os Senhores da Guerra (Estancieiros) com as suas leis próprias.</p>
-            </section>
-
-            <section id="formacao-e-tratados">
-                <h2 class="section-title">A Definição de Fronteiras a Fio de Espada</h2>
-                <p>O Brasil colonial temia que a Espanha tomasse o sul inteiro. A região passava constantemente por mãos espanholas (a invasão de Rio Grande, a Guerra de Restauração). O limite foi acordado e quebrado através de sangue em diversos papéis falhos, notavelmente o <strong>Tratado de Madrid (1750)</strong> e de Santo Ildefonso (1777).</p>
-                <p>Sobral e Alexandre de Gusmão ajudaram a aplicar o princípio romano do <em>Utti Possidetis</em> ("Quem ocupa a terra tem o direito sobre ela"). Isso forçou os paulistas e gaúchos a montar bases avançadas o mais ao sul e oeste possível, empurrando as fronteiras do Brasil muito além do que deveriam ser.</p>
-            </section>
-
-            <section id="guerra-dos-farrapos">
-                <h2 class="section-title">Do Charque ao Sangue: A Revolução Farroupilha</h2>
-                <p>Com o império cobrando altíssimas taxas na única riqueza da província — o Charque (carne de sol salgada vital para alimentar o país inteiro) —, as elites gaúchas, cansadas de morrer pelas fronteiras sem representatividade, decidiram se separar e fundar um novo país.</p>
-                <p>De 1835 a 1845, ocorreu a sangrenta, complexa e romantizada Guerra dos Farrapos. A República Rio-Grandense existiu como nação isolada e soberana através de atos revolucionários e acordos de cavalheiros, recheada das histórias mais espetaculares das Américas. Para salvar o Brasil da completa desfragmentação antes que Dom Pedro II subisse ao trono, a revolta só terminou com uma anistia luxuosa (Paz de Ponche Verde).</p>
-                <p><em>(Saiba mais na nossa página exclusiva sobre a <a href="./paginas/historia/revolucao-farroupilha.html">Revolução Farroupilha</a>).</em></p>
-            </section>
-
-            <section id="imigracao">
-                <h2 class="section-title">O Avanço nas Matas e a Grande Imigração Europeia</h2>
-                <p>No século XIX as planícies secas e ricas em capim (o Pampa) já eram integralmente dominadas pelas famosas "Estâncias", latifúndios geridos pelos donos do gado. Porém a região Norte e Serrana era tomada de florestas úmidas de Mata Atlântica e araucária, infestada de índios não subjugados.</p>
-                <p>O Império iniciou o projeto de imigração colonizadora. Alemães em 1824 (Vale do Sinos) e depois Italianos em 1875 (Serra) receberam pequenos lotes de mata fechada. Sofreram horrores isolados na floresta selvagem do topo das montanhas, mas acabaram desenvolvendo uma malha de altíssima produtividade (uvas, ferramentas, cervejarias) criando o polo industrial brutal que sustenta a serra do Rio Grande do Sul até hoje e mantendo os seus próprios dialetos inalterados.</p>
-                <p><em>(Saiba mais na nossa página exclusiva sobre a <a href="./paginas/historia/imigracao.html">Imigração</a>).</em></p>
-            </section>
-
-            <section id="sec-xx-castilhismo">
-                <h2 class="section-title">Sangue na República: O Castilhismo e Getúlio Vargas</h2>
-                <p>Terminado o século XIX, enquanto a República era declarada no Brasil de forma burocrática, no RS os caudilhos pegaram em armas para degolar uns aos outros.</p>
-                <p>Nascem os <strong>Chimangos</strong> de Júlio de Castilhos (lenço branco, com a ideia de uma ditadura do Estado forte com viés positivista) batalhando nas trincheiras contra os <strong>Maragatos</strong> de Gaspar da Silveira Martins (lenço vermelho, federalistas, contra o governo central forte). Foi uma das carnificinas ideológicas mais infames da história brasileira (1893).</p>
-                <p>Desse moedor de carne ideológico gaúcho surgiu o jovem <a href="./paginas/personalidades/personalidades-gauchas.html#getulio-vargas"><strong>Getúlio Vargas</strong></a>. Com uma malícia de unir ambos os lados de pacificação e do lenço, Vargas subiu de governador para a capital fluminense através da Revolução de 1930, amarrando cavalos no obelisco do Rio de Janeiro, governando toda a nação brasileira através do estilo forjado de comando do sul.</p>
-                <p><em>(Saiba mais na nossa página exclusiva <a href="./paginas/historia/maragatos-chimangos.html">Maragatos vs Chimangos</a>).</em></p>
-            </section>
-
-            <section id="atualidade">
-                <h2 class="section-title">O Estado Moderno e o Culto à Tradição</h2>
-                <p>O século XX consolidou a modernidade metropolitana de Porto Alegre, puxando grande parte do Produto Interno Bruto e agricultura do país. No entanto, perante o forte avanço da "cultura ianque/estadunidense" pós-guerra na década de 1940 e a desnaturação da honra do gaúcho velho que havia migrado para a cidade e usava ternos curtos ingleses.</p>
-                <p>Foi <a href="./paginas/personalidades/personalidades-gauchas.html#paixao-cortes">Paixão Côrtes</a> quem sentiu a urgência e montou associações artísticas fundando o primeiro <strong>CTG (Centro de Tradições Gaúchas) - 35</strong> em 1948. Eles escreveram os estatutos do tradicionalismo para blindar o mito, a estética do poncho, da bombacha, as memórias do gaúcho charqueador, não para retornar ao passado sangrento, mas para preservá-lo como um modo folclórico digno e belo que hoje define todos nós e que espalhou sua embaixada por dezenas de países e por toda a terra.</p>
-            </section>
-
-            <section class="aprofundamento-editorial"><h2 class="section-title">Como Ler a História Gaúcha</h2><p>A história do Rio Grande do Sul não cabe em uma única narrativa heroica. Ela envolve povos originários, fronteiras móveis, missões, estâncias, <a href="./paginas/economia/pecuaria-rs.html">pecuária</a>, <a href="./paginas/historia/tropeirismo.html">tropeirismo</a>, escravidão, imigração, guerras civis, urbanização, industrialização e disputas de memória. Para estudar o tema, vale cruzar processos políticos com vida cotidiana, território e cultura material.</p></section>
-            <section class="aprofundamento-editorial"><h2 class="section-title">Grandes Períodos</h2><ul><li><strong>Antes da colonização europeia:</strong> presença Guarani, Kaingang, Charrua, Minuano e outros povos.</li><li><strong>Séculos XVII e XVIII:</strong> missões, disputas luso-espanholas, tropeirismo e formação das estâncias.</li><li><strong>Século XIX:</strong> charqueadas, escravidão, Revolução Farroupilha, Guerra do Paraguai, imigração e conflitos republicanos.</li><li><strong>Século XX:</strong> urbanização, política nacional, tradicionalismo organizado, industrialização e expansão universitária.</li><li><strong>Século XXI:</strong> economia diversificada, cultura digital, debates sobre patrimônio, diversidade e meio ambiente.</li></ul></section>
-            <section class="aprofundamento-editorial"><h2 class="section-title">Caminhos de Aprofundamento</h2><div class="button-grid"><a href="./paginas/sociedade/povos-originarios.html" class="card-btn"><div class="card-btn-icon">🌿</div><span>Povos Originários</span></a><a href="./paginas/historia/missoes-jesuiticas.html" class="card-btn"><div class="card-btn-icon">⛪</div><span>Missões Jesuíticas</span></a><a href="./paginas/historia/tropeirismo.html" class="card-btn"><div class="card-btn-icon">🐎</div><span>Tropeirismo</span></a><a href="./paginas/economia/pecuaria-rs.html" class="card-btn"><div class="card-btn-icon">🐂</div><span>Pecuária no RS</span></a><a href="./paginas/historia/revolucao-farroupilha.html" class="card-btn"><div class="card-btn-icon">📜</div><span>Revolução Farroupilha</span></a><a href="./paginas/historia/maragatos-chimangos.html" class="card-btn"><div class="card-btn-icon">⚔️</div><span>Maragatos e Chimangos</span></a><a href="./paginas/historia/imigracao.html" class="card-btn"><div class="card-btn-icon">🧳</div><span>Imigração</span></a><a href="./paginas/temas/linha-do-tempo.html" class="card-btn"><div class="card-btn-icon">🕰️</div><span>Linha do Tempo</span></a></div></section>
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="./index.html" class="btn">⬅️ Voltar à Página Inicial</a>
+            <div style="text-align: center; margin-top: 20px; margin-bottom: 50px;">
+                <a href="./index.html" class="btn">← Voltar à Página Inicial</a>
             </div>
 
-        </div>
-    </div>
+            <!-- REFERÊNCIAS -->
+            <section class="referencias" aria-labelledby="sec-referencias">
+                <h2 class="section-title" id="sec-referencias">Referências Bibliográficas</h2>
+
+                <ol class="lista-referencias">
+                    <li id="ref-becker-1976">
+                        BECKER, Ítala Irene Basile. <em>O índio kaingáng no Rio Grande do Sul</em>. São Leopoldo: Instituto Anchietano de Pesquisas, 1976. (Pesquisas — Série Antropologia, n. 29).
+                    </li>
+                    <li id="ref-flores-2003">
+                        FLORES, Moacyr. <em>História do Rio Grande do Sul</em>. 6. ed. Porto Alegre: Martins Livreiro, 2003.
+                    </li>
+                    <li id="ref-freitas-1985">
+                        FREITAS, Décio. <em>A Revolução Farroupilha</em>. São Paulo: Brasiliense, 1985.
+                    </li>
+                    <li id="ref-gertz-1991">
+                        GERTZ, René. <em>O perigo alemão</em>. Porto Alegre: Editora da UFRGS, 1991.
+                    </li>
+                    <li id="ref-golin-1999">
+                        GOLIN, Tau. <em>A guerra guaranítica: como os exércitos de Portugal e Espanha destruíram os Sete Povos dos jesuítas e índios guaranis no Rio Grande do Sul (1754–1756)</em>. 2. ed. Passo Fundo: EDIUPF; Porto Alegre: Editora da UFRGS, 1999.
+                    </li>
+                    <li id="ref-kern-1982">
+                        KERN, Arno Alvarez. <em>Missões: uma utopia política</em>. Porto Alegre: Mercado Aberto, 1982.
+                    </li>
+                    <li id="ref-kuhn-2002">
+                        KÜHN, Fábio. <em>Breve história do Rio Grande do Sul</em>. Porto Alegre: L&amp;PM, 2002.
+                    </li>
+                    <li id="ref-love-1975">
+                        LOVE, Joseph. <em>O Rio Grande do Sul e a política brasileira, 1882–1930</em>. Tradução de Gilson Soares Menezes. Rio de Janeiro: Paz e Terra, 1975.
+                    </li>
+                    <li id="ref-maestri-1984">
+                        MAESTRI, Mário. <em>O escravo gaúcho: resistência e trabalho</em>. Porto Alegre: Editora da UFRGS, 1984.
+                    </li>
+                    <li id="ref-osorio-2007">
+                        OSÓRIO, Helen. <em>O Império Português no Sul da América: estancieiros, lavradores e comerciantes</em>. Porto Alegre: Editora da UFRGS, 2007.
+                    </li>
+                    <li id="ref-padoin-2001">
+                        PADOIN, Maria Medianeira. <em>Federalismo gaúcho: fronteira platina, direito e revolução</em>. São Paulo: Nacional, 2001.
+                    </li>
+                    <li id="ref-pesavento-1982">
+                        PESAVENTO, Sandra Jatahy. <em>História do Rio Grande do Sul</em>. Porto Alegre: Mercado Aberto, 1982.
+                    </li>
+                    <li id="ref-piccolo-1998">
+                        PICCOLO, Helga Iracema Landgraf. <em>Vida política no século XIX: da Província de São Pedro do Rio Grande do Sul</em>. 2. ed. Porto Alegre: Editora da UFRGS, 1998.
+                    </li>
+                    <li id="ref-roche-1969">
+                        ROCHE, Jean. <em>A colonização alemã e o Rio Grande do Sul</em>. 2 vols. Tradução de Emery Ruas. Porto Alegre: Globo, 1969.
+                    </li>
+                </ol>
+            </section>
+
+        </div><!-- /.content-wrapper -->
+    </div><!-- /.container -->
 </main>
 
 <footer>
@@ -152,12 +283,14 @@
                 <li><a href="./culinaria.html">Gastronomia Típica</a></li>
                 <li><a href="./turismo.html">Turismo pelo Rio Grande</a></li>
                 <li><a href="./paginas/cultura/ctgs.html">Centros de Tradição (CTGs)</a></li>
-            <li><a href="./privacidade.html">Política de Privacidade</a></li></ul>
+                <li><a href="./mapa-do-site.html">Mapa do Site</a></li>
+                <li><a href="./privacidade.html">Política de Privacidade</a></li>
+            </ul>
         </div>
     </div>
     <div class="footer-bottom">
         <div class="container">
-            <p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados. Fomentando o tradicionalismo virtual. Código-fonte licenciado sob a <a href="./licenca.html">MIT License</a>. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>. Textos sob licença <a href="./licenca.html">CC BY-SA 4.0</a>.</p>
+            <p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados. Fomentando o tradicionalismo virtual. Código-fonte licenciado sob a <a href="./licenca.html">MIT License</a>. Textos sob licença <a href="./licenca.html">CC BY-SA 4.0</a>. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>.</p>
         </div>
     </div>
 </footer>

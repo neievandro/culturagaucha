@@ -10,13 +10,13 @@ node tools/audit-content-depth.js
 
 ## Resumo
 
-- Total de paginas de conteudo analisadas: `144`.
-- Media de palavras por pagina: `555`.
+- Total de paginas de conteudo analisadas: `155`.
+- Media de palavras por pagina: `553`.
 - Paginas classificadas como `rasa` (menos de 300 palavras): `3`.
-- Paginas classificadas como `media` (300 a 599 palavras): `122`.
+- Paginas classificadas como `media` (300 a 599 palavras): `133`.
 - Paginas classificadas como `aprofundada` (600 palavras ou mais): `19`.
 - Paginas sem secao `para-saber-mais` (sem fontes/referencias fechadas): `0`.
-- Paginas sem nenhum marcador `aprofundamento-editorial`: `90`.
+- Paginas sem nenhum marcador `aprofundamento-editorial`: `101`.
 
 ## Prioridade De Aprofundamento
 
@@ -33,17 +33,9 @@ Nenhuma pagina nessa condicao no momento desta auditoria.
 | `paginas/patrimonio/instituicoes-tradicionalistas.html` | Instituições da Cultura e do Tradicionalismo Gaúcho | 285 | 5 | rasa | sim | nao |
 | `paginas/musica-danca/origens-historicas-musica-gaucha.html` | Origens Históricas da Música Gaúcha | 314 | 5 | media | sim | nao |
 | `paginas/temas/cultura-urbana.html` | Cultura Urbana Gaúcha | 319 | 5 | media | sim | nao |
-| `paginas/personalidades/yamandu-costa.html` | Yamandu Costa | 333 | 7 | media | sim | nao |
-| `paginas/personalidades/gildo-de-freitas.html` | Gildo de Freitas | 336 | 7 | media | sim | nao |
-| `paginas/personalidades/teixeirinha.html` | Teixeirinha | 337 | 7 | media | sim | nao |
 | `paginas/territorio/diaspora-gaucha-para.html` | Diáspora Gaúcha no Pará | 337 | 4 | media | sim | nao |
 | `paginas/cultura/semana-farroupilha.html` | Semana Farroupilha | 338 | 4 | media | sim | sim |
-| `paginas/personalidades/elis-regina.html` | Elis Regina | 338 | 7 | media | sim | nao |
-| `paginas/personalidades/luiz-marenco.html` | Luiz Marenco | 338 | 7 | media | sim | nao |
 | `paginas/patrimonio/arquitetura-gaucha.html` | Arquitetura Gaúcha | 339 | 4 | media | sim | nao |
-| `paginas/personalidades/renato-borghetti.html` | Renato Borghetti | 339 | 7 | media | sim | nao |
-| `paginas/personalidades/jayme-caetano-braun.html` | Jayme Caetano Braun | 340 | 7 | media | sim | nao |
-| `paginas/personalidades/kleiton-kledir.html` | Kleiton & Kledir | 341 | 7 | media | sim | nao |
 | `paginas/literatura/simoes-lopes-neto.html` | João Simões Lopes Neto | 346 | 4 | media | sim | sim |
 | `paginas/sociedade/afro-gauchidade.html` | Afro-Gauchidade | 348 | 7 | media | sim | sim |
 | `paginas/simbolos/simbolos-gauchos.html` | Símbolos Gaúchos | 349 | 7 | media | sim | sim |
@@ -73,27 +65,31 @@ Nenhuma pagina nessa condicao no momento desta auditoria.
 | `paginas/midia/cinema-radio-tv.html` | Cinema, Rádio e Televisão no RS | 387 | 5 | media | sim | nao |
 | `paginas/cultura/festas.html` | Festas, Acampamentos e Rodeios | 388 | 5 | media | sim | nao |
 | `paginas/literatura/mario-quintana.html` | Mario Quintana | 388 | 4 | media | sim | nao |
-| `paginas/esporte/futebol-interior-gaucho.html` | Futebol Gaúcho do Interior | 391 | 5 | media | sim | sim |
 | `paginas/literatura/luis-fernando-verissimo.html` | Luis Fernando Verissimo | 392 | 5 | media | sim | sim |
 | `paginas/territorio/diaspora-gaucha-mato-grosso.html` | Diáspora Gaúcha em Mato Grosso | 392 | 4 | media | sim | nao |
 | `paginas/territorio/diaspora-gaucha-parana.html` | Diáspora Gaúcha no Paraná | 392 | 4 | media | sim | nao |
 | `paginas/contos/contos-gauchescos.html` | Contos Gauchescos | 393 | 8 | media | sim | sim |
 | `paginas/territorio/diaspora-gaucha-goias.html` | Diáspora Gaúcha em Goiás | 393 | 4 | media | sim | nao |
 | `paginas/midia/radio-gaucho.html` | Rádio Gaúcho | 394 | 5 | media | sim | sim |
+| `paginas/personalidades/renato-borghetti.html` | Renato Borghetti | 395 | 7 | media | sim | nao |
 | `paginas/musica-danca/chamame.html` | Chamamé | 396 | 8 | media | sim | sim |
 | `paginas/territorio/diaspora-gaucha-mato-grosso-do-sul.html` | Diáspora Gaúcha em Mato Grosso do Sul | 396 | 4 | media | sim | nao |
-| `paginas/cultura/cavalo-crioulo.html` | Cavalo Crioulo | 398 | 7 | media | sim | sim |
 | `paginas/gastronomia/cafe-colonial.html` | Café Colonial | 398 | 5 | media | sim | sim |
+| `paginas/cultura/cavalo-crioulo.html` | Cavalo Crioulo | 399 | 7 | media | sim | sim |
 | `paginas/cultura/pilcha-gaucha.html` | Pilcha Gaúcha | 399 | 5 | media | sim | sim |
 | `paginas/patrimonio/casa-estancia.html` | Casa de Estância | 399 | 5 | media | sim | sim |
+| `paginas/personalidades/yamandu-costa.html` | Yamandu Costa | 401 | 7 | media | sim | nao |
 | `paginas/musica-danca/pajada-trova.html` | Pajada e Trova | 405 | 6 | media | sim | nao |
 | `paginas/cultura/bombacha-lenco-guaiaca.html` | Bombacha, Lenço e Guaiaca | 407 | 5 | media | sim | nao |
 | `paginas/municipios/rio-grande.html` | Rio Grande | 408 | 9 | media | sim | nao |
 | `paginas/territorio/diaspora-gaucha-rondonia.html` | Diáspora Gaúcha em Rondônia | 409 | 4 | media | sim | nao |
 | `paginas/cultura/estancias-gauchas.html` | Estâncias Gaúchas | 410 | 5 | media | sim | sim |
+| `paginas/esporte/gremio.html` | Grêmio Foot-Ball Porto Alegrense | 410 | 6 | media | sim | nao |
 | `paginas/sociedade/cultura-indigena-contemporanea.html` | Cultura Indígena Contemporânea no RS | 411 | 5 | media | sim | sim |
+| `paginas/esporte/internacional.html` | Sport Club Internacional | 412 | 6 | media | sim | nao |
 | `paginas/municipios/sao-miguel-das-missoes.html` | São Miguel das Missões | 413 | 9 | media | sim | nao |
 | `paginas/patrimonio/arquitetura-enxaimel-rs.html` | Arquitetura Enxaimel no RS | 414 | 5 | media | sim | sim |
+| `paginas/personalidades/gildo-de-freitas.html` | Gildo de Freitas | 415 | 7 | media | sim | nao |
 | `paginas/simbolos/brasao-rio-grandense.html` | Brasão do Rio Grande do Sul | 415 | 5 | media | sim | sim |
 | `paginas/historia/joao-goulart-sao-borja.html` | João Goulart e São Borja | 416 | 4 | media | sim | nao |
 | `paginas/gastronomia/doce-pelotas.html` | Doce de Pelotas | 418 | 4 | media | sim | nao |
@@ -106,19 +102,26 @@ Nenhuma pagina nessa condicao no momento desta auditoria.
 | `paginas/musica-danca/gaita-ponto.html` | Gaita-Ponto | 430 | 9 | media | sim | nao |
 | `paginas/municipios/bento-goncalves.html` | Bento Gonçalves | 431 | 10 | media | sim | nao |
 | `paginas/sociedade/mulheres-gauchas.html` | Mulheres na História Gaúcha | 431 | 5 | media | sim | sim |
+| `paginas/personalidades/kleiton-kledir.html` | Kleiton & Kledir | 433 | 7 | media | sim | nao |
 | `paginas/linguagem/linguagem-regional.html` | Linguagem e Variações Regionais | 434 | 5 | media | sim | nao |
 | `paginas/meio-ambiente/araucaria-pinhao.html` | Araucária e Pinhão | 434 | 4 | media | sim | nao |
+| `paginas/esporte/jogos-tradicionais-gauchos.html` | Jogos Tradicionais Gaúchos | 435 | 5 | media | sim | nao |
 | `paginas/municipios/santa-maria.html` | Santa Maria | 435 | 10 | media | sim | nao |
 | `paginas/linguagem/expressoes-gauchescas.html` | Expressões Gauchescas | 436 | 5 | media | sim | nao |
 | `paginas/patrimonio/fontes-bibliografia.html` | Fontes e Bibliografia | 436 | 7 | media | sim | nao |
 | `paginas/patrimonio/ruinas-sao-miguel-arcanjo.html` | Ruínas de São Miguel Arcanjo | 436 | 5 | media | sim | nao |
 | `paginas/municipios/bage.html` | Bagé | 437 | 10 | media | sim | nao |
+| `paginas/personalidades/luiz-marenco.html` | Luiz Marenco | 437 | 7 | media | sim | nao |
 | `paginas/territorio/regioes-culturais-rs.html` | Regiões Culturais do RS | 437 | 5 | media | sim | nao |
+| `paginas/esporte/atletas-gauchos-destaque.html` | Atletas Gaúchos de Destaque | 438 | 6 | media | sim | nao |
 | `paginas/historia/getulio-vargas-rs.html` | Getúlio Vargas e o RS | 438 | 4 | media | sim | nao |
 | `paginas/musica-danca/chamarrita.html` | Chamarrita | 439 | 8 | media | sim | nao |
+| `paginas/personalidades/elis-regina.html` | Elis Regina | 440 | 7 | media | sim | nao |
 | `paginas/municipios/uruguaiana.html` | Uruguaiana | 441 | 10 | media | sim | nao |
 | `paginas/musica-danca/evolucao-musica.html` | Evolução da Música do Rio Grande do Sul | 442 | 8 | media | sim | nao |
 | `paginas/economia/economia-contemporanea.html` | Economia Contemporânea do RS | 443 | 6 | media | sim | nao |
+| `paginas/esporte/gre-nal.html` | Gre-Nal | 444 | 5 | media | sim | nao |
+| `paginas/esporte/futebol-gaucho.html` | Futebol Gaúcho | 445 | 6 | media | sim | nao |
 | `paginas/municipios/sao-borja.html` | São Borja | 445 | 10 | media | sim | nao |
 | `paginas/meio-ambiente/meio-ambiente-pampas.html` | Meio Ambiente e Pampas | 448 | 5 | media | sim | sim |
 | `paginas/musica-danca/vaneira.html` | Vaneira | 448 | 8 | media | sim | nao |
@@ -128,21 +131,29 @@ Nenhuma pagina nessa condicao no momento desta auditoria.
 | `paginas/municipios/caxias-do-sul.html` | Caxias do Sul | 455 | 10 | media | sim | nao |
 | `paginas/historia/maragatos-chimangos.html` | Maragatos e Chimangos | 458 | 6 | media | sim | nao |
 | `paginas/gastronomia/entrevero-pinhao.html` | Entrevero de Pinhão | 459 | 4 | media | sim | nao |
+| `paginas/personalidades/jayme-caetano-braun.html` | Jayme Caetano Braun | 459 | 7 | media | sim | nao |
 | `paginas/municipios/pelotas.html` | Pelotas | 460 | 10 | media | sim | nao |
 | `paginas/musica-danca/musica.html` | Música e Danças Tradicionais | 460 | 8 | media | sim | sim |
+| `paginas/personalidades/julio-de-castilhos.html` | Júlio de Castilhos | 461 | 6 | media | sim | nao |
+| `paginas/personalidades/teixeirinha.html` | Teixeirinha | 466 | 7 | media | sim | nao |
 | `paginas/gastronomia/pinhao.html` | Pinhão | 469 | 8 | media | sim | nao |
 | `paginas/historia/charqueadas-pelotas.html` | Charqueadas de Pelotas | 470 | 5 | media | sim | sim |
 | `paginas/economia/cooperativismo-gaucho.html` | Cooperativismo Gaúcho | 472 | 6 | media | sim | nao |
 | `paginas/musica-danca/bugio.html` | Bugio | 475 | 9 | media | sim | nao |
+| `paginas/personalidades/anita-garibaldi.html` | Anita Garibaldi | 480 | 6 | media | sim | nao |
 | `paginas/gastronomia/sagu-vinho.html` | Sagu com Vinho | 481 | 7 | media | sim | nao |
 | `paginas/gastronomia/matambre-recheado.html` | Matambre Recheado | 482 | 8 | media | sim | nao |
+| `paginas/personalidades/paixao-cortes.html` | Paixão Côrtes | 487 | 6 | media | sim | nao |
 | `paginas/musica-danca/pezinho.html` | Pezinho | 488 | 9 | media | sim | nao |
+| `paginas/personalidades/barao-de-maua.html` | Barão de Mauá | 489 | 6 | media | sim | nao |
 | `paginas/gastronomia/cuca-gaucha.html` | Cuca Gaúcha | 490 | 8 | media | sim | nao |
+| `paginas/personalidades/bento-goncalves.html` | Bento Gonçalves da Silva | 493 | 6 | media | sim | nao |
 | `paginas/gastronomia/erva-mate.html` | Erva-Mate | 497 | 4 | media | sim | nao |
-| `paginas/esporte/esportes-jogos-tradicionais.html` | Esporte Gaúcho | 500 | 7 | media | sim | nao |
 | `paginas/gastronomia/galeto-polenta.html` | Galeto, Polenta e Massa | 500 | 8 | media | sim | nao |
 | `paginas/meio-ambiente/enchentes-reconstrucao.html` | Enchentes e Reconstrução no RS | 503 | 5 | media | sim | nao |
+| `paginas/esporte/futebol-interior-gaucho.html` | Futebol Gaúcho do Interior | 509 | 6 | media | sim | sim |
 | `paginas/musica-danca/milonga.html` | Milonga | 509 | 9 | media | sim | sim |
+| `paginas/esporte/esporte-gaucho.html` | Esporte Gaúcho | 511 | 7 | media | sim | nao |
 | `paginas/historia/sepe-tiaraju.html` | Sepé Tiaraju | 516 | 4 | media | sim | nao |
 | `paginas/historia/imigracao.html` | A Grande Imigração | 522 | 5 | media | sim | sim |
 | `paginas/musica-danca/musica-nativista.html` | Música Nativista | 535 | 8 | media | sim | nao |
@@ -153,16 +164,16 @@ Nenhuma pagina nessa condicao no momento desta auditoria.
 | `paginas/historia/revolucao-farroupilha.html` | Revolução Farroupilha | 569 | 6 | media | sim | nao |
 | `paginas/gastronomia/chimarrao.html` | O Ritual do Chimarrão | 575 | 6 | media | sim | sim |
 | `paginas/gastronomia/arroz-carreteiro.html` | Arroz de Carreteiro | 586 | 9 | media | sim | sim |
-| `paginas/cultura/lida-campeira.html` | A Lida Campeira e o Cavalo | 634 | 8 | aprofundada | sim | sim |
+| `paginas/cultura/lida-campeira.html` | A Lida Campeira e o Cavalo | 632 | 8 | aprofundada | sim | sim |
 | `paginas/historia/origens-povo-gaucho.html` | Origens do Povo Gaúcho | 651 | 8 | aprofundada | sim | sim |
 | `paginas/economia/economia.html` | Economia do Rio Grande do Sul | 658 | 7 | aprofundada | sim | nao |
 | `paginas/territorio/geografia.html` | Geografia e Paisagens do Rio Grande do Sul | 736 | 8 | aprofundada | sim | sim |
 | `paginas/cultura/tradicoes-orais.html` | Tradições Orais do Rio Grande do Sul | 740 | 8 | aprofundada | sim | nao |
 | `paginas/cultura/ctgs.html` | CTGs - Centros de Tradição Gaúcha | 770 | 8 | aprofundada | sim | sim |
-| `paginas/personalidades/personalidades-gauchas.html` | Personalidades Gaúchas | 904 | 10 | aprofundada | sim | nao |
 | `paginas/literatura/literatura.html` | A Literatura | 930 | 13 | aprofundada | sim | sim |
 | `paginas/historia/tropeirismo.html` | Tropeirismo | 934 | 9 | aprofundada | sim | sim |
 | `paginas/economia/pecuaria-rs.html` | Pecuária no Rio Grande do Sul | 936 | 8 | aprofundada | sim | sim |
+| `paginas/personalidades/personalidades-gauchas.html` | Personalidades Gaúchas | 949 | 10 | aprofundada | sim | nao |
 | `paginas/territorio/diaspora-gaucha.html` | Diáspora Gaúcha pelo Brasil | 1375 | 12 | aprofundada | sim | sim |
 | `paginas/cultura/lendas.html` | Lendas e Mitos do Rio Grande do Sul | 1512 | 7 | aprofundada | sim | nao |
 | `paginas/contos/conto-jogo-do-osso.html` | Jogo do Osso | 1555 | 3 | aprofundada | sim | nao |

@@ -2,8 +2,8 @@ TAXONOMIA DE PAGINAS - CULTURA GAUCHA
 Gerado automaticamente por tools/gerar-taxonomia-paginas.js em 2026-07-14.
 Para atualizar apos criar, remover ou renomear paginas, rode: node tools/gerar-taxonomia-paginas.js
 
-Total de arquivos HTML: 159
-Paginas publicas (no sitemap.xml): 157
+Total de arquivos HTML: 170
+Paginas publicas (no sitemap.xml): 168
 Paginas tecnicas (fora do sitemap): 2
 
 ======================================================================
@@ -38,7 +38,7 @@ TECNICA - fora do sitemap (2)
   template.html  —  Cultura Gaúcha
 
 ======================================================================
-CONTEUDO (144 paginas em 18 categorias)
+CONTEUDO (155 paginas em 18 categorias)
 ======================================================================
 
 --- paginas/contos (7) ---
@@ -76,9 +76,15 @@ CONTEUDO (144 paginas em 18 categorias)
   paginas/economia/tecnologia-cultura.html  —  Tecnologia Aplicada à Cultura
   paginas/economia/universidades-cultura.html  —  Universidades e Cultura no RS
 
---- paginas/esporte (2) ---
-  paginas/esporte/esportes-jogos-tradicionais.html  —  Esporte Gaúcho
+--- paginas/esporte (8) ---
+  paginas/esporte/atletas-gauchos-destaque.html  —  Atletas Gaúchos de Destaque
+  paginas/esporte/esporte-gaucho.html  —  Esporte Gaúcho
+  paginas/esporte/futebol-gaucho.html  —  Futebol Gaúcho
   paginas/esporte/futebol-interior-gaucho.html  —  Futebol Gaúcho do Interior
+  paginas/esporte/gre-nal.html  —  Gre-Nal
+  paginas/esporte/gremio.html  —  Grêmio Foot-Ball Porto Alegrense
+  paginas/esporte/internacional.html  —  Sport Club Internacional
+  paginas/esporte/jogos-tradicionais-gauchos.html  —  Jogos Tradicionais Gaúchos
 
 --- paginas/gastronomia (16) ---
   paginas/gastronomia/ambrosia.html  —  Ambrosia
@@ -179,12 +185,17 @@ CONTEUDO (144 paginas em 18 categorias)
   paginas/patrimonio/instituicoes-tradicionalistas.html  —  Instituições da Cultura e do Tradicionalismo Gaúcho
   paginas/patrimonio/ruinas-sao-miguel-arcanjo.html  —  Ruínas de São Miguel Arcanjo
 
---- paginas/personalidades (9) ---
+--- paginas/personalidades (14) ---
+  paginas/personalidades/anita-garibaldi.html  —  Anita Garibaldi
+  paginas/personalidades/barao-de-maua.html  —  Barão de Mauá
+  paginas/personalidades/bento-goncalves.html  —  Bento Gonçalves da Silva
   paginas/personalidades/elis-regina.html  —  Elis Regina
   paginas/personalidades/gildo-de-freitas.html  —  Gildo de Freitas
   paginas/personalidades/jayme-caetano-braun.html  —  Jayme Caetano Braun
+  paginas/personalidades/julio-de-castilhos.html  —  Júlio de Castilhos
   paginas/personalidades/kleiton-kledir.html  —  Kleiton & Kledir
   paginas/personalidades/luiz-marenco.html  —  Luiz Marenco
+  paginas/personalidades/paixao-cortes.html  —  Paixão Côrtes
   paginas/personalidades/personalidades-gauchas.html  —  Personalidades Gaúchas
   paginas/personalidades/renato-borghetti.html  —  Renato Borghetti
   paginas/personalidades/teixeirinha.html  —  Teixeirinha

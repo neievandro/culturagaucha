@@ -192,8 +192,8 @@ nav.main-nav .nav-wrapper {
 /* --- HERO BANNER --- */
 .hero {
     position: relative;
-    height: 60vh;
-    min-height: 400px;
+    height: 29vh;
+    min-height: 192px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,7 +204,7 @@ nav.main-nav .nav-wrapper {
     background-position: center;
     background-attachment: fixed;
     color: var(--bg-white);
-    margin-bottom: 60px;
+    margin-bottom: 36px;
     border-bottom: 8px solid var(--rs-red);
 }
 
@@ -216,18 +216,18 @@ nav.main-nav .nav-wrapper {
 
 .hero h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
+    font-size: 1.85rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     line-height: 1.2;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
     font-weight: 300;
     opacity: 0.95;
-    margin-bottom: 30px;
+    margin-bottom: 14px;
     color: var(--bg-white);
 }
 
@@ -940,6 +940,119 @@ p a:hover, li a:not(.card-btn):not(.btn):hover {
     }
 }
 
+/* --- ARTIGOS ACADÊMICOS (citações, referências, breadcrumb, figura) --- */
+
+.breadcrumb {
+    margin-bottom: 28px;
+}
+
+.breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.breadcrumb ol li::before {
+    display: none;
+}
+
+.breadcrumb ol li {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.breadcrumb ol li + li::before {
+    content: '›';
+    margin-right: 8px;
+    color: var(--text-muted);
+    display: inline;
+}
+
+.breadcrumb ol li a {
+    color: var(--rs-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb ol li a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb ol li[aria-current="page"] {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.citacao {
+    font-size: 0.9em;
+    color: var(--rs-green);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.citacao a {
+    color: var(--rs-green) !important;
+    border-bottom: 1px dashed var(--rs-green) !important;
+    font-weight: 500;
+}
+
+.citacao a:hover {
+    border-bottom-style: solid !important;
+}
+
+section.referencias {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 2px solid var(--border-color);
+}
+
+.lista-referencias {
+    list-style: decimal;
+    padding-left: 24px;
+    margin-bottom: 0;
+}
+
+.lista-referencias li {
+    padding-left: 8px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+.lista-referencias li::before {
+    display: none;
+}
+
+.article-figure {
+    margin: 32px 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.article-figure img {
+    display: block;
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+}
+
+.article-figure figcaption {
+    padding: 12px 16px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    line-height: 1.5;
+}
+
 /* --- FOOTER --- */
 footer {
     background-color: #111a14;
@@ -1077,19 +1190,19 @@ footer {
     }
     
     .hero {
-        min-height: 360px;
+        min-height: 176px;
         height: auto;
-        padding: 70px 0;
+        padding: 34px 0;
         background-attachment: scroll;
         margin-bottom: 35px;
     }
 
     .hero h2 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
     .hero p {
-        font-size: 1.05rem;
+        font-size: 0.9rem;
     }
 
     .page-header {
