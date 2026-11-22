@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa da Revolução Federalista - Cultura Gaúcha</title>
+    <meta name="description" content="Mapa interativo da Revolução Federalista (1893–1895): batalhas no RS, rota de Gumercindo Saraiva por Santa Catarina e Paraná, cerco da Lapa e Paz de Pelotas.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link rel="icon" href="../../assets/img/favicon-mate.png" type="image/png">
+    <link rel="canonical" href="https://culturagaucha.com.br/paginas/temas/mapa-federalista.html">
+    <style>
+        #mapa-federalista { width:100%; height:580px; border-radius:8px; border:1px solid #d4c89a; margin-top:16px; }
+        @media (max-width:600px) { #mapa-federalista { height:380px; } }
+        .mapa-controles { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+        .mapa-legenda { display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; font-size:.88rem; }
+        .legenda-item { display:flex; align-items:center; gap:7px; }
+        .legenda-circulo { width:14px; height:14px; border-radius:50%; border:2px solid rgba(0,0,0,.3); flex-shrink:0; }
+        .legenda-linha { width:28px; height:3px; flex-shrink:0; }
+        .leaflet-popup-content strong { display:block; font-size:.98rem; margin-bottom:4px; }
+        .leaflet-popup-content .badge-fed { display:inline-block; font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:10px; margin-bottom:6px; text-transform:uppercase; letter-spacing:.03em; }
+        .badge-maragato  { background:#c0392b; color:#fff; }
+        .badge-governista{ background:#2471a3; color:#fff; }
+        .badge-massacre  { background:#1a252f; color:#fff; }
+        .badge-cerco     { background:#e67e22; color:#fff; }
+        .badge-capital   { background:#6c3483; color:#fff; }
+        .badge-paz       { background:#1e8449; color:#fff; }
+        .badge-morte     { background:#2c3e50; color:#fff; }
+        .badge-passagem  { background:#7f8c8d; color:#fff; }
+        .leaflet-popup-content p { margin:5px 0; font-size:.87rem; line-height:1.4; }
+        .mapa-total { font-size:.88rem; color:#666; margin-top:4px; }
+    </style>
+</head>
+<body>
+
+<header class="top-header"><div class="container"><span>A preservação da nossa história e tradição.</span><div><a href="https://www.cultura.rs.gov.br/" target="_blank" rel="noopener noreferrer">Secretaria da Cultura RS</a><a href="https://www.mtg.org.br/" target="_blank" rel="noopener noreferrer">MTG</a></div></div></header>
+<nav class="main-nav"><div class="container nav-wrapper"><a href="../../index.html" class="brand"><h1>Cultura <span>Gaúcha</span></h1></a><button class="menu-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">Menu</button><div class="nav-links" id="site-nav"><a href="../../index.html">Início</a><a href="../../historia.html" class="active">História</a><a href="../../cultura.html">Cultura</a><a href="../../culinaria.html">Gastronomia</a><a href="../../territorio.html">Território</a><a href="../../turismo.html">Turismo</a><a href="../../busca.html">Busca</a><a href="../../sobre-o-site.html">Sobre</a></div></div></nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>Revolução Federalista — Mapa</h1>
+        <p>Batalhas no Rio Grande do Sul, rota da Coluna Gumercindo por Santa Catarina e Paraná, cerco da Lapa e Paz de Pelotas (1893–1895).</p>
+    </div>
+</header>
+
+<main>
+<div class="container"><div class="content-wrapper">
+
+    <nav aria-label="Localização na estrutura do site" class="breadcrumb">
+        <ol><li><a href="../../index.html">Início</a></li><li><a href="../../historia.html">História</a></li><li aria-current="page">Mapa · Revolução Federalista</li></ol>
+    </nav>
+    <p class="revisao-editorial" data-revisao="1">Última revisão de conteúdo: 22/11/2026.</p>
+
+    <section>
+        <h2 class="section-title">Mapa interativo</h2>
+        <p>Clique nos marcadores para ver informações sobre cada episódio. A linha laranja traça a rota aproximada da Coluna Gumercindo Saraiva — a marcha que levou a revolução do RS ao Paraná.</p>
+        <div class="mapa-controles" role="group" aria-label="Filtros do mapa">
+            <button class="btn btn-small" type="button" id="f-todos">Todos</button>
+            <button class="btn btn-small btn-secondary" type="button" id="f-rs">Rio Grande do Sul</button>
+            <button class="btn btn-small btn-secondary" type="button" id="f-rota">Rota Gumercindo (SC/PR)</button>
+        </div>
+        <div id="mapa-federalista" role="application" aria-label="Mapa da Revolução Federalista"></div>
+        <div class="mapa-legenda">
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#c0392b;"></div><span>Vitória maragata</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#2471a3;"></div><span>Resistência governista</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#e67e22;"></div><span>Cerco / disputa prolongada</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#6c3483;"></div><span>Capital ameaçada</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#1a252f;"></div><span>Massacre / episódio grave</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#2c3e50;"></div><span>Morte de figura central</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#1e8449;"></div><span>Paz / tratado</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#7f8c8d;"></div><span>Passagem / base</span></div>
+            <div class="legenda-item"><div class="legenda-linha" style="border-top:3px solid #e67e22;"></div><span>Rota da Coluna Gumercindo (aprox.)</span></div>
+        </div>
+        <p class="mapa-total" id="mapa-total"></p>
+    </section>
+
+    <section>
+        <h2 class="section-title">A marcha que ameaçou Curitiba</h2>
+        <p>O episódio mais ousado da Revolução Federalista foi a marcha da Coluna Gumercindo — uma força de cavalaria leve que, em outubro de 1893, cruzou a fronteira do RS, atravessou o planalto catarinense, cercou Lapa no Paraná por 26 dias e chegou a poucos quilômetros de Curitiba. Em nenhum outro momento a revolução esteve tão perto de sacudir o governo federal.</p>
+        <p>A resistência de Lapa — onde o coronel Carneiro defendeu a cidade com 200 homens por quase um mês antes de morrer no posto — tornou-se símbolo republicano equivalente, no imaginário gaúcho e paranaense, ao que a defesa do Alamo representa na memória texana. A Lapa caiu em janeiro de 1894; Curitiba não foi alcançada; Gumercindo recuou. Em agosto de 1894, morreu em combate no Paraná. A revolução durou mais um ano sem ele, mas sem a ofensiva que o tornara temido.</p>
+    </section>
+
+    <div style="text-align:center; margin-top:36px;">
+        <a href="./linha-do-tempo-federalista.html" class="btn btn-secondary">Linha do Tempo do Conflito</a>
+        <a href="../historia/maragatos-chimangos.html" class="btn btn-secondary" style="margin-left:12px;">Artigo completo</a>
+        <a href="../../historia.html" class="btn" style="margin-left:12px;">História do RS</a>
+    </div>
+
+    <section class="para-saber-mais">
+        <h2 class="section-title">Para Saber Mais</h2>
+        <h3>Páginas relacionadas neste site</h3>
+        <ul>
+            <li><a href="./linha-do-tempo-federalista.html">Linha do Tempo — Revolução Federalista (1892–1923)</a></li>
+            <li><a href="../historia/maragatos-chimangos.html">Maragatos e Chimangos — artigo completo</a></li>
+            <li><a href="./mapa-batalhas-farroupilha.html">Mapa Interativo — Batalhas Farroupilhas</a></li>
+            <li><a href="../personalidades/julio-de-castilhos.html">Júlio de Castilhos</a></li>
+        </ul>
+        <h3>Artigos científicos</h3>
+        <ul>
+            <li><a href="https://scholar.google.com/scholar?q=Revolução+Federalista+Gumercindo+Saraiva+batalhas+RS" target="_blank" rel="noopener noreferrer">Busca no Google Scholar sobre Gumercindo Saraiva</a></li>
+        </ul>
+    </section>
+
+</div></div>
+</main>
+
+<footer><div class="container footer-content"><div class="footer-brand"><h2>Cultura <span>Gaúcha</span></h2><p>Um portal dedicado à preservação, pesquisa e divulgação da rica herança cultural do estado do Rio Grande do Sul.</p></div><div class="footer-links"><h4>Navegação Rápida</h4><ul><li><a href="../../historia.html">Nossa História</a></li><li><a href="../../mapa-do-site.html">Mapa do Site</a></li><li><a href="../patrimonio/fontes-bibliografia.html">Fontes</a></li><li><a href="../../privacidade.html">Política de Privacidade</a></li></ul></div></div><div class="footer-bottom"><div class="container"><p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Textos sob licença <a href="../../licenca.html">CC BY-SA 4.0</a>. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>.</p></div></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+    /* ── Episódios ───────────────────────────────────────────── */
+    var rs = [
+        { nome: 'Porto Alegre', lat: -30.034, lng: -51.218, tipo: 'capital', data: 'Set 1893',
+          desc: 'Capital gaúcha bombardeada por navios da Revolta da Armada aliados aos federalistas (set. 1893). A cidade não foi tomada; o governo de Castilhos resistiu. O bombardeio foi o momento de maior ameaça direta à capital.' },
+        { nome: 'Bagé', lat: -31.331, lng: -54.106, tipo: 'maragato', data: 'Mar 1893',
+          desc: 'Primeira grande cidade tomada pelos federalistas (mar. 1893). Base de operações maragata no sul gaúcho e símbolo da força dos federalistas na Campanha.' },
+        { nome: 'Santana do Livramento', lat: -30.890, lng: -55.512, tipo: 'passagem', data: '1893–1894',
+          desc: 'Base de operações federalista na zona de fronteira. A proximidade com o Uruguai facilitava abastecimento e refúgio de tropas maragatas ao longo da guerra.' },
+        { nome: 'Alegrete', lat: -29.783, lng: -55.792, tipo: 'passagem', data: '1893',
+          desc: 'Passagem estratégica de Gumercindo rumo ao norte. Cidade da Campanha com presença federalista e ponto de concentração de forças antes da marcha para Santa Catarina.' },
+        { nome: 'São Gabriel', lat: -30.336, lng: -54.320, tipo: 'passagem', data: '1893',
+          desc: 'Área de combates dispersos ao longo de toda a guerra. Centro da Campanha gaúcha, com disputas frequentes entre forças federalistas e governistas.' },
+        { nome: 'Boi Preto — Degola', lat: -28.400, lng: -52.100, tipo: 'massacre', data: 'Jul 1893',
+          desc: 'Local aproximado do massacre de prisioneiros governistas — a "Degola do Boi Preto" (jul. 1893). Um dos episódios mais sombrios do conflito, que aprofundou o ódio entre os lados e marcou a memória coletiva da revolução com uma brutalidade que a história gaúcha nunca esqueceu.' },
+        { nome: 'Pelotas', lat: -31.762, lng: -52.337, tipo: 'maragato', data: 'Jul 1893',
+          desc: 'Tomada pelos federalistas em jul. 1893, junto com Rio Grande. Com apoio naval da Revolta da Armada, as maiores cidades do sul gaúcho caíram brevemente sob controle maragato antes de serem retomadas.' },
+        { nome: 'Rio Grande', lat: -32.035, lng: -52.099, tipo: 'maragato', data: 'Jul 1893',
+          desc: 'Porto estratégico tomado pelos federalistas em 1893 com apoio naval da Revolta da Armada. A tomada de Rio Grande deu acesso ao mar e ao comércio de armas — vantagem que se perdeu com a derrota da Armada em 1894.' },
+        { nome: 'Cruz Alta', lat: -28.638, lng: -53.606, tipo: 'passagem', data: 'Out 1893',
+          desc: 'Passagem da coluna de Gumercindo rumo à fronteira com Santa Catarina, antes da grande marcha norte que levaria a revolução ao Paraná.' },
+        { nome: 'Pelotas — Paz de Pelotas', lat: -31.772, lng: -52.350, tipo: 'paz', data: '23 ago 1895',
+          desc: 'Local onde foi assinado o Tratado de Pelotas (23 ago. 1895), encerrando formalmente a Revolução Federalista. Os federalistas depõem armas; anistia parcial. Mais de 10.000 mortos em dois anos e meio — a maior tragédia da história republicana do RS.' },
+        { nome: 'Quaraí', lat: -30.390, lng: -56.444, tipo: 'passagem', data: '1893–1895',
+          desc: 'Ponto de passagem estratégico na fronteira com o Uruguai. Maragatos cruzavam entre os dois países para recrutar homens, buscar armas e se refugiar quando pressionados pelas forças governistas. A fronteira porosa era recurso que o governo federal não podia cortar sem provocar incidente diplomático com Montevidéu.' },
+        { nome: 'Jaguarão', lat: -32.564, lng: -53.374, tipo: 'passagem', data: '1893–1895',
+          desc: 'Fronteira sul com o Uruguai (Rio Branco do lado uruguaio), usada pelos federalistas para movimentação de tropas e suprimentos. Uma das passagens mais utilizadas pelos maragatos do extremo sul gaúcho para manutenção do conflito ao longo da fronteira platina.' }
+    ];
+
+    var rota = [
+        { nome: 'Lages', lat: -27.814, lng: -50.326, tipo: 'maragato', data: 'Out 1893',
+          desc: 'Tomada pela coluna de Gumercindo em out. 1893. Principal cidade do planalto catarinense, ponto de apoio da marcha norte. A tomada de Lages demonstrou a capacidade da cavalaria maragata de operar longe de seu território de origem.' },
+        { nome: 'Curitibanos', lat: -27.283, lng: -50.577, tipo: 'passagem', data: 'Nov 1893',
+          desc: 'Passagem da coluna de Gumercindo em direção ao Paraná (nov. 1893). As forças federalistas avançavam rapidamente pelo planalto, surpreendendo as defesas governistas.' },
+        { nome: 'Lapa', lat: -25.767, lng: -49.717, tipo: 'cerco', data: 'Dez 1893–Jan 1894',
+          desc: 'Cerco de 26 dias pela coluna de Gumercindo (dez. 1893–jan. 1894). A defesa heroica de Lapa — 200 homens comandados pelo coronel Carneiro, que morreu no posto — tornou-se símbolo republicano. A cidade caiu em jan. 1894; sua resistência deu tempo ao governo federal para organizar a contraofensiva.' },
+        { nome: 'Aproximação de Curitiba', lat: -25.429, lng: -49.271, tipo: 'cerco', data: 'Fev 1894',
+          desc: 'O ponto mais ao norte da marcha federalista (fev. 1894). Gumercindo chegou a poucos quilômetros de Curitiba — se a capital caísse, o caminho ao Rio de Janeiro estaria aberto. Sem condições de tomar a cidade com tropas exaustas e sem abastecimento, foi obrigado a recuar. O momento decisivo em que a revolução perdeu a iniciativa.' },
+        { nome: 'Morte de Gumercindo Saraiva', lat: -25.429, lng: -50.009, tipo: 'morte', data: '10 ago 1894',
+          desc: 'Gumercindo Saraiva morre em combate no Paraná (10 ago. 1894), aos 42 anos, durante a retirada para o sul. O principal líder militar federalista cai durante a retaguarda. Sem Gumercindo, a causa maragata perde sua coluna vertebral. A revolução sobreviveria mais um ano, mas sem a ofensiva que o tornara temido.' }
+    ];
+
+    /* ── Mapa ──────────────────────────────────────────────── */
+    var mapa = L.map('mapa-federalista', { center: [-29.5, -52.5], zoom: 6 });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom: 18
+    }).addTo(mapa);
+
+    /* Rota da Coluna Gumercindo */
+    var rotaCoords = [
+        [-29.78, -55.79], [-28.64, -53.61], [-27.81, -50.33],
+        [-27.28, -50.58], [-25.77, -49.72], [-25.43, -49.27]
+    ];
+    var rotaLinha = L.polyline(rotaCoords, {
+        color: '#e67e22', weight: 2.5, opacity: 0.7, dashArray: '10 5'
+    }).bindTooltip('Rota da Coluna Gumercindo (aprox.)', { permanent: false }).addTo(mapa);
+
+    /* ── Estilo ──────────────────────────────────────────────── */
+    var cores = {
+        'maragato':   { fill: '#c0392b', border: '#7b241c', r: 10 },
+        'cerco':      { fill: '#e67e22', border: '#d35400', r: 11 },
+        'capital':    { fill: '#6c3483', border: '#4a235a', r: 11 },
+        'massacre':   { fill: '#1a252f', border: '#000',    r: 10 },
+        'passagem':   { fill: '#7f8c8d', border: '#566573', r: 7  },
+        'morte':      { fill: '#2c3e50', border: '#1a252f', r: 11 },
+        'paz':        { fill: '#1e8449', border: '#145a32', r: 11 }
+    };
+
+    var badges = {
+        'maragato':  '<span class="badge-fed badge-maragato">Vitória maragata</span>',
+        'cerco':     '<span class="badge-fed badge-cerco">Cerco / disputa</span>',
+        'capital':   '<span class="badge-fed badge-capital">Capital ameaçada</span>',
+        'massacre':  '<span class="badge-fed badge-massacre">Massacre</span>',
+        'passagem':  '<span class="badge-fed badge-passagem">Passagem / base</span>',
+        'morte':     '<span class="badge-fed badge-morte">Morte em combate</span>',
+        'paz':       '<span class="badge-fed badge-paz">Paz / tratado</span>'
+    };
+
+    function mkEstilo(tipo) {
+        var c = cores[tipo] || cores['passagem'];
+        return { radius: c.r, color: c.border, weight: 2, fillColor: c.fill, fillOpacity: 0.9 };
+    }
+
+    function mkPopup(ep) {
+        return '<strong>' + ep.nome + '</strong>' +
+            (badges[ep.tipo] || '') +
+            '<p style="font-size:.8rem;color:#666;margin-bottom:5px;">' + ep.data + '</p>' +
+            '<p>' + ep.desc + '</p>';
+    }
+
+    /* ── Camadas ─────────────────────────────────────────────── */
+    var camadaRS   = L.layerGroup();
+    var camadaRota = L.layerGroup();
+
+    rs.forEach(function(ep) {
+        L.circleMarker([ep.lat, ep.lng], mkEstilo(ep.tipo))
+            .bindPopup(mkPopup(ep), { maxWidth: 300 })
+            .addTo(camadaRS);
+    });
+    rota.forEach(function(ep) {
+        L.circleMarker([ep.lat, ep.lng], mkEstilo(ep.tipo))
+            .bindPopup(mkPopup(ep), { maxWidth: 300 })
+            .addTo(camadaRota);
+    });
+
+    camadaRS.addTo(mapa);
+    camadaRota.addTo(mapa);
+
+    var total = rs.length + rota.length;
+    document.getElementById('mapa-total').textContent = 'Exibindo ' + total + ' locais + rota da Coluna Gumercindo.';
+
+    /* ── Filtros ─────────────────────────────────────────────── */
+    function ativar(id) {
+        ['f-todos', 'f-rs', 'f-rota'].forEach(function(bid) {
+            var el = document.getElementById(bid);
+            if (el) el.classList.toggle('btn-secondary', bid !== id);
+        });
+    }
+
+    document.getElementById('f-todos').addEventListener('click', function() {
+        ativar('f-todos');
+        camadaRS.addTo(mapa); camadaRota.addTo(mapa); rotaLinha.addTo(mapa);
+        mapa.setView([-29.5, -52.5], 6);
+        document.getElementById('mapa-total').textContent = 'Exibindo ' + total + ' locais + rota da Coluna Gumercindo.';
+    });
+    document.getElementById('f-rs').addEventListener('click', function() {
+        ativar('f-rs');
+        camadaRS.addTo(mapa); mapa.removeLayer(camadaRota); mapa.removeLayer(rotaLinha);
+        mapa.fitBounds(camadaRS.getBounds().pad(0.1));
+        document.getElementById('mapa-total').textContent = 'Exibindo ' + rs.length + ' locais no Rio Grande do Sul.';
+    });
+    document.getElementById('f-rota').addEventListener('click', function() {
+        ativar('f-rota');
+        camadaRota.addTo(mapa); rotaLinha.addTo(mapa); mapa.removeLayer(camadaRS);
+        mapa.fitBounds(L.featureGroup([camadaRota, rotaLinha]).getBounds().pad(0.1));
+        document.getElementById('mapa-total').textContent = 'Exibindo rota de Gumercindo: ' + rota.length + ' locais em SC e PR.';
+    });
+})();
+</script>
+<script src="../../assets/js/script.js" defer></script>
+</body>
+</html>
