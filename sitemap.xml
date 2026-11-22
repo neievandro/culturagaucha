@@ -481,6 +481,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://culturagaucha.com.br/paginas/literatura/cassiano-ricardo.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/literatura/dyonelio-machado.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/literatura/lya-luft.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://culturagaucha.com.br/paginas/meio-ambiente/araucaria-pinhao.html</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -823,6 +841,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://culturagaucha.com.br/paginas/personalidades/ibere-camargo.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://culturagaucha.com.br/paginas/simbolos/bandeira-rio-grandense.html</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -1095,6 +1119,120 @@
   <url>
     <loc>https://culturagaucha.com.br/paginas/historia/movimentos-sociais-rs.html</loc>
     <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/historia/revolucao-1930-vargas.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/historia/redemocratizacao-rs.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/historia/enchentes-historicas-rs.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/linguagem/talian.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/linguagem/hunsruckisch.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/linguagem/portunhol-fronteira.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/festa-uva-caxias.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/festival-folclorico-farroupilha.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/rodeio-internacional-bage.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/oktoberfest-rs.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/batuque-gaucho.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/nossa-senhora-navegantes.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/protestantismo-historico-rs.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/artes-plasticas-gaucho.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/teatro-gaucho.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/cultura/fotografia-historica-rs.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/meio-ambiente/bioma-pampa.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/meio-ambiente/lagoa-patos.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://culturagaucha.com.br/paginas/meio-ambiente/hidrovia-jacui.html</loc>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
