@@ -380,9 +380,10 @@ function setupTimeline() {
     if (!list || !count || !buttons.length) return;
 
     const render = (filter) => {
+        const source = window.themedTimelineEvents || timelineEvents;
         const events = filter === 'todos'
-            ? timelineEvents
-            : timelineEvents.filter((event) => event.category === filter);
+            ? source
+            : source.filter((event) => event.category === filter);
 
         count.textContent = `${events.length} evento${events.length === 1 ? '' : 's'} exibido${events.length === 1 ? '' : 's'}.`;
         list.innerHTML = events.map((event) => `
