@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa do Tropeirismo — Rota Viamão–Sorocaba - Cultura Gaúcha</title>
+    <meta name="description" content="Mapa interativo da rota tropeira Viamão–Sorocaba: pousos, cidades tropeiras e o caminho que conectou o sul ao sudeste do Brasil nos séculos XVIII e XIX.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link rel="icon" href="../../assets/img/favicon-mate.png" type="image/png">
+    <link rel="canonical" href="https://culturagaucha.com.br/paginas/temas/mapa-tropeirismo.html">
+    <style>
+        #mapa-tropeirismo { width:100%; height:560px; border-radius:8px; border:1px solid #d4c89a; margin-top:16px; }
+        @media (max-width:600px) { #mapa-tropeirismo { height:380px; } }
+        .mapa-controles { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+        .mapa-legenda { display:flex; flex-wrap:wrap; gap:16px; margin-top:14px; font-size:.88rem; }
+        .legenda-item { display:flex; align-items:center; gap:7px; }
+        .legenda-circulo { width:14px; height:14px; border-radius:50%; border:2px solid rgba(0,0,0,.3); flex-shrink:0; }
+        .leaflet-popup-content strong { display:block; font-size:.98rem; margin-bottom:4px; }
+        .leaflet-popup-content .badge-tropa { display:inline-block; font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:10px; margin-bottom:6px; text-transform:uppercase; letter-spacing:.03em; }
+        .badge-origem  { background:#1e8449; color:#fff; }
+        .badge-destino { background:#784212; color:#fff; }
+        .badge-pouso   { background:#1a5276; color:#fff; }
+        .badge-passagem{ background:#616a6b; color:#fff; }
+        .leaflet-popup-content p { margin:5px 0; font-size:.87rem; line-height:1.4; }
+        .leaflet-popup-content a { font-size:.84rem; color:#7d6608; }
+        .popup-local { font-size:.8rem; color:#555; margin-bottom:5px; }
+        .mapa-total { font-size:.88rem; color:#666; margin-top:4px; }
+    </style>
+</head>
+<body>
+<header class="top-header"><div class="container"><span>A preservação da nossa história e tradição.</span><div><a href="https://www.cultura.rs.gov.br/" target="_blank" rel="noopener noreferrer">Secretaria da Cultura RS</a><a href="https://www.mtg.org.br/" target="_blank" rel="noopener noreferrer">MTG</a></div></div></header>
+<nav class="main-nav"><div class="container nav-wrapper"><a href="../../index.html" class="brand"><h1>Cultura <span>Gaúcha</span></h1></a><button class="menu-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">Menu</button><div class="nav-links" id="site-nav"><a href="../../index.html">Início</a><a href="../../historia.html" class="active">História</a><a href="../../cultura.html">Cultura</a><a href="../../culinaria.html">Gastronomia</a><a href="../../territorio.html">Território</a><a href="../../turismo.html">Turismo</a><a href="../../busca.html">Busca</a><a href="../../sobre-o-site.html">Sobre</a></div></div></nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>Mapa do Tropeirismo</h1>
+        <p>A rota Viamão–Sorocaba: pousos, passagens e cidades que a marcha do gado fundou no sul do Brasil (séculos XVIII–XIX).</p>
+    </div>
+</header>
+
+<main>
+<div class="container"><div class="content-wrapper">
+
+    <nav aria-label="Localização na estrutura do site" class="breadcrumb">
+        <ol><li><a href="../../index.html">Início</a></li><li><a href="../../historia.html">História</a></li><li aria-current="page">Mapa · Tropeirismo</li></ol>
+    </nav>
+    <p class="revisao-editorial" data-revisao="1">Última revisão de conteúdo: 22/11/2026.</p>
+
+    <section>
+        <h2 class="section-title">Mapa interativo</h2>
+        <p>Clique em qualquer ponto para ver contexto histórico. Filtre por estado para acompanhar o trecho da rota. A linha pontilhada mostra o traçado aproximado do Caminho das Tropas.</p>
+        <div class="mapa-controles" role="group" aria-label="Filtros do mapa">
+            <button class="btn btn-small" type="button" id="f-todos">Todos</button>
+            <button class="btn btn-small btn-secondary" type="button" id="f-rs">Rio Grande do Sul</button>
+            <button class="btn btn-small btn-secondary" type="button" id="f-sc">Santa Catarina</button>
+            <button class="btn btn-small btn-secondary" type="button" id="f-pr">Paraná</button>
+            <button class="btn btn-small btn-secondary" type="button" id="f-sp">São Paulo</button>
+        </div>
+        <div id="mapa-tropeirismo" role="application" aria-label="Mapa da rota tropeira Viamão–Sorocaba"></div>
+        <div class="mapa-legenda">
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#27ae60;border-color:#1e8449;"></div><span>Ponto de origem (Viamão)</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#2980b9;border-color:#1a5276;"></div><span>Pouso principal</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#aab7b8;border-color:#616a6b;"></div><span>Passagem / trecho</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#ca6f1e;border-color:#784212;"></div><span>Destino — Feira de Sorocaba</span></div>
+            <div class="legenda-item"><div style="width:28px;height:0;border-top:2px dashed #8B4513;"></div><span>Rota aproximada</span></div>
+        </div>
+        <p class="mapa-total" id="mapa-total"></p>
+    </section>
+
+    <section>
+        <h2 class="section-title">O Caminho das Tropas</h2>
+        <p>A rota Viamão–Sorocaba percorria cerca de 2.800 km e durava de três a cinco meses. Partindo dos campos de Viamão — onde o gado gaúcho se concentrava —, as tropas subiam a Serra Gaúcha, atravessavam Santa Catarina pelos campos de Lages, cortavam o Paraná pelos Campos Gerais e chegavam ao planalto paulista. O destino era a Feira de Muares de Sorocaba, uma das maiores do continente americano no século XVIII.</p>
+        <p>A rota não era apenas econômica: criou cidades (Lages foi fundada em 1766 precisamente para servir a rota), conectou culturas regionais e levou ao sul hábitos, vocabulário e arquitetura que ainda marcam as cidades do planalto meridional.</p>
+    </section>
+
+    <div style="text-align:center;margin-top:36px;">
+        <a href="../historia/tropeirismo.html" class="btn btn-secondary">Artigo: Tropeirismo</a>
+        <a href="./linha-do-tempo.html" class="btn btn-secondary" style="margin-left:12px;">Linha do tempo geral</a>
+        <a href="../../historia.html" class="btn" style="margin-left:12px;">História do RS</a>
+    </div>
+
+    <section class="para-saber-mais">
+        <h2 class="section-title">Para Saber Mais</h2>
+        <h3>Páginas relacionadas neste site</h3>
+        <ul>
+            <li><a href="../historia/tropeirismo.html">Tropeirismo — artigo completo</a></li>
+            <li><a href="./linha-do-tempo.html">Linha do Tempo Geral do RS</a></li>
+            <li><a href="./mapa-missoes.html">Mapa das Missões Jesuíticas</a></li>
+        </ul>
+        <h3>Artigos científicos</h3>
+        <ul>
+            <li><a href="https://scholar.google.com/scholar?q=tropeirismo+Rio+Grande+do+Sul+Sorocaba+caminho+das+tropas" target="_blank" rel="noopener noreferrer">Busca no Google Scholar: Tropeirismo RS–Sorocaba</a></li>
+        </ul>
+    </section>
+</div></div>
+</main>
+
+<footer><div class="container footer-content"><div class="footer-brand"><h2>Cultura <span>Gaúcha</span></h2><p>Um portal dedicado à preservação, pesquisa e divulgação da rica herança cultural do estado do Rio Grande do Sul.</p></div><div class="footer-links"><h4>Navegação Rápida</h4><ul><li><a href="../../historia.html">Nossa História</a></li><li><a href="../../mapa-do-site.html">Mapa do Site</a></li><li><a href="../patrimonio/fontes-bibliografia.html">Fontes</a></li><li><a href="../../privacidade.html">Política de Privacidade</a></li></ul></div></div><div class="footer-bottom"><div class="container"><p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados. Textos sob licença <a href="../../licenca.html">CC BY-SA 4.0</a>. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>.</p></div></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+    var pousos = [
+        { nome: 'Viamão', lat: -30.083, lng: -51.033, uf: 'rs', tipo: 'origem',
+          desc: 'Ponto de partida e concentração das tropas de gado. No século XVIII Viamão era a capital colonial do RS. Estancieiros de toda a Campanha traziam o gado para cá antes da marcha de meses rumo a Sorocaba.' },
+        { nome: 'Vacaria', lat: -28.513, lng: -50.934, uf: 'rs', tipo: 'pouso',
+          desc: 'Primeira grande parada nos Campos de Cima da Serra, a mais de 900 m de altitude. Os campos abertos de Vacaria ofereciam excelente pastagem para recuperar o gado após a subida da Serra Gaúcha antes da travessia para Santa Catarina.' },
+        { nome: 'Lages', lat: -27.816, lng: -50.326, uf: 'sc', tipo: 'pouso',
+          desc: 'Fundada em 1766 precisamente para servir a rota tropeira, Lages foi a principal cidade catarinense do tropeirismo. Sua fundação ilustra como a rota criou cidades: onde havia pouso de gado, surgia vila, comércio e população permanente.' },
+        { nome: 'Curitibanos', lat: -27.283, lng: -50.577, uf: 'sc', tipo: 'passagem',
+          desc: 'Passagem no planalto catarinense entre Lages e as terras paranaenses. Ranchos tropeiros instalados às margens do caminho abasteciam as tropas com carne seca e abrigo.' },
+        { nome: 'Palmas', lat: -26.483, lng: -51.993, uf: 'pr', tipo: 'pouso',
+          desc: 'Importante pouso nos campos gerais do Paraná, fundada em torno do tropeirismo. Os campos abertos do sudoeste paranaense sustentavam grandes rebanhos em marcha rumo ao norte.' },
+        { nome: 'Guarapuava', lat: -25.390, lng: -51.459, uf: 'pr', tipo: 'passagem',
+          desc: 'Os campos de Guarapuava só foram incorporados à rota no início do século XIX, após conflitos com os indígenas Kaingang. Tornaram-se passagem obrigatória entre Palmas e Ponta Grossa.' },
+        { nome: 'Ponta Grossa', lat: -25.095, lng: -50.162, uf: 'pr', tipo: 'pouso',
+          desc: 'Cruzamento de rotas e grande pouso nos Campos Gerais do Paraná. Ponta Grossa condensava o gado que chegava por diferentes caminhos do sul antes do trecho final até Sorocaba.' },
+        { nome: 'Castro', lat: -24.792, lng: -50.009, uf: 'pr', tipo: 'pouso',
+          desc: 'Cidade tropeira por excelência no Paraná. Castro realizava sua própria feira de animais e servia como último grande pouso antes do ingresso em São Paulo. O centro histórico preserva sobrados e igrejas do período tropeiro.' },
+        { nome: 'Itapetininga', lat: -23.591, lng: -48.054, uf: 'sp', tipo: 'passagem',
+          desc: 'Última etapa de descanso antes de Sorocaba. As tropas chegavam aqui já no território paulista, cada vez mais esgotadas após a longa travessia. Proprietários de animais e negociantes se preparavam para a grande feira.' },
+        { nome: 'Sorocaba', lat: -23.501, lng: -47.459, uf: 'sp', tipo: 'destino',
+          desc: 'Destino final da rota. A Feira de Muares de Sorocaba foi, por mais de um século, uma das maiores feiras do continente. Realizada anualmente entre agosto e setembro, reunia compradores de todo o Brasil Central que adquiriam cavalos, mulas e gado gaúcho para o trabalho nas lavouras e minas.' }
+    ];
+
+    var estilos = {
+        'origem':   { radius:13, color:'#145a32', weight:2.5, fillColor:'#27ae60', fillOpacity:1 },
+        'pouso':    { radius:10, color:'#1a5276', weight:2,   fillColor:'#2980b9', fillOpacity:0.9 },
+        'passagem': { radius:8,  color:'#616a6b', weight:1.5, fillColor:'#aab7b8', fillOpacity:0.85 },
+        'destino':  { radius:13, color:'#784212', weight:2.5, fillColor:'#ca6f1e', fillOpacity:1 }
+    };
+    var badgeLabel = { 'origem':'Origem','pouso':'Pouso principal','passagem':'Passagem','destino':'Destino' };
+    var ufNome = { rs:'Rio Grande do Sul', sc:'Santa Catarina', pr:'Paraná', sp:'São Paulo' };
+
+    var mapa = L.map('mapa-tropeirismo', { center:[-27.0, -51.5], zoom:6 });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom:18
+    }).addTo(mapa);
+
+    /* Rota pontilhada */
+    var rotaCoords = pousos.map(function(p){ return [p.lat, p.lng]; });
+    var rotaLinha = L.polyline(rotaCoords, { color:'#8B4513', weight:2.5, opacity:0.6, dashArray:'8 6' }).addTo(mapa);
+
+    /* Camadas por estado */
+    var camadas = { rs:L.layerGroup(), sc:L.layerGroup(), pr:L.layerGroup(), sp:L.layerGroup() };
+
+    pousos.forEach(function(p) {
+        var bc = 'badge-' + p.tipo;
+        var popup = '<strong>' + p.nome + '</strong>' +
+            '<span class="badge-tropa ' + bc + '">' + badgeLabel[p.tipo] + '</span>' +
+            '<p class="popup-local">' + ufNome[p.uf] + '</p>' +
+            '<p>' + p.desc + '</p>' +
+            '<a href="../historia/tropeirismo.html">Saiba mais</a>';
+        L.circleMarker([p.lat, p.lng], estilos[p.tipo])
+            .bindPopup(popup, { maxWidth:290 })
+            .addTo(camadas[p.uf]);
+    });
+
+    Object.keys(camadas).forEach(function(k){ camadas[k].addTo(mapa); });
+    document.getElementById('mapa-total').textContent = 'Exibindo ' + pousos.length + ' pontos.';
+
+    function ativar(id) {
+        ['f-todos','f-rs','f-sc','f-pr','f-sp'].forEach(function(bid){
+            var el = document.getElementById(bid);
+            if (el) { el.classList.toggle('btn-secondary', bid !== id); }
+        });
+    }
+    function mostrar(ufs) {
+        Object.keys(camadas).forEach(function(k){
+            if (ufs.indexOf(k) !== -1) camadas[k].addTo(mapa);
+            else mapa.removeLayer(camadas[k]);
+        });
+        var n = pousos.filter(function(p){ return ufs.indexOf(p.uf) !== -1; }).length;
+        document.getElementById('mapa-total').textContent = 'Exibindo ' + n + ' de ' + pousos.length + ' pontos.';
+    }
+
+    document.getElementById('f-todos').addEventListener('click', function(){
+        ativar('f-todos'); mostrar(['rs','sc','pr','sp']); mapa.setView([-27.0,-51.5],6);
+    });
+    ['rs','sc','pr','sp'].forEach(function(uf){
+        document.getElementById('f-'+uf).addEventListener('click', function(){
+            ativar('f-'+uf); mostrar([uf]);
+            var bounds = camadas[uf].getBounds();
+            if (bounds.isValid()) mapa.fitBounds(bounds.pad(0.3));
+        });
+    });
+})();
+</script>
+<script src="../../assets/js/script.js" defer></script>
+</body>
+</html>

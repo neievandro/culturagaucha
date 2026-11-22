@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa das Batalhas Farroupilhas - Cultura Gaúcha</title>
+    <meta name="description" content="Mapa interativo das batalhas e episódios militares da Revolução Farroupilha (1835–1845) no Rio Grande do Sul e em Santa Catarina.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link rel="icon" href="../../assets/img/favicon-mate.png" type="image/png">
+    <link rel="canonical" href="https://culturagaucha.com.br/paginas/temas/mapa-batalhas-farroupilha.html">
+    <style>
+        #mapa-batalhas {
+            width: 100%;
+            height: 540px;
+            border-radius: 8px;
+            border: 1px solid #d4c89a;
+            margin-top: 16px;
+        }
+        @media (max-width: 600px) {
+            #mapa-batalhas { height: 360px; }
+        }
+        .mapa-controles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .mapa-legenda {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 14px;
+            font-size: 0.88rem;
+        }
+        .legenda-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .legenda-circulo {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+        .leaflet-popup-content strong {
+            display: block;
+            font-size: 0.98rem;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+        .leaflet-popup-content .badge-batalha {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .badge-farrapos  { background: #27ae60; color: #fff; }
+        .badge-imperial  { background: #2980b9; color: #fff; }
+        .badge-expedicao { background: #e67e22; color: #fff; }
+        .badge-conflito  { background: #7f8c8d; color: #fff; }
+        .badge-massacre  { background: #c0392b; color: #fff; }
+        .badge-paz       { background: #b7950b; color: #fff; }
+        .leaflet-popup-content p {
+            margin: 5px 0;
+            font-size: 0.87rem;
+            line-height: 1.4;
+        }
+        .leaflet-popup-content a {
+            font-size: 0.84rem;
+            color: #7d6608;
+        }
+        .popup-data {
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .mapa-total {
+            font-size: 0.88rem;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="top-header">
+    <div class="container">
+        <span>A preservação da nossa história e tradição.</span>
+        <div>
+            <a href="https://www.cultura.rs.gov.br/" target="_blank" rel="noopener noreferrer">Secretaria da Cultura RS</a>
+            <a href="https://www.mtg.org.br/" target="_blank" rel="noopener noreferrer">MTG</a>
+        </div>
+    </div>
+</header>
+
+<nav class="main-nav">
+    <div class="container nav-wrapper">
+        <a href="../../index.html" class="brand"><h1>Cultura <span>Gaúcha</span></h1></a>
+        <button class="menu-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">Menu</button>
+        <div class="nav-links" id="site-nav">
+            <a href="../../index.html">Início</a>
+            <a href="../../historia.html" class="active">História</a>
+            <a href="../../cultura.html">Cultura</a>
+            <a href="../../culinaria.html">Gastronomia</a>
+            <a href="../../territorio.html">Território</a>
+            <a href="../../turismo.html">Turismo</a>
+            <a href="../../busca.html">Busca</a>
+            <a href="../../sobre-o-site.html">Sobre</a>
+        </div>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>Mapa das Batalhas Farroupilhas</h1>
+        <p>Os principais episódios militares da Revolução Farroupilha (1835–1845) — de Porto Alegre às costas de Santa Catarina, da Campanha aos campos do Seival.</p>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="content-wrapper">
+
+            <nav aria-label="Localização na estrutura do site" class="breadcrumb">
+                <ol>
+                    <li><a href="../../index.html">Início</a></li>
+                    <li><a href="../../historia.html">História</a></li>
+                    <li aria-current="page">Mapa · Batalhas Farroupilhas</li>
+                </ol>
+            </nav>
+
+            <p class="revisao-editorial" data-revisao="1">Última revisão de conteúdo: 22/11/2026.</p>
+
+            <section>
+                <h2 class="section-title">Mapa interativo</h2>
+                <p>Clique em qualquer marcador para ver data, resultado e contexto do episódio. Use os filtros para destacar as ações de um lado ou de outro.</p>
+
+                <div class="mapa-controles" role="group" aria-label="Filtros do mapa">
+                    <button class="btn btn-small" type="button" id="filtro-todos">Todos</button>
+                    <button class="btn btn-small btn-secondary" type="button" id="filtro-farrapos">Farroupilhas</button>
+                    <button class="btn btn-small btn-secondary" type="button" id="filtro-imperiais">Imperiais</button>
+                    <button class="btn btn-small btn-secondary" type="button" id="filtro-desfecho">Desfecho (1844–1845)</button>
+                </div>
+
+                <div id="mapa-batalhas" role="application" aria-label="Mapa das batalhas da Revolução Farroupilha"></div>
+
+                <div class="mapa-legenda" aria-label="Legenda do mapa">
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#27ae60; border-color:#1e8449;"></div>
+                        <span>Vitória Farroupilha</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#e67e22; border-color:#ca6f1e;"></div>
+                        <span>Expedição Farroupilha</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#2980b9; border-color:#1a5276;"></div>
+                        <span>Vitória Imperial</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#95a5a6; border-color:#717d7e;"></div>
+                        <span>Território disputado</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#c0392b; border-color:#922b21;"></div>
+                        <span>Porongos / Lanceiros Negros</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#f1c40f; border-color:#b7950b;"></div>
+                        <span>Paz de Ponche Verde</span>
+                    </div>
+                </div>
+                <p class="mapa-total" id="mapa-total"></p>
+            </section>
+
+            <section>
+                <h2 class="section-title">A guerra e o território</h2>
+                <p>A Revolução Farroupilha não foi um conflito estático. Ao longo de dez anos, as linhas de controle deslocaram-se continuamente: os farroupilhas dominaram o interior gaúcho e a Campanha por anos, enquanto as forças imperiais mantiveram os principais portos — Porto Alegre e Rio Grande — e o litoral. A guerra foi, em grande medida, uma disputa pelo interior do RS, com incursões em Santa Catarina (República Juliana, 1839) e ações próximas à fronteira com o Uruguai e a Argentina.</p>
+                <p>O general Luís Alves de Lima e Silva — futuro Duque de Caxias — chegou ao RS em novembro de 1841 com a estratégia que encerraria o conflito: pressão militar progressiva combinada com negociação política. Em menos de quatro anos reduziu o território rebelde, cortou abastecimentos e abriu o diálogo. A Paz de Ponche Verde (1845) foi o resultado.</p>
+            </section>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="./linha-do-tempo-farroupilha.html" class="btn btn-secondary">Linha do tempo da Farroupilha</a>
+                <a href="../historia/batalhas-farroupilhas.html" class="btn btn-secondary" style="margin-left: 12px;">Artigo: batalhas</a>
+                <a href="../historia/paz-ponche-verde.html" class="btn btn-secondary" style="margin-left: 12px;">Paz de Ponche Verde</a>
+                <a href="../../historia.html" class="btn" style="margin-left: 12px;">História do RS</a>
+            </div>
+
+            <section class="para-saber-mais">
+                <h2 class="section-title">Para Saber Mais</h2>
+                <h3>Páginas relacionadas neste site</h3>
+                <ul>
+                    <li><a href="../historia/revolucao-farroupilha.html">Revolução Farroupilha — artigo completo</a></li>
+                    <li><a href="../historia/batalhas-farroupilhas.html">Batalhas Farroupilhas</a></li>
+                    <li><a href="../historia/paz-ponche-verde.html">Paz de Ponche Verde</a></li>
+                    <li><a href="../historia/lanceiros-negros.html">Lanceiros Negros</a></li>
+                    <li><a href="../personalidades/bento-goncalves.html">Bento Gonçalves</a></li>
+                    <li><a href="../personalidades/anita-garibaldi.html">Anita Garibaldi</a></li>
+                    <li><a href="./linha-do-tempo-farroupilha.html">Linha do Tempo · Revolução Farroupilha</a></li>
+                    <li><a href="./linha-do-tempo-farrapos-figuras.html">Linha do Tempo · Figuras da Farroupilha</a></li>
+                </ul>
+                <h3>Artigos científicos</h3>
+                <ul>
+                    <li><a href="https://scholar.google.com/scholar?q=Revolução+Farroupilha+batalhas+Rio+Grande+do+Sul" target="_blank" rel="noopener noreferrer">Busca no Google Scholar sobre batalhas da Revolução Farroupilha</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <h2>Cultura <span>Gaúcha</span></h2>
+            <p>Um portal dedicado à preservação, pesquisa e divulgação da rica herança cultural do estado do Rio Grande do Sul.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegação Rápida</h4>
+            <ul>
+                <li><a href="../../historia.html">Nossa História</a></li>
+                <li><a href="../../mapa-do-site.html">Mapa do Site</a></li>
+                <li><a href="../patrimonio/fontes-bibliografia.html">Fontes</a></li>
+                <li><a href="../../privacidade.html">Política de Privacidade</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados.
+            Textos sob licença <a href="../../licenca.html">CC BY-SA 4.0</a>.
+            Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+
+    /* ── Dados ──────────────────────────────────────────────── */
+
+    var episodios = [
+        {
+            nome: 'Tomada de Porto Alegre',
+            lat: -30.030, lng: -51.213,
+            data: '20 de setembro de 1835',
+            resultado: 'vitoria-farrapos',
+            categoria: 'farrapos',
+            desc: 'Bento Gonçalves liderou pessoalmente a tomada da capital provincial. O presidente Fernandes Braga foi deposto e a guarnição imperial rendida. Início oficial da Revolução Farroupilha.',
+            url: '../historia/revolucao-farroupilha.html'
+        },
+        {
+            nome: 'Retomada de Porto Alegre pelos imperiais',
+            lat: -30.042, lng: -51.228,
+            data: 'Novembro de 1835',
+            resultado: 'vitoria-imperial',
+            categoria: 'imperiais',
+            desc: 'O general Sebastião Barreto Pereira Pinto retomou Porto Alegre poucas semanas após os farroupilhas tomarem a capital. Os rebeldes recuaram para o interior, estabelecendo Piratini como capital da república.',
+            url: '../historia/revolucao-farroupilha.html'
+        },
+        {
+            nome: 'Batalha do Seival',
+            lat: -31.07, lng: -53.68,
+            data: '10 de setembro de 1836',
+            resultado: 'vitoria-farrapos',
+            categoria: 'farrapos',
+            desc: 'Vitória farroupilha sobre as forças imperiais às margens do rio Seival, na Campanha gaúcha. No dia seguinte, Antônio de Souza Netto proclamou a República Rio-Grandense em Piratini — a data da batalha foi escolhida simbolicamente.',
+            url: '../historia/batalhas-farroupilhas.html'
+        },
+        {
+            nome: 'Batalha do Rio Pardo',
+            lat: -29.983, lng: -52.383,
+            data: 'Outubro de 1836',
+            resultado: 'vitoria-farrapos',
+            categoria: 'farrapos',
+            desc: 'Vitória farroupilha que consolidou o controle rebelde sobre o interior gaúcho e forçou as forças imperiais a recuar. A república demonstrou capacidade de sustentação militar prolongada.',
+            url: '../historia/batalhas-farroupilhas.html'
+        },
+        {
+            nome: 'Batalha do Fanfa — captura de Bento Gonçalves',
+            lat: -28.133, lng: -55.016,
+            data: 'Junho de 1837',
+            resultado: 'vitoria-imperial',
+            categoria: 'imperiais',
+            desc: 'Emboscada imperial no arroio Fanfa, noroeste gaúcho. Bento Gonçalves foi capturado e deportado para o Forte do Mar, em Salvador. Sua ausência de mais de um ano causou grave crise de liderança na república.',
+            url: '../personalidades/bento-goncalves.html'
+        },
+        {
+            nome: 'Disputas em Alegrete',
+            lat: -29.783, lng: -55.767,
+            data: '1838–1842',
+            resultado: 'conflito',
+            categoria: 'farrapos',
+            desc: 'Alegrete foi tomada e retomada por ambos os lados ao longo da guerra. Estratégica pelo acesso à fronteira com o Uruguai, era ponto de passagem de tropas, mantimentos e armamentos para os farroupilhas.',
+            url: '../historia/batalhas-farroupilhas.html'
+        },
+        {
+            nome: 'Expedição a Laguna — República Juliana',
+            lat: -28.483, lng: -48.783,
+            data: 'Julho–setembro de 1839',
+            resultado: 'expedicao',
+            categoria: 'farrapos',
+            desc: 'Giuseppe Garibaldi commandou a invasão farroupilha de Santa Catarina por mar. Tomou Laguna e proclamou a República Juliana — estado aliado com vida de 54 dias. Foi em Laguna que Garibaldi conheceu Anita Ribeiro, futura Anita Garibaldi.',
+            url: '../personalidades/anita-garibaldi.html'
+        },
+        {
+            nome: 'Recuo de Laguna — fim da República Juliana',
+            lat: -28.350, lng: -49.100,
+            data: 'Setembro de 1839',
+            resultado: 'vitoria-imperial',
+            categoria: 'imperiais',
+            desc: 'As forças imperiais retomaram Laguna. Garibaldi e Anita fugiram pelo interior catarinense com as tropas farroupilhas derrotadas. A República Juliana durou apenas 54 dias.',
+            url: '../personalidades/anita-garibaldi.html'
+        },
+        {
+            nome: 'Batalha de Taquari',
+            lat: -29.794, lng: -51.860,
+            data: 'Outubro de 1840',
+            resultado: 'vitoria-imperial',
+            categoria: 'imperiais',
+            desc: 'Derrota farroupilha na região do vale do Taquari. As forças imperiais bloquearam a expansão rebelde em direção ao litoral e ao nordeste gaúcho, limitando o território controlado pelos farroupilhas.',
+            url: '../historia/batalhas-farroupilhas.html'
+        },
+        {
+            nome: 'Campanha de Caxias — São Gabriel',
+            lat: -30.337, lng: -54.321,
+            data: '1842–1844',
+            resultado: 'vitoria-imperial',
+            categoria: 'imperiais',
+            desc: 'O general Caxias conduziu uma campanha sistemática a partir de São Gabriel: corte de rotas de abastecimento, pressão militar progressiva e, simultaneamente, negociação direta com as lideranças farroupilhas. Estratégia que encerrou o conflito.',
+            url: '../historia/paz-ponche-verde.html'
+        },
+        {
+            nome: 'Controle farroupilha da Campanha — Bagé',
+            lat: -31.333, lng: -54.100,
+            data: '1836–1844',
+            resultado: 'conflito',
+            categoria: 'farrapos',
+            desc: 'A Campanha gaúcha — a vasta região de campos ao sul do RS — esteve sob domínio farroupilha por grande parte da guerra. Bagé e as estâncias da região sustentaram o esforço de guerra rebelde com gado, cavalos e recrutamento.',
+            url: '../historia/batalhas-farroupilhas.html'
+        },
+        {
+            nome: 'Massacre de Porongos',
+            lat: -31.578, lng: -53.378,
+            data: '14 de novembro de 1844',
+            resultado: 'massacre',
+            categoria: 'desfecho',
+            desc: 'O 3.º Corpo farroupilha — os Lanceiros Negros — foi surpreendido desarmado na madrugada de 14 de novembro. A maioria foi morta ou capturada. Episódio central no debate histórico sobre as negociações de paz e o destino dos escravizados libertos pela república.',
+            url: '../historia/lanceiros-negros.html'
+        },
+        {
+            nome: 'Paz de Ponche Verde',
+            lat: -31.1, lng: -54.4,
+            data: '1 de março de 1845',
+            resultado: 'paz',
+            categoria: 'desfecho',
+            desc: 'Assinatura do acordo de paz entre o Império Brasileiro e a República Rio-Grandense. Os líderes farroupilhas receberam anistia e incorporação ao exército imperial com patentes preservadas. Único levante no Brasil monárquico a terminar sem execuções dos derrotados.',
+            url: '../historia/paz-ponche-verde.html'
+        }
+    ];
+
+    /* ── Estilo dos marcadores ───────────────────────────────── */
+
+    var estilos = {
+        'vitoria-farrapos': { radius: 10, color: '#1e8449', weight: 2, fillColor: '#27ae60', fillOpacity: 0.9 },
+        'expedicao':        { radius: 10, color: '#ca6f1e', weight: 2, fillColor: '#e67e22', fillOpacity: 0.9 },
+        'vitoria-imperial': { radius: 10, color: '#1a5276', weight: 2, fillColor: '#2980b9', fillOpacity: 0.9 },
+        'conflito':         { radius: 9,  color: '#717d7e', weight: 2, fillColor: '#95a5a6', fillOpacity: 0.85 },
+        'massacre':         { radius: 11, color: '#922b21', weight: 2.5, fillColor: '#c0392b', fillOpacity: 0.95 },
+        'paz':              { radius: 12, color: '#b7950b', weight: 2.5, fillColor: '#f1c40f', fillOpacity: 0.95 }
+    };
+
+    var badgeClasses = {
+        'vitoria-farrapos': 'badge-farrapos',
+        'expedicao':        'badge-expedicao',
+        'vitoria-imperial': 'badge-imperial',
+        'conflito':         'badge-conflito',
+        'massacre':         'badge-massacre',
+        'paz':              'badge-paz'
+    };
+
+    var badgeLabels = {
+        'vitoria-farrapos': 'Vitória Farroupilha',
+        'expedicao':        'Expedição Farroupilha',
+        'vitoria-imperial': 'Vitória Imperial',
+        'conflito':         'Território Disputado',
+        'massacre':         'Massacre · Lanceiros Negros',
+        'paz':              'Paz de Ponche Verde'
+    };
+
+    /* ── Mapa ────────────────────────────────────────────────── */
+
+    var mapa = L.map('mapa-batalhas', {
+        center: [-30.2, -53.0],
+        zoom: 7
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom: 18
+    }).addTo(mapa);
+
+    /* ── Camadas por grupo de filtro ─────────────────────────── */
+
+    var camadas = {
+        farrapos:  L.layerGroup(),
+        imperiais: L.layerGroup(),
+        desfecho:  L.layerGroup()
+    };
+
+    function popupHtml(e) {
+        var bc = badgeClasses[e.resultado] || 'badge-conflito';
+        var bl = badgeLabels[e.resultado] || '';
+        return '<strong>' + e.nome + '</strong>' +
+            '<span class="badge-batalha ' + bc + '">' + bl + '</span>' +
+            '<p class="popup-data">' + e.data + '</p>' +
+            '<p>' + e.desc + '</p>' +
+            '<a href="' + e.url + '">Saiba mais</a>';
+    }
+
+    episodios.forEach(function (e) {
+        var est = estilos[e.resultado] || estilos['conflito'];
+        var marker = L.circleMarker([e.lat, e.lng], est)
+            .bindPopup(popupHtml(e), { maxWidth: 290 });
+        camadas[e.categoria].addLayer(marker);
+    });
+
+    /* Adiciona tudo inicialmente */
+    Object.keys(camadas).forEach(function (k) { camadas[k].addTo(mapa); });
+
+    /* ── Filtros ─────────────────────────────────────────────── */
+
+    var total = episodios.length;
+
+    function contarVisiveis(cats) {
+        return episodios.filter(function (e) { return cats.indexOf(e.categoria) !== -1; }).length;
+    }
+
+    function atualizarTotal(n) {
+        document.getElementById('mapa-total').textContent =
+            'Exibindo ' + n + ' de ' + total + ' episódios.';
+    }
+
+    atualizarTotal(total);
+
+    function ativarBotao(id) {
+        ['filtro-todos','filtro-farrapos','filtro-imperiais','filtro-desfecho'].forEach(function (bid) {
+            var el = document.getElementById(bid);
+            if (!el) return;
+            if (bid === id) { el.classList.remove('btn-secondary'); }
+            else            { el.classList.add('btn-secondary'); }
+        });
+    }
+
+    function mostrar(cats) {
+        Object.keys(camadas).forEach(function (k) {
+            if (cats.indexOf(k) !== -1) camadas[k].addTo(mapa);
+            else mapa.removeLayer(camadas[k]);
+        });
+    }
+
+    document.getElementById('filtro-todos').addEventListener('click', function () {
+        ativarBotao('filtro-todos');
+        mostrar(['farrapos','imperiais','desfecho']);
+        mapa.setView([-30.2, -53.0], 7);
+        atualizarTotal(total);
+    });
+
+    document.getElementById('filtro-farrapos').addEventListener('click', function () {
+        ativarBotao('filtro-farrapos');
+        mostrar(['farrapos']);
+        var bounds = camadas.farrapos.getBounds();
+        if (bounds.isValid()) mapa.fitBounds(bounds.pad(0.12));
+        atualizarTotal(contarVisiveis(['farrapos']));
+    });
+
+    document.getElementById('filtro-imperiais').addEventListener('click', function () {
+        ativarBotao('filtro-imperiais');
+        mostrar(['imperiais']);
+        var bounds = camadas.imperiais.getBounds();
+        if (bounds.isValid()) mapa.fitBounds(bounds.pad(0.12));
+        atualizarTotal(contarVisiveis(['imperiais']));
+    });
+
+    document.getElementById('filtro-desfecho').addEventListener('click', function () {
+        ativarBotao('filtro-desfecho');
+        mostrar(['desfecho']);
+        var bounds = camadas.desfecho.getBounds();
+        if (bounds.isValid()) mapa.fitBounds(bounds.pad(0.3));
+        atualizarTotal(contarVisiveis(['desfecho']));
+    });
+
+})();
+</script>
+<script src="../../assets/js/script.js" defer></script>
+</body>
+</html>

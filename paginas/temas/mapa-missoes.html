@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa das Missões Jesuíticas - Cultura Gaúcha</title>
+    <meta name="description" content="Mapa interativo das reduções jesuítico-guaranis: os Sete Povos no Rio Grande do Sul e as missões na Argentina e no Paraguai.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link rel="icon" href="../../assets/img/favicon-mate.png" type="image/png">
+    <link rel="canonical" href="https://culturagaucha.com.br/paginas/temas/mapa-missoes.html">
+    <style>
+        #mapa-missoes {
+            width: 100%;
+            height: 540px;
+            border-radius: 8px;
+            border: 1px solid #d4c89a;
+            margin-top: 16px;
+        }
+        @media (max-width: 600px) {
+            #mapa-missoes { height: 360px; }
+        }
+        .mapa-controles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .mapa-legenda {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 14px;
+            font-size: 0.88rem;
+        }
+        .legenda-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .legenda-circulo {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid rgba(0,0,0,0.35);
+            flex-shrink: 0;
+        }
+        .leaflet-popup-content strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .leaflet-popup-content .badge-missao {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .badge-unesco  { background: #2471a3; color: #fff; }
+        .badge-ruinas  { background: #7d6608; color: #fff; }
+        .badge-arg     { background: #1a5276; color: #fff; }
+        .badge-pry     { background: #1e8449; color: #fff; }
+        .badge-perdida { background: #717d7e; color: #fff; }
+        .leaflet-popup-content p {
+            margin: 5px 0;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+        .leaflet-popup-content a {
+            font-size: 0.85rem;
+            color: #7d6608;
+        }
+        .leaflet-popup-content .popup-meta {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .mapa-total {
+            font-size: 0.88rem;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="top-header">
+    <div class="container">
+        <span>A preservação da nossa história e tradição.</span>
+        <div>
+            <a href="https://www.cultura.rs.gov.br/" target="_blank" rel="noopener noreferrer">Secretaria da Cultura RS</a>
+            <a href="https://www.mtg.org.br/" target="_blank" rel="noopener noreferrer">MTG</a>
+        </div>
+    </div>
+</header>
+
+<nav class="main-nav">
+    <div class="container nav-wrapper">
+        <a href="../../index.html" class="brand"><h1>Cultura <span>Gaúcha</span></h1></a>
+        <button class="menu-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">Menu</button>
+        <div class="nav-links" id="site-nav">
+            <a href="../../index.html">Início</a>
+            <a href="../../historia.html" class="active">História</a>
+            <a href="../../cultura.html">Cultura</a>
+            <a href="../../culinaria.html">Gastronomia</a>
+            <a href="../../territorio.html">Território</a>
+            <a href="../../turismo.html">Turismo</a>
+            <a href="../../busca.html">Busca</a>
+            <a href="../../sobre-o-site.html">Sobre</a>
+        </div>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>Mapa das Missões Jesuíticas</h1>
+        <p>Os Sete Povos das Missões no Rio Grande do Sul e as reduções vizinhas na Argentina e no Paraguai — circuito missioneiro guarani dos séculos XVII e XVIII.</p>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="content-wrapper">
+
+            <nav aria-label="Localização na estrutura do site" class="breadcrumb">
+                <ol>
+                    <li><a href="../../index.html">Início</a></li>
+                    <li><a href="../../historia.html">História</a></li>
+                    <li aria-current="page">Mapa das Missões Jesuíticas</li>
+                </ol>
+            </nav>
+
+            <p class="revisao-editorial" data-revisao="1">Última revisão de conteúdo: 22/11/2026.</p>
+
+            <section>
+                <h2 class="section-title">Mapa interativo</h2>
+                <p>Clique em qualquer marcador para ver informações sobre a redução. Use os filtros para destacar as missões gaúchas ou as de outros países.</p>
+
+                <div class="mapa-controles" role="group" aria-label="Filtros do mapa">
+                    <button class="btn btn-small" type="button" id="filtro-todos">Todos</button>
+                    <button class="btn btn-small btn-secondary" type="button" id="filtro-rs">Sete Povos (RS)</button>
+                    <button class="btn btn-small btn-secondary" type="button" id="filtro-arg">Argentina</button>
+                    <button class="btn btn-small btn-secondary" type="button" id="filtro-pry">Paraguai</button>
+                    <button class="btn btn-small btn-secondary" type="button" id="filtro-unesco">UNESCO</button>
+                </div>
+
+                <div id="mapa-missoes" role="application" aria-label="Mapa das Missões Jesuíticas"></div>
+
+                <div class="mapa-legenda" aria-label="Legenda do mapa">
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#c0392b; border-color:#8B4513; width:16px; height:16px;"></div>
+                        <span>São Miguel Arcanjo (UNESCO)</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#DAA520; border-color:#8B4513;"></div>
+                        <span>Sete Povos RS (ruínas)</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#2e86c1; border-color:#1a5276; width:16px; height:16px;"></div>
+                        <span>Argentina — UNESCO</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#5499c7; border-color:#1a5276;"></div>
+                        <span>Argentina — preservada</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#27ae60; border-color:#1e8449; width:16px; height:16px;"></div>
+                        <span>Paraguai — UNESCO</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#58d68d; border-color:#1e8449;"></div>
+                        <span>Paraguai — preservada</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div class="legenda-circulo" style="background:#aab7b8; border-color:#717d7e;"></div>
+                        <span>Perdida / sem vestígios</span>
+                    </div>
+                    <div class="legenda-item">
+                        <div style="width:28px; height:3px; border-top:2px dashed #8B4513;"></div>
+                        <span>Rota Missões RS (aprox.)</span>
+                    </div>
+                </div>
+                <p class="mapa-total" id="mapa-total"></p>
+            </section>
+
+            <section>
+                <h2 class="section-title">Os Sete Povos das Missões</h2>
+                <p>Entre as décadas de 1680 e 1750, as sete reduções jesuítico-guaranis na margem esquerda do rio Uruguai — o território que hoje é o noroeste gaúcho — formaram uma das experiências sociais mais singulares da América colonial. Cada redução era uma cidade planejada em torno de uma praça central, com igreja de pedra, residências coletivas, oficinas, biblioteca e escola de música.</p>
+                <p>Em 1750, o Tratado de Madrid transferiu o território para Portugal e ordenou a expulsão dos guaranis de suas reduções. A resistência liderada por <strong>Sepé Tiaraju</strong> terminou na Batalha de Caiboaté (1756), com a derrota e dispersão dos habitantes. A expulsão dos jesuítas do Brasil (1759) acelerou o abandono das estruturas. O que restou — alicerces, muros, esculturas, fragmentos de fachada — é o que se visita hoje.</p>
+            </section>
+
+            <section>
+                <h2 class="section-title">O circuito transfronteiriço</h2>
+                <p>As reduções não se limitavam ao Rio Grande do Sul. O circuito missioneiro abrangia cerca de trinta reduções distribuídas pelo atual território do Rio Grande do Sul (Brasil), Misiones (Argentina) e sul do Paraguai. As ruínas de <strong>San Ignacio Miní</strong> (Argentina) e de <strong>Trinidad</strong> (Paraguai) figuram entre as mais bem conservadas do continente, e integram o Patrimônio Mundial da UNESCO junto com São Miguel Arcanjo.</p>
+                <p>Visitar o circuito completo é uma forma de compreender a escala do projeto jesuítico: em seu apogeu (cerca de 1700–1750), as reduções abrigavam mais de 100.000 guaranis e produziam erva-mate, couro, tecidos, instrumentos musicais e obras de arte.</p>
+            </section>
+
+            <div style="text-align: center; margin-top: 36px;">
+                <a href="./linha-do-tempo-missoes.html" class="btn btn-secondary">Linha do tempo das Missões</a>
+                <a href="../historia/missoes-jesuiticas.html" class="btn btn-secondary" style="margin-left: 12px;">Artigo completo</a>
+                <a href="../../historia.html" class="btn" style="margin-left: 12px;">História do RS</a>
+            </div>
+
+            <section class="para-saber-mais">
+                <h2 class="section-title">Para Saber Mais</h2>
+                <h3>Páginas relacionadas neste site</h3>
+                <ul>
+                    <li><a href="../historia/missoes-jesuiticas.html">Missões Jesuíticas — artigo completo</a></li>
+                    <li><a href="./linha-do-tempo-missoes.html">Linha do Tempo · Missões Jesuíticas (1610–1983)</a></li>
+                    <li><a href="./linha-do-tempo-farrapos-figuras.html">Linha do Tempo · Figuras da Farroupilha</a></li>
+                </ul>
+                <h3>Sites externos confiáveis</h3>
+                <ul>
+                    <li><a href="https://whc.unesco.org/en/list/275" target="_blank" rel="noopener noreferrer">UNESCO — Jesuit Missions of the Guaranis (ficha oficial)</a></li>
+                    <li><a href="https://www.rotamissoes.com.br/" target="_blank" rel="noopener noreferrer">Rota Missões RS (turismo oficial)</a></li>
+                </ul>
+                <h3>Artigos científicos</h3>
+                <ul>
+                    <li><a href="https://scholar.google.com/scholar?q=Missões+Jesuíticas+Guarani+Rio+Grande+do+Sul" target="_blank" rel="noopener noreferrer">Busca no Google Scholar sobre Missões Jesuíticas Guarani RS</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <h2>Cultura <span>Gaúcha</span></h2>
+            <p>Um portal dedicado à preservação, pesquisa e divulgação da rica herança cultural do estado do Rio Grande do Sul.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegação Rápida</h4>
+            <ul>
+                <li><a href="../../historia.html">Nossa História</a></li>
+                <li><a href="../../mapa-do-site.html">Mapa do Site</a></li>
+                <li><a href="../patrimonio/fontes-bibliografia.html">Fontes</a></li>
+                <li><a href="../../privacidade.html">Política de Privacidade</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados.
+            Textos sob licença <a href="../../licenca.html">CC BY-SA 4.0</a>.
+            Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+    /* ── Dados — 30 reduções ──────────────────────────────────── */
+
+    var setePovos = [
+        { nome: 'São Miguel Arcanjo', lat: -28.5553, lng: -54.6714, fundacao: 1687, municipio: 'São Miguel das Missões, RS', status: 'unesco',
+          desc: 'A mais bem conservada das reduções gaúchas. A igreja de pedra (1735–1745) é o símbolo das Missões. Patrimônio Mundial da UNESCO desde 1983; espetáculo Som e Luz noturno no sítio.',
+          url: '../historia/missoes-jesuiticas.html' },
+        { nome: 'Santo Ângelo Custódio', lat: -28.2994, lng: -54.2628, fundacao: 1707, municipio: 'Santo Ângelo, RS', status: 'preservada',
+          desc: 'A última das reduções gaúchas. Deu origem à cidade de Santo Ângelo. Ruínas integradas ao tecido urbano com museu do acervo missioneiro.',
+          url: '../historia/missoes-jesuiticas.html' },
+        { nome: 'São Lourenço Mártir', lat: -28.3667, lng: -54.9833, fundacao: 1690, municipio: 'São Luiz Gonzaga, RS', status: 'preservada',
+          desc: 'Alicerces e fragmentos arquitetônicos bem documentados, próximos a São Luiz Gonzaga. Um dos sítios mais bem estudados do RS.',
+          url: '../historia/missoes-jesuiticas.html' },
+        { nome: 'São Luís Gonzaga', lat: -28.4019, lng: -55.0178, fundacao: 1687, municipio: 'São Luiz Gonzaga, RS', status: 'preservada',
+          desc: 'Deu nome à cidade. Ruínas no centro urbano atual; acervo arqueológico no museu municipal.',
+          url: '../historia/missoes-jesuiticas.html' },
+        { nome: 'São João Batista', lat: -28.2167, lng: -55.2667, fundacao: 1697, municipio: 'Entre-Ijuís, RS', status: 'preservada',
+          desc: 'Sítio arqueológico parcialmente escavado em Entre-Ijuís, com alicerces da igreja e do complexo residencial guarani.',
+          url: '../historia/missoes-jesuiticas.html' },
+        { nome: 'São Nicolau', lat: -27.9833, lng: -55.2667, fundacao: 1687, municipio: 'São Nicolau, RS', status: 'preservada',
+          desc: 'Deu origem à cidade de São Nicolau. Remanescentes preservados próximos ao centro urbano.',
+          url: '../historia/missoes-jesuiticas.html' },
+        { nome: 'São Borja (São Francisco de Borja)', lat: -28.6594, lng: -56.0028, fundacao: 1682, municipio: 'São Borja, RS', status: 'preservada',
+          desc: 'A mais antiga das reduções gaúchas. São Borja é hoje a maior cidade da região missioneira e guarda o sepulcro de Getúlio Vargas.',
+          url: '../historia/missoes-jesuiticas.html' }
+    ];
+
+    var missoesArgentina = [
+        { nome: 'San Ignacio Miní', lat: -27.2681, lng: -55.5378, fundacao: 1696, pais: 'Argentina', status: 'unesco',
+          desc: 'As ruínas mais impressionantes do circuito argentino. Fachada e paredes da igreja ainda de pé, lavradas em pedra vermelha.' },
+        { nome: 'Santa Ana', lat: -27.3703, lng: -55.5756, fundacao: 1660, pais: 'Argentina', status: 'unesco',
+          desc: 'Grande complexo de ruínas na margem do Paraná. Praça central, igreja e quadras residenciais identificáveis no terreno.' },
+        { nome: 'Nuestra Señora de Loreto', lat: -27.3303, lng: -55.4978, fundacao: 1610, pais: 'Argentina', status: 'unesco',
+          desc: 'Uma das primeiras reduções fundadas (1610). Ruínas cobertas pela floresta subtropical e integradas ao ecossistema.' },
+        { nome: 'Santa María la Mayor', lat: -27.4914, lng: -55.0378, fundacao: 1626, pais: 'Argentina', status: 'unesco',
+          desc: 'Redução no extremo sul da Argentina missioneira, próxima à fronteira gaúcha. Ruínas escavadas com museu in situ.' },
+        { nome: 'Concepción de la Sierra', lat: -27.983, lng: -55.521, fundacao: 1619, pais: 'Argentina', status: 'preservada',
+          desc: 'Redução em Misiones com alicerces parcialmente visíveis. Deu nome ao município homônimo.' },
+        { nome: 'San Javier', lat: -27.871, lng: -55.133, fundacao: 1629, pais: 'Argentina', status: 'preservada',
+          desc: 'Fundada originalmente no Paraná e transladada. Ruínas coexistem com o município de San Javier, Misiones.' },
+        { nome: 'Mártires', lat: -27.383, lng: -55.617, fundacao: 1639, pais: 'Argentina', status: 'perdida',
+          desc: 'Redução cujos vestígios estão em grande parte cobertos pela vegetação. Localização identificada por pesquisas arqueológicas recentes.' },
+        { nome: 'Apóstoles', lat: -27.904, lng: -55.751, fundacao: 1633, pais: 'Argentina', status: 'preservada',
+          desc: 'Deu nome à cidade de Apóstoles, Misiones. Restos arqueológicos incorporados ao tecido urbano.' },
+        { nome: 'Candelaria', lat: -27.455, lng: -55.741, fundacao: 1613, pais: 'Argentina', status: 'perdida',
+          desc: 'Capital histórica da Província Jesuítica do Paraguai. Poucos vestígios materiais restam; ruínas absorvidas pela cidade moderna.' },
+        { nome: 'La Cruz', lat: -29.173, lng: -56.638, fundacao: 1657, pais: 'Argentina', status: 'preservada',
+          desc: 'Redução da província de Corrientes. Ruínas parciais, com algumas pedras originais visíveis no perímetro do antigo complexo.' },
+        { nome: 'Yapeyú', lat: -29.470, lng: -56.820, fundacao: 1627, pais: 'Argentina', status: 'preservada',
+          desc: 'Cidade natal do General San Martín. Ruínas da redução preservadas em museu a céu aberto.' },
+        { nome: 'Santo Tomé', lat: -28.554, lng: -56.044, fundacao: 1632, pais: 'Argentina', status: 'perdida',
+          desc: 'Redução em frente a São Borja (BR), na margem do rio Uruguai. Poucos vestígios materiais remanescentes.' }
+    ];
+
+    var missoesParaguai = [
+        { nome: 'Trinidad', lat: -27.1383, lng: -55.6994, fundacao: 1706, pais: 'Paraguai', status: 'unesco',
+          desc: 'A mais bem conservada redução paraguaia. A cúpula da sacristia e os relevos em pedra são destaques únicos no circuito.' },
+        { nome: 'Jesús de Tavarangue', lat: -27.0094, lng: -55.7628, fundacao: 1685, pais: 'Paraguai', status: 'unesco',
+          desc: 'Redução inacabada — única no circuito. As três torres da fachada nunca foram concluídas antes da expulsão dos jesuítas.' },
+        { nome: 'San Cosme y Damián', lat: -27.283, lng: -55.432, fundacao: 1632, pais: 'Paraguai', status: 'preservada',
+          desc: 'Sítio arqueológico e museu bem organizados. Destaque para a réplica do observatório astronômico jesuítico.' },
+        { nome: 'Santa María de Fe', lat: -26.983, lng: -56.383, fundacao: 1647, pais: 'Paraguai', status: 'preservada',
+          desc: 'Museu com importante coleção de esculturas guarani-jesuíticas. Uma das mais visitadas da Rota Missioneira paraguaia.' },
+        { nome: 'Santiago', lat: -27.167, lng: -56.483, fundacao: 1651, pais: 'Paraguai', status: 'preservada',
+          desc: 'Alicerces e colunas da redução visíveis em área de parque histórico. Esculturas recolhidas ao museu regional.' },
+        { nome: 'San Juan Bautista', lat: -26.667, lng: -57.150, fundacao: 1698, pais: 'Paraguai', status: 'perdida',
+          desc: 'Sede do departamento de Misiones (PY). Os vestígios da redução original foram absorvidos pelo crescimento urbano.' },
+        { nome: 'San Ignacio Guazú', lat: -27.242, lng: -57.033, fundacao: 1610, pais: 'Paraguai', status: 'preservada',
+          desc: 'Uma das primeiras reduções do Paraguai. Museu com esculturas e documentos; alicerces parcialmente visíveis.' },
+        { nome: 'Santa Rosa de Lima', lat: -26.900, lng: -56.858, fundacao: 1698, pais: 'Paraguai', status: 'perdida',
+          desc: 'Poucos vestígios materiais restam. A cidade moderna de Santa Rosa de Misiones ocupa o sítio original.' },
+        { nome: 'San Miguel', lat: -26.900, lng: -57.217, fundacao: 1631, pais: 'Paraguai', status: 'perdida',
+          desc: 'Redução cujos vestígios arqueológicos são escassos. Localização identificada, mas sem estruturas visíveis.' },
+        { nome: 'Encarnación', lat: -27.333, lng: -55.867, fundacao: 1615, pais: 'Paraguai', status: 'perdida',
+          desc: 'Maior cidade do sul do Paraguai, fundada como redução em 1615. As obras da represa de Yacyretá (1990s) inundaram os últimos vestígios históricos.' }
+    ];
+
+    /* ── Mapa ────────────────────────────────────────────────── */
+    var mapa = L.map('mapa-missoes', { center: [-28.0, -55.2], zoom: 7 });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom: 18
+    }).addTo(mapa);
+
+    /* ── Estilo ──────────────────────────────────────────────── */
+    function estiloMarcador(pais, status) {
+        var raio = status === 'unesco' ? 12 : (status === 'perdida' ? 6 : 9);
+        var opac = status === 'perdida' ? 0.65 : 0.9;
+        if (pais === 'rs') {
+            return { radius: raio, color: '#8B4513', weight: 2.5,
+                     fillColor: status === 'unesco' ? '#c0392b' : '#DAA520', fillOpacity: opac };
+        }
+        if (pais === 'ar') {
+            return { radius: raio, color: '#1a5276', weight: 2,
+                     fillColor: status === 'unesco' ? '#2e86c1' : (status === 'perdida' ? '#aab7b8' : '#5499c7'),
+                     fillOpacity: opac };
+        }
+        return { radius: raio, color: '#1e8449', weight: 2,
+                 fillColor: status === 'unesco' ? '#27ae60' : (status === 'perdida' ? '#aab7b8' : '#58d68d'),
+                 fillOpacity: opac };
+    }
+
+    /* ── Popups ──────────────────────────────────────────────── */
+    function mkBadge(pais, status) {
+        var labelPais = pais === 'rs' ? 'Brasil (RS)' : (pais === 'ar' ? 'Argentina' : 'Paraguai');
+        var labelStatus = status === 'unesco' ? 'UNESCO' : (status === 'preservada' ? 'Ruínas preservadas' : 'Perdida');
+        var cls = status === 'unesco' ? 'badge-unesco' : (status === 'preservada' ? 'badge-ruinas' : 'badge-perdida');
+        return '<span class="badge-missao ' + cls + '">' + labelPais + ' · ' + labelStatus + '</span>';
+    }
+
+    function popupRS(m) {
+        return '<strong>' + m.nome + '</strong>' + mkBadge('rs', m.status) +
+            '<p class="popup-meta">Fundação: ' + m.fundacao + ' &bull; ' + m.municipio + '</p>' +
+            '<p>' + m.desc + '</p><a href="' + m.url + '">Saiba mais</a>';
+    }
+
+    function popupOutro(m, pais) {
+        return '<strong>' + m.nome + '</strong>' + mkBadge(pais, m.status) +
+            '<p class="popup-meta">Fundação: ' + m.fundacao + '</p>' +
+            '<p>' + m.desc + '</p>';
+    }
+
+    /* ── Camadas ─────────────────────────────────────────────── */
+    var camadaRS     = L.layerGroup();
+    var camadaArg    = L.layerGroup();
+    var camadaPry    = L.layerGroup();
+    var camadaUnesco = L.layerGroup();
+
+    function addMarcador(m, pais, camada) {
+        var mk = L.circleMarker([m.lat, m.lng], estiloMarcador(pais, m.status))
+            .bindPopup(pais === 'rs' ? popupRS(m) : popupOutro(m, pais), { maxWidth: 280 });
+        mk.addTo(camada);
+        if (m.status === 'unesco') mk.addTo(camadaUnesco);
+    }
+
+    setePovos.forEach(function(m)         { addMarcador(m, 'rs', camadaRS); });
+    missoesArgentina.forEach(function(m)  { addMarcador(m, 'ar', camadaArg); });
+    missoesParaguai.forEach(function(m)   { addMarcador(m, 'py', camadaPry); });
+
+    var rotaCoords = setePovos.slice().sort(function(a,b){ return b.lng - a.lng; }).map(function(m){ return [m.lat, m.lng]; });
+    var rotaLinha = L.polyline(rotaCoords, { color:'#8B4513', weight:2, opacity:0.5, dashArray:'6 6' });
+
+    camadaRS.addTo(mapa); camadaArg.addTo(mapa); camadaPry.addTo(mapa); rotaLinha.addTo(mapa);
+
+    /* ── Filtros ─────────────────────────────────────────────── */
+    var total = setePovos.length + missoesArgentina.length + missoesParaguai.length;
+    var totalUnesco = [setePovos, missoesArgentina, missoesParaguai].reduce(function(acc, arr) {
+        return acc + arr.filter(function(m){ return m.status === 'unesco'; }).length;
+    }, 0);
+
+    function atualizarTotal(visivel) {
+        document.getElementById('mapa-total').textContent = 'Exibindo ' + visivel + ' de ' + total + ' reduções.';
+    }
+    atualizarTotal(total);
+
+    function ativarBotao(id) {
+        ['filtro-todos','filtro-rs','filtro-arg','filtro-pry','filtro-unesco'].forEach(function(bid) {
+            var el = document.getElementById(bid);
+            if (el) el.classList.toggle('btn-secondary', bid !== id);
+        });
+    }
+
+    document.getElementById('filtro-todos').addEventListener('click', function() {
+        ativarBotao('filtro-todos');
+        camadaRS.addTo(mapa); camadaArg.addTo(mapa); camadaPry.addTo(mapa); rotaLinha.addTo(mapa);
+        mapa.removeLayer(camadaUnesco);
+        atualizarTotal(total);
+    });
+    document.getElementById('filtro-rs').addEventListener('click', function() {
+        ativarBotao('filtro-rs');
+        camadaRS.addTo(mapa); mapa.removeLayer(camadaArg); mapa.removeLayer(camadaPry);
+        mapa.removeLayer(camadaUnesco); rotaLinha.addTo(mapa);
+        mapa.fitBounds(camadaRS.getBounds().pad(0.15));
+        atualizarTotal(setePovos.length);
+    });
+    document.getElementById('filtro-arg').addEventListener('click', function() {
+        ativarBotao('filtro-arg');
+        camadaArg.addTo(mapa); mapa.removeLayer(camadaRS); mapa.removeLayer(camadaPry);
+        mapa.removeLayer(camadaUnesco); mapa.removeLayer(rotaLinha);
+        mapa.fitBounds(camadaArg.getBounds().pad(0.15));
+        atualizarTotal(missoesArgentina.length);
+    });
+    document.getElementById('filtro-pry').addEventListener('click', function() {
+        ativarBotao('filtro-pry');
+        camadaPry.addTo(mapa); mapa.removeLayer(camadaRS); mapa.removeLayer(camadaArg);
+        mapa.removeLayer(camadaUnesco); mapa.removeLayer(rotaLinha);
+        mapa.fitBounds(camadaPry.getBounds().pad(0.2));
+        atualizarTotal(missoesParaguai.length);
+    });
+    document.getElementById('filtro-unesco').addEventListener('click', function() {
+        ativarBotao('filtro-unesco');
+        camadaUnesco.addTo(mapa);
+        mapa.removeLayer(camadaRS); mapa.removeLayer(camadaArg); mapa.removeLayer(camadaPry); mapa.removeLayer(rotaLinha);
+        mapa.fitBounds(camadaUnesco.getBounds().pad(0.15));
+        atualizarTotal(totalUnesco);
+    });
+})();
+</script>
+<script src="../../assets/js/script.js" defer></script>
+</body>
+</html>

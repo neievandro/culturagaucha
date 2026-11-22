@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa da Fronteira Cultural Platina - Cultura Gaúcha</title>
+    <meta name="description" content="Mapa interativo da fronteira cultural platina: cidades gêmeas com portunhol, Tratado de Madrid (1750), Tratado de Santo Ildefonso (1777) e a Linha do Prata.">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <link rel="icon" href="../../assets/img/favicon-mate.png" type="image/png">
+    <link rel="canonical" href="https://culturagaucha.com.br/paginas/temas/mapa-fronteira-platina.html">
+    <style>
+        #mapa-fronteira { width:100%; height:580px; border-radius:8px; border:1px solid #d4c89a; margin-top:16px; }
+        @media (max-width:600px) { #mapa-fronteira { height:380px; } }
+        .mapa-controles { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+        .mapa-legenda { display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; font-size:.88rem; }
+        .legenda-item { display:flex; align-items:center; gap:7px; }
+        .legenda-circulo { width:14px; height:14px; border-radius:50%; border:2px solid rgba(0,0,0,.3); flex-shrink:0; }
+        .legenda-linha { width:28px; height:3px; flex-shrink:0; }
+        .leaflet-popup-content strong { display:block; font-size:.98rem; margin-bottom:4px; }
+        .leaflet-popup-content .badge-fp { display:inline-block; font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:10px; margin-bottom:6px; text-transform:uppercase; letter-spacing:.03em; }
+        .badge-gemea    { background:#6c3483; color:#fff; }
+        .badge-historico{ background:#922b21; color:#fff; }
+        .badge-triplo   { background:#1e8449; color:#fff; }
+        .leaflet-popup-content p { margin:5px 0; font-size:.87rem; line-height:1.4; }
+        .leaflet-popup-content a { font-size:.84rem; color:#7d6608; }
+        .mapa-total { font-size:.88rem; color:#666; margin-top:4px; }
+    </style>
+</head>
+<body>
+<header class="top-header"><div class="container"><span>A preservação da nossa história e tradição.</span><div><a href="https://www.cultura.rs.gov.br/" target="_blank" rel="noopener noreferrer">Secretaria da Cultura RS</a><a href="https://www.mtg.org.br/" target="_blank" rel="noopener noreferrer">MTG</a></div></div></header>
+<nav class="main-nav"><div class="container nav-wrapper"><a href="../../index.html" class="brand"><h1>Cultura <span>Gaúcha</span></h1></a><button class="menu-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false">Menu</button><div class="nav-links" id="site-nav"><a href="../../index.html">Início</a><a href="../../historia.html" class="active">História</a><a href="../../cultura.html">Cultura</a><a href="../../culinaria.html">Gastronomia</a><a href="../../territorio.html">Território</a><a href="../../turismo.html">Turismo</a><a href="../../busca.html">Busca</a><a href="../../sobre-o-site.html">Sobre</a></div></div></nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>Fronteira Cultural Platina</h1>
+        <p>Cidades gêmeas com portunhol, os tratados coloniais que definiram a fronteira e a Linha do Prata — o limite que separou Portugal e Espanha no sul da América.</p>
+    </div>
+</header>
+
+<main>
+<div class="container"><div class="content-wrapper">
+
+    <nav aria-label="Localização na estrutura do site" class="breadcrumb">
+        <ol><li><a href="../../index.html">Início</a></li><li><a href="../../historia.html">História</a></li><li aria-current="page">Mapa · Fronteira Platina</li></ol>
+    </nav>
+    <p class="revisao-editorial" data-revisao="1">Última revisão de conteúdo: 22/11/2026.</p>
+
+    <section>
+        <h2 class="section-title">Mapa interativo</h2>
+        <p>Clique nos marcadores para ver informações sobre cada cidade ou ponto histórico. As linhas mostram a fronteira atual (RS/Uruguai), o rio Uruguai como limite natural e os traçados aproximados dos Tratados de Madrid (1750) e Santo Ildefonso (1777).</p>
+        <div class="mapa-controles" role="group" aria-label="Filtros do mapa">
+            <button class="btn btn-small" type="button" id="fp-todos">Todos</button>
+            <button class="btn btn-small btn-secondary" type="button" id="fp-gemeas">Cidades Gêmeas</button>
+            <button class="btn btn-small btn-secondary" type="button" id="fp-historico">Pontos Históricos</button>
+        </div>
+        <div id="mapa-fronteira" role="application" aria-label="Mapa da fronteira cultural platina"></div>
+        <div class="mapa-legenda">
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#9b59b6;border-color:#6c3483;"></div><span>Cidade gêmea / portunhol</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#c0392b;border-color:#922b21;"></div><span>Ponto histórico</span></div>
+            <div class="legenda-item"><div class="legenda-circulo" style="background:#27ae60;border-color:#1e8449;"></div><span>Ponto tríplice</span></div>
+            <div class="legenda-item"><div class="legenda-linha" style="border-top:3px solid #2980b9;"></div><span>Rio Uruguai (limite natural)</span></div>
+            <div class="legenda-item"><div class="legenda-linha" style="border-top:2px dashed #784212;"></div><span>Fronteira RS/Uruguai (atual)</span></div>
+            <div class="legenda-item"><div class="legenda-linha" style="border-top:2px dashed #1e8449;"></div><span>Tratado de Madrid, 1750 (aprox.)</span></div>
+            <div class="legenda-item"><div class="legenda-linha" style="border-top:2px dashed #e67e22;"></div><span>Tratado de Santo Ildefonso, 1777 (aprox.)</span></div>
+        </div>
+        <p class="mapa-total" id="mapa-total"></p>
+    </section>
+
+    <section>
+        <h2 class="section-title">A fronteira que divide sem separar</h2>
+        <p>O RS tem a maior fronteira terrestre do Brasil. São mais de 1.000 km divididos com o Uruguai e a Argentina, com cidades gêmeas em ambos os lados. Em Santana do Livramento e Rivera, a linha de fronteira é uma rua — não há controle cotidiano de passagem. O portunhol — mistura de português e espanhol falada espontaneamente — é a língua nativa de quem nasceu e cresceu nesse espaço.</p>
+        <p>Essa fronteira foi definida ao longo de mais de três séculos de disputas entre Portugal e Espanha. O <strong>Tratado de Madrid (1750)</strong> adotou o princípio de <em>uti possidetis</em> — cada lado mantém o que já ocupa —, tendo o rio Uruguai como limite natural no oeste do RS. O <strong>Tratado de Santo Ildefonso (1777)</strong> confirmou e ajustou esses limites após a Guerra Guaranítica e as disputas em torno de Colônia do Sacramento.</p>
+    </section>
+
+    <section>
+        <h2 class="section-title">Os tratados e as linhas no mapa</h2>
+        <p>As linhas desenhadas no mapa são aproximações: os tratados coloniais descreviam fronteiras em termos de rios e cumeadas de serra, não em coordenadas exatas. O traçado do <strong>Tratado de Madrid</strong> seguia a divisória de águas da Serra Geral (separando drenagem atlântica da bacia do Prata) e depois o próprio rio Uruguai. O <strong>Tratado de Santo Ildefonso</strong> manteve o mesmo princípio mas com ajustes no extremo sul — onde Colônia do Sacramento voltou à soberania espanhola.</p>
+        <p>A fronteira definitiva entre Brasil e Uruguai só foi fixada pelo <strong>Tratado de Paz de 1851</strong>, após a independência oriental (1828) e a Guerra Grande (1839–1851).</p>
+    </section>
+
+    <div style="text-align:center;margin-top:36px;">
+        <a href="./mapa-missoes.html" class="btn btn-secondary">Mapa das Missões</a>
+        <a href="./linha-do-tempo.html" class="btn btn-secondary" style="margin-left:12px;">Linha do tempo geral</a>
+        <a href="../../historia.html" class="btn" style="margin-left:12px;">História do RS</a>
+    </div>
+
+    <section class="para-saber-mais">
+        <h2 class="section-title">Para Saber Mais</h2>
+        <h3>Páginas relacionadas neste site</h3>
+        <ul>
+            <li><a href="../historia/missoes-jesuiticas.html">Missões Jesuíticas</a></li>
+            <li><a href="./mapa-missoes.html">Mapa das Missões Jesuíticas</a></li>
+            <li><a href="./mapa-batalhas-farroupilha.html">Mapa das Batalhas Farroupilhas</a></li>
+        </ul>
+        <h3>Artigos científicos</h3>
+        <ul>
+            <li><a href="https://scholar.google.com/scholar?q=fronteira+platina+Rio+Grande+do+Sul+Tratado+Madrid+portunhol" target="_blank" rel="noopener noreferrer">Busca no Google Scholar: fronteira platina RS</a></li>
+        </ul>
+    </section>
+</div></div>
+</main>
+
+<footer><div class="container footer-content"><div class="footer-brand"><h2>Cultura <span>Gaúcha</span></h2><p>Um portal dedicado à preservação, pesquisa e divulgação da rica herança cultural do estado do Rio Grande do Sul.</p></div><div class="footer-links"><h4>Navegação Rápida</h4><ul><li><a href="../../historia.html">Nossa História</a></li><li><a href="../../mapa-do-site.html">Mapa do Site</a></li><li><a href="../patrimonio/fontes-bibliografia.html">Fontes</a></li><li><a href="../../privacidade.html">Política de Privacidade</a></li></ul></div></div><div class="footer-bottom"><div class="container"><p>&copy; 2024 <strong>Cultura Gaúcha</strong>. Todos os direitos reservados. Textos sob licença <a href="../../licenca.html">CC BY-SA 4.0</a>. Contato: <a href="mailto:admin@culturagaucha.com.br">admin@culturagaucha.com.br</a>.</p></div></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+    /* ── Cidades gêmeas ─────────────────────────────────────── */
+    var gemeas = [
+        { nome: 'Santana do Livramento / Rivera', lat: -30.89, lng: -55.51, tipo: 'gemea',
+          desc: 'A fronteira mais integrada do Brasil: um único tecido urbano dividido por uma rua. Ausência de controle cotidiano, livre circulação e portunhol intenso. Rivera (UY) é famosa pelos free shops; Santana do Livramento pela carne e pelo chimarrão.' },
+        { nome: 'Jaguarão / Rio Branco', lat: -32.56, lng: -53.38, tipo: 'gemea',
+          desc: 'Ligadas pela Ponte Internacional Mauá (1930), obra histórica sobre o rio Jaguarão. A ponte é patrimônio e símbolo da integração fronteiriça. Rio Branco (UY) é conhecida pela produção de arroz.' },
+        { nome: 'Aceguá (BR) / Aceguá (UY)', lat: -31.87, lng: -54.17, tipo: 'gemea',
+          desc: 'Único par de cidades no mundo que compartilha exatamente o mesmo topônimo de lado a lado. Os dois Aceguás coexistem em zona de livre circulação — fronteiriços cruzam sem perceber onde começa um país e termina o outro.' },
+        { nome: 'Quaraí / Artigas', lat: -30.39, lng: -56.44, tipo: 'gemea',
+          desc: 'Quaraí (RS) e Artigas (UY) compartilham o rio Quaraí como fronteira. A cidade uruguaia homenageia o caudilho José Artigas, herói da independência oriental e figura central da cultura rio-platina.' },
+        { nome: 'Uruguaiana / Paso de los Libres', lat: -29.76, lng: -57.08, tipo: 'gemea',
+          desc: 'A maior fronteira seca Brasil–Argentina, com o maior movimento de cargas do sul do Brasil. A Ponte Agustín P. Justo (1947) liga as duas cidades sobre o rio Uruguai. Ambas têm forte tradição gaúcha-charrua na cultura e na culinária.' },
+        { nome: 'São Borja / Santo Tomé', lat: -28.66, lng: -55.98, tipo: 'gemea',
+          desc: 'São Borja nasceu de uma das reduções missioneiras e é cidade de Getúlio Vargas e João Goulart. Santo Tomé (Argentina) foi também redução jesuítica. As duas cidades compartilham herança missioneira e cultura fronteiriça.' },
+        { nome: 'Itaqui / Alvear', lat: -29.13, lng: -56.56, tipo: 'gemea',
+          desc: 'Itaqui (RS) tem um dos portos fluviais mais importantes do sul do Brasil para exportação de grãos. Alvear (Argentina) é município rural de Corrientes. A integração é mais econômica do que cultural neste trecho.' },
+        { nome: 'Barra do Quaraí / Bella Unión', lat: -30.19, lng: -57.51, tipo: 'triplo',
+          desc: 'Ponto tríplice: Brasil, Uruguai e Argentina se encontram na confluência dos rios Quaraí e Uruguai. É a única tríplice fronteira do RS, onde três países e três culturas convivem a poucos metros de distância.' }
+    ];
+
+    /* ── Pontos históricos ──────────────────────────────────── */
+    var historicos = [
+        { nome: 'Colônia do Sacramento', lat: -34.47, lng: -57.84, tipo: 'historico',
+          desc: 'Fundada por Portugal em 1680, foi o maior pomo de discórdia entre Portugal e Espanha no Prata. Trocada de mãos várias vezes, seu destino foi central nos Tratados de Madrid (1750) e Santo Ildefonso (1777). A cidade colonial é Patrimônio Mundial da UNESCO (1995).' },
+        { nome: 'Montevidéu', lat: -34.90, lng: -56.19, tipo: 'historico',
+          desc: 'Fundada pela Espanha em 1724 como resposta direta à presença portuguesa em Colônia do Sacramento. Tornou-se a principal cidade da margem esquerda do Prata e capital do Uruguai independente (1830).' },
+        { nome: 'Buenos Aires', lat: -34.61, lng: -58.38, tipo: 'historico',
+          desc: 'Capital do Vice-Reinado do Prata, criado em 1776 pela Espanha para conter a expansão portuguesa no sul. Buenos Aires consolidou o controle espanhol sobre toda a região e tornou-se o polo de influência cultural platina.' },
+        { nome: 'Sete Povos das Missões', lat: -28.3, lng: -54.9, tipo: 'historico',
+          desc: 'O Tratado de Madrid (1750) cedeu o território dos Sete Povos a Portugal, obrigando a expulsão de cerca de 30.000 guaranis. A resistência — liderada por Sepé Tiaraju — culminou na Batalha de Caiboaté (1756). O episódio precipitou a expulsão dos jesuítas do Brasil (1759).' }
+    ];
+
+    /* ── Mapa ───────────────────────────────────────────────── */
+    var mapa = L.map('mapa-fronteira', { center:[-31.5, -55.0], zoom:6 });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom:18
+    }).addTo(mapa);
+
+    /* ── Linhas geográficas e de tratados (SVG via Leaflet) ─── */
+
+    /* Rio Uruguai (limite natural, azul) */
+    L.polyline([
+        [-27.5,-51.9],[-27.1,-52.6],[-27.2,-53.4],[-27.5,-54.7],
+        [-27.9,-55.3],[-28.3,-55.6],[-28.7,-55.9],[-29.1,-56.5],
+        [-29.8,-57.1],[-30.2,-57.5],[-31.4,-58.0],[-32.5,-58.1],
+        [-33.0,-58.2],[-34.0,-58.3]
+    ], { color:'#2980b9', weight:3, opacity:0.7 })
+    .bindTooltip('Rio Uruguai — limite natural', { permanent:false })
+    .addTo(mapa);
+
+    /* Fronteira RS/Uruguai atual (marrom tracejado) */
+    L.polyline([
+        [-33.74,-53.46],[-33.0,-53.5],[-32.56,-53.38],
+        [-31.87,-54.17],[-30.89,-55.51],[-30.39,-56.44],[-30.19,-57.51]
+    ], { color:'#784212', weight:2, opacity:0.8, dashArray:'7 5' })
+    .bindTooltip('Fronteira RS/Uruguai (atual)', { permanent:false })
+    .addTo(mapa);
+
+    /* Tratado de Madrid, 1750 — divisória da Serra Geral + rio Uruguai (verde tracejado) */
+    L.polyline([
+        [-27.0,-48.2],[-27.3,-50.0],[-27.6,-51.5],[-27.9,-52.5],
+        [-28.2,-53.5],[-28.5,-54.5],[-28.7,-55.9],[-29.1,-56.5],
+        [-29.8,-57.1],[-30.2,-57.5],[-31.4,-58.0],[-32.5,-58.1],[-34.0,-58.3]
+    ], { color:'#1e8449', weight:2, opacity:0.75, dashArray:'10 6' })
+    .bindTooltip('Tratado de Madrid (1750) — linha aproximada', { permanent:false })
+    .addTo(mapa);
+
+    /* Tratado de Santo Ildefonso, 1777 — ajuste ligeiro (laranja tracejado) */
+    L.polyline([
+        [-27.2,-48.5],[-27.5,-50.2],[-27.8,-51.8],[-28.1,-53.0],
+        [-28.4,-54.2],[-28.6,-55.5],[-28.7,-55.9],[-29.1,-56.5],
+        [-29.8,-57.1],[-30.2,-57.5],[-31.4,-58.0],[-32.5,-58.1],[-34.47,-57.84]
+    ], { color:'#e67e22', weight:2, opacity:0.7, dashArray:'5 7' })
+    .bindTooltip('Tratado de Santo Ildefonso (1777) — linha aproximada', { permanent:false })
+    .addTo(mapa);
+
+    /* ── Marcadores ─────────────────────────────────────────── */
+    var camadaGemeas   = L.layerGroup();
+    var camadaHistorico = L.layerGroup();
+
+    function mkEstilo(tipo) {
+        if (tipo === 'gemea')    return { radius:9,  color:'#6c3483', weight:2, fillColor:'#9b59b6', fillOpacity:0.9 };
+        if (tipo === 'triplo')   return { radius:12, color:'#1e8449', weight:2.5, fillColor:'#27ae60', fillOpacity:0.95 };
+        return                          { radius:9,  color:'#922b21', weight:2, fillColor:'#c0392b', fillOpacity:0.9 };
+    }
+    function mkBadge(tipo) {
+        if (tipo === 'gemea')    return '<span class="badge-fp badge-gemea">Cidade Gêmea</span>';
+        if (tipo === 'triplo')   return '<span class="badge-fp badge-triplo">Ponto Tríplice</span>';
+        return '<span class="badge-fp badge-historico">Ponto Histórico</span>';
+    }
+
+    gemeas.forEach(function(p) {
+        L.circleMarker([p.lat, p.lng], mkEstilo(p.tipo))
+            .bindPopup('<strong>' + p.nome + '</strong>' + mkBadge(p.tipo) + '<p>' + p.desc + '</p>', { maxWidth:290 })
+            .addTo(camadaGemeas);
+    });
+    historicos.forEach(function(p) {
+        L.circleMarker([p.lat, p.lng], mkEstilo(p.tipo))
+            .bindPopup('<strong>' + p.nome + '</strong>' + mkBadge(p.tipo) + '<p>' + p.desc + '</p>', { maxWidth:290 })
+            .addTo(camadaHistorico);
+    });
+
+    camadaGemeas.addTo(mapa);
+    camadaHistorico.addTo(mapa);
+
+    var total = gemeas.length + historicos.length;
+    document.getElementById('mapa-total').textContent = 'Exibindo ' + total + ' marcadores + linhas de fronteira.';
+
+    function ativar(id) {
+        ['fp-todos','fp-gemeas','fp-historico'].forEach(function(bid){
+            var el = document.getElementById(bid);
+            if (el) el.classList.toggle('btn-secondary', bid !== id);
+        });
+    }
+
+    document.getElementById('fp-todos').addEventListener('click', function(){
+        ativar('fp-todos');
+        camadaGemeas.addTo(mapa); camadaHistorico.addTo(mapa);
+        mapa.setView([-31.5,-55.0],6);
+        document.getElementById('mapa-total').textContent = 'Exibindo ' + total + ' marcadores + linhas de fronteira.';
+    });
+    document.getElementById('fp-gemeas').addEventListener('click', function(){
+        ativar('fp-gemeas');
+        camadaGemeas.addTo(mapa); mapa.removeLayer(camadaHistorico);
+        mapa.fitBounds(camadaGemeas.getBounds().pad(0.1));
+        document.getElementById('mapa-total').textContent = 'Exibindo ' + gemeas.length + ' cidades gêmeas.';
+    });
+    document.getElementById('fp-historico').addEventListener('click', function(){
+        ativar('fp-historico');
+        camadaHistorico.addTo(mapa); mapa.removeLayer(camadaGemeas);
+        mapa.fitBounds(camadaHistorico.getBounds().pad(0.15));
+        document.getElementById('mapa-total').textContent = 'Exibindo ' + historicos.length + ' pontos históricos.';
+    });
+})();
+</script>
+<script src="../../assets/js/script.js" defer></script>
+</body>
+</html>
